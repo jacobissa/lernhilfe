@@ -1,0 +1,38 @@
+.grcms02-block-flashcard-edit-container {
+    background-color: #0087be;
+    padding: 15px;
+}
+
+.grcms02-block-flashcard-edit-question-title,
+.grcms02-block-flashcard-edit-answer-title {
+    color: #ffffff;
+    text-align: center;
+    margin: 1em;
+}
+
+.grcms02-block-flashcard-edit-question-input,
+.grcms02-block-flashcard-edit-answer-input {
+    width: 100%;
+}
+
+.grcms02-block-flashcard-save-container {
+    background-color: #0087be;
+}
+
+.grcms02-block-flashcard-save-question {
+    display: block;
+    text-align: center;
+}
+
+.grcms02-block-flashcard-save-question:active+.grcms02-block-flashcard-save-answer,
+.grcms02-block-flashcard-save-answer:active {
+    background-color: yellow;
+    color: black;
+}
+
+.grcms02-block-flashcard-save-answer {
+    display: block;
+    text-align: center;
+    background-color: #0087be;
+    color: #0087be;
+}
