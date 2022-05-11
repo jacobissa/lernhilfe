@@ -17,6 +17,7 @@ if (!defined('WPINC')) {
  * constants
  */
 const DOMAIN = 'learning_aid';
+const META_FLASHCARD_COURSE = 'flashcard_course';
 define('PLUGIN_LOCATION', dirname(__FILE__));
 define('PLUGIN_LOCATION_URL', plugins_url('', __FILE__));
 define('PLUGIN_BASE_NAME', dirname(plugin_basename(__FILE__)));
@@ -31,11 +32,11 @@ function grcms02_plugins_loaded_languages()
 }
 
 /**
- * Custom template for cpt 'course'
+ * Custom templates for custom post types
  */
-add_filter('single_template', 'grcms02_template_course');
-add_filter('taxonomy_template', 'grcms02_template_course');
-function grcms02_template_course($template)
+add_filter('single_template', 'grcms02_custom_template_posts');
+add_filter('taxonomy_template', 'grcms02_custom_template_posts');
+function grcms02_custom_template_posts($template)
 {
     global $post;
     if ($post->post_type == 'course') {
@@ -43,8 +44,14 @@ function grcms02_template_course($template)
             return PLUGIN_LOCATION . '/php/template-course.php';
         }
     }
+    elseif ($post->post_type == 'flashcard') {
+        if (file_exists(PLUGIN_LOCATION . '/php/template-flashcard.php')) {
+            return PLUGIN_LOCATION . '/php/template-flashcard.php';
+        }
+    }
     return $template;
 }
 
 require_once 'php/grcms02_cpt_course.php';
+require_once 'php/grcms02_cpt_flashcard.php';
 require_once 'php/grcms02_gutenberg_blocks.php';

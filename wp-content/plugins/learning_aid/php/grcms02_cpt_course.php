@@ -7,7 +7,7 @@
 add_action('init', 'grcms02_register_post_type_course');
 function grcms02_register_post_type_course()
 {
-  $icon = file_get_contents(PLUGIN_LOCATION . '/assets/icon_book.svg');
+  $icon = file_get_contents(PLUGIN_LOCATION . '/assets/icon_course.svg');
   $labels = array(
     'name' => __('Courses', DOMAIN),
     'singular_name' => __('Course', DOMAIN),
@@ -102,16 +102,16 @@ function grcms02_remove_unwanted_elements()
 {
   $screen = get_current_screen();
 
-  if ('teacher' == $screen->taxonomy) {
+  if ('teacher' == $screen->taxonomy):
     $css = ".term-parent-wrap
   			{display:none;}";
-  } elseif ('course' == $screen->post_type) {
+  elseif ('course' == $screen->post_type || 'flashcard' == $screen->post_type):
     $css = ".editor-post-taxonomies__hierarchical-terms-input+.components-base-control,
   			.block-editor-block-inspector__advanced
   			{display:none;}";
-  } else {
+  else:
     return;
-  }
+  endif;
 
   if (!empty($css)) {
     echo '<style type="text/css">';
