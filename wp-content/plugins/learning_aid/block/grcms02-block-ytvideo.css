@@ -13,12 +13,7 @@
     width: 100%;
 }
 
-.grcms02-block-ytvideo-save-iframe {
+.grcms02-block-ytvideo-save-div {
     width: 560px;
     height: 315px;
-}
-
-.grcms02-block-ytvideo-save-error {
-    display: block;
-    text-align: center;
 }

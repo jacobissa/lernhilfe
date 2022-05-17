@@ -5,24 +5,24 @@ wp.blocks.registerBlockType('learning-aid/grcms02-block-flashcard', {
     category: 'widgets',
     icon: 'index-card',
     attributes: {
-        question: {
+        front: {
             type: 'string'
         },
-        answer: {
+        back: {
             type: 'string'
         },
     },
 
     edit: function(props) {
-        function updateQuestion(event) {
+        function updateFront(event) {
             props.setAttributes({
-                question: event.target.value
+                front: event.target.value
             })
         }
 
-        function updateAnswer(event) {
+        function updateBack(event) {
             props.setAttributes({
-                answer: event.target.value
+                back: event.target.value
             })
         }
 
@@ -32,30 +32,30 @@ wp.blocks.registerBlockType('learning-aid/grcms02-block-flashcard', {
             },
             wp.element.createElement(
                 "div", {
-                    className: 'grcms02-block-flashcard-edit-question-title',
+                    className: 'grcms02-block-flashcard-edit-front-title',
                 },
-                "Write the question:"
+                "Write the Front:"
             ),
             wp.element.createElement(
                 "input", {
-                    className: 'grcms02-block-flashcard-edit-question-input',
+                    className: 'grcms02-block-flashcard-edit-front-input',
                     type: "text",
-                    value: props.attributes.question,
-                    onChange: updateQuestion,
+                    value: props.attributes.front,
+                    onChange: updateFront,
                 }
             ),
             wp.element.createElement(
                 "div", {
-                    className: 'grcms02-block-flashcard-edit-answer-title',
+                    className: 'grcms02-block-flashcard-edit-back-title',
                 },
-                "Write the answer:"
+                "Write the Back:"
             ),
             wp.element.createElement(
                 "input", {
-                    className: 'grcms02-block-flashcard-edit-answer-input',
+                    className: 'grcms02-block-flashcard-edit-back-input',
                     type: "text",
-                    value: props.attributes.answer,
-                    onChange: updateAnswer,
+                    value: props.attributes.back,
+                    onChange: updateBack,
                 }
             ),
         );
@@ -68,15 +68,15 @@ wp.blocks.registerBlockType('learning-aid/grcms02-block-flashcard', {
             },
             wp.element.createElement(
                 "div", {
-                    className: "grcms02-block-flashcard-save-question",
+                    className: "grcms02-block-flashcard-save-front",
                 },
-                props.attributes.question,
+                props.attributes.front,
             ),
             wp.element.createElement(
                 "div", {
-                    className: "grcms02-block-flashcard-save-answer",
+                    className: "grcms02-block-flashcard-save-back",
                 },
-                props.attributes.answer,
+                props.attributes.back,
             ),
         );
 

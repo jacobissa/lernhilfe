@@ -19,11 +19,10 @@
 												endif; ?>
 					</h2>
 					<div class="entry-categories"> <?php
-													$teacher_list = wp_get_post_terms($post->ID, 'teacher');
-													foreach ($teacher_list as $teacher) :
-														$teacher_link = get_term_link($teacher);
-														echo '<a href="' . $teacher_link . '">' . $teacher->name . ' ' . '</a>';
-													endforeach; ?>
+													$course_slug = esc_html(get_post_meta(get_the_ID(), META_EXERCISE_COURSE, true));
+													if (get_course_data_by_slug($course_slug, $course_title, $course_url, $course_id)) :
+														echo '<a href="' . $course_url . '">' . $course_title . ' ' . '</a>';
+													endif; ?>
 					</div>
 				</header>
 				<div class="entry-content"><?php the_content(); ?></div>

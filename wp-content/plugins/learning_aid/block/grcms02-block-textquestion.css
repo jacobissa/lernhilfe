@@ -1,0 +1,30 @@
+.grcms02-block-textquestion-edit-container {
+    background-color: #0087be;
+    padding: 15px;
+}
+
+.grcms02-block-textquestion-edit-question-title {
+    color: #ffffff;
+    text-align: center;
+    margin: 1em;
+}
+
+.grcms02-block-textquestion-edit-question-input {
+    width: 100%;
+}
+
+.grcms02-block-textquestion-save-container {
+    background-color: #0087be;
+    padding: 1em;
+}
+
+.grcms02-block-textquestion-save-question {
+    display: block;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+.grcms02-block-textquestion-save-answer {
+    background-color: yellow;
+    color: black;
+}

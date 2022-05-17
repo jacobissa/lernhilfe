@@ -1,0 +1,22 @@
+<svg id="svg_invalid_ytvideo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 560 315">
+    <title>Invalid YT Video</title>
+    <desc>SVG Icon designed by GrCMS02</desc>
+    <g stroke="black" fill="#ff7979">
+        <rect x="0" y="0" width="560" height="315" stroke-width="25" />
+        <circle cx="280" cy="100" r="60" stroke-width="10" />
+    </g>
+    <g stroke-width="10" stroke="black" transform="translate(-20,-20)">
+        <line x1="270" x2="290" y1="90" y2="110" />
+        <line x1="290" x2="270" y1="90" y2="110" />
+    </g>
+    <g stroke-width="10" stroke="black" transform="translate(20,-20)">
+        <line x1="270" x2="290" y1="90" y2="110" />
+        <line x1="290" x2="270" y1="90" y2="110" />
+    </g>
+    <g stroke-width="10" stroke="black" fill-opacity="0" transform="translate(250,120)" stroke-linecap="round">
+        <path d="M 0,15 A 30 20 0 0 1 30,0 A 30 20 0 0 1 60,15" />
+    </g>
+    <text x="280" y="250" font-family="sans-serif" font-size="30px" text-anchor="middle" font-weight="bold"> Invalid
+        Youtube Link</text>
+</svg>
