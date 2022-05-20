@@ -3,24 +3,27 @@
 /**
 Plugin Name:  Multiple Choice Questions
 Version: 1.0
-Description: Adds Shortcodes for Multiple Choice Questions
+Description: Adds Shortcodes for Multiple Choice Questions. Usage: [multiple_choice_question title="" answers=";" correct="" (optional)hint=""]
 Author: Louis Meglitsch
 */
 
+/** Prevent direct access to the file */
+if ( !defined('WPINC') ) {
+    die;
+}
+
 /** Register the shortcodes after WordPress has finished loading */
-function multiple_choice_init(){
+function multiple_choice_init() {
     add_shortcode( 'multiple_choice_question', 'mc_question' );
 }
 
 add_action('init', 'multiple_choice_init');
 
-
 /**
  * [mc_question] Returns HTML code for a multiple choice questions and it's answer
  * @return string The HTML Code
  */
-function mc_question( $atts ): string
-{
+function mc_question( $atts ): string {
     $a = shortcode_atts( array(
         'title' 	=> 'Title',
         'answers' 	=> 'A;B;C;D',
