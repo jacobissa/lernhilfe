@@ -1,0 +1,49 @@
+.mc_container {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.mc_label {
+    display: inline-block;
+    background: #2c3338;
+    color: #e5e5e5;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    margin: 0 5px 0 0;
+}
+
+.reveal_answer  {
+    padding: 10px;
+    background: #07526c;
+    color: #e5e5e5;
+}
+
+.answer_content {
+    display: none;
+    border: 1px solid black;
+    background: #116644;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.correct_answer {
+    color: #e5e5e5;
+}
+
+.correct_checkmark:before {
+    display: inline-block;
+    content: '\2714';
+    background: #e5e5e5;
+    color: black;
+    margin: 0 5px 0 0;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+}
+
+.answer_hint {
+    color: #e5e5e5;
+    margin: 5px 0 0 0;
+}
