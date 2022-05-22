@@ -1,0 +1,153 @@
+/*
+Theme Name: Lernhilfe
+Theme URI: http://www.example.com
+Description: Template für Lernhilfe
+Author: GrCMS Team 2
+Author URI: http://www.example.com
+*/
+
+:root {
+    --text-shadow: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    margin: 0 !important;
+}
+
+header {
+    z-index: 200;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #0d66c2;
+    padding: 1rem;
+    left: 0;
+    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
+    display: flex;
+    gap: 2rem;
+}
+
+header > #header_text {
+    margin: 0;
+    color: white;
+    line-height: 2rem;
+    font-weight: normal;
+}
+
+body {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#content_container {
+    padding: 2rem 3rem;
+}
+
+.striped_list {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid grey;
+    /*filter: drop-shadow(3px 3px 7px rgba(0, 0, 0, 0.2));*/
+}
+
+.striped_list_item:not(.striped_list_item:nth-child(1)) {
+    border-top: 1px solid dimgrey;
+}
+
+.striped_list_item:nth-child(odd) {
+    background: white;
+}
+
+.striped_list_item:nth-child(even) {
+    background: #e8e8e8;
+}
+
+.striped_list_anchor {
+    padding: 1rem;
+    color: black;
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.striped_list_anchor:hover {
+    filter: var(--text-shadow);
+}
+
+.list_prof_name {
+    font-weight: bold;
+}
+
+#navbar {
+    z-index: 100;
+    position: absolute;
+    width: 200px;
+    left: -210px;
+    top: 4rem;
+    bottom: 0;
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.3));
+    background: white;
+    border: 1px solid lightgrey;
+    transition: left 0.2s ease-in-out;
+}
+
+#navbar.open {
+    left: 0;
+}
+
+#navbar.closed {
+    left: -210px;
+}
+
+.navbar_list_item {
+    border-bottom: 1px solid lightgrey;
+}
+
+.navbar_list_anchor {
+    display: grid;
+    padding: 1rem;
+    color: black;
+    text-decoration: none;
+}
+
+.navbar_list_anchor:hover {
+    filter: var(--text-shadow);
+}
+
+.icon_button {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon_button > svg {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+#course_list_header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: calc(1rem + 1px);
+    color: dimgrey;
+}
