@@ -40,6 +40,7 @@ wp-content/plugins/*
 # !wp-content/plugins/my-directory-plugin/
 !wp-content/plugins/learning_aid
 !wp-content/plugins/multiple-choice
+!wp-content/plugins/grcms02*
 
 # Ignore everything in the "themes" directory, except the themes you
 # specify (see the commented-out example for a hint on how to do this.)
