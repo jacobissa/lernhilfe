@@ -29,4 +29,4 @@ foreach ($post_query as $post)
 }
 
 // Just for debugging, stop before deleting files
-wp_die(__('Uninstall stopped for debugging purposes.'));
+wp_die(__('Uninstall stopped for debugging purposes.', LEARNINGAID_DOMAIN));

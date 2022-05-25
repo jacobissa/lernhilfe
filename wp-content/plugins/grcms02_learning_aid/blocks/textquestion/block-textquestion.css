@@ -1,0 +1,72 @@
+.block-textquestion-edit-container {
+    width: 100%;
+    background-color: rgb(80, 180, 80);
+    padding: 1rem;
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
+    display: block;
+}
+
+.block-textquestion-edit-container:focus-within {
+    background-color: rgb(0, 225, 0);
+}
+
+.block-textquestion-edit-container:focus-within .block-textquestion-edit-label {
+    font-weight: bold;
+}
+
+.block-textquestion-edit-label {
+    display: block;
+    color: #000000;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.block-textquestion-edit-input {
+    width: 100%;
+}
+
+.block-textquestion-edit-input:focus {
+    background-color: rgb(255, 255, 200);
+    border-style: none;
+}
+
+.block-textquestion-save-container {
+    width: 30%;
+    margin: 2rem 1.5%;
+    background-color: rgb(100, 175, 255);
+    padding: 1rem 0;
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
+    gap: 2rem;
+}
+
+.block-textquestion-save-container:hover {
+    background-color: rgb(50, 125, 255);
+}
+
+.block-textquestion-save-container:hover>.block-textquestion-save-label {
+    color: white;
+    font-weight: bolder;
+}
+
+.block-textquestion-save-label {
+    display: block;
+    color: black;
+    font-weight: normal;
+    font-size: larger;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.block-textquestion-save-input {
+    display: block;
+    margin: 0 5%;
+    min-width: 90%;
+    max-width: 90%;
+    height: 10rem;
+    border-style: none;
+}
+
+.block-textquestion-save-input:focus {
+    background-color: rgb(255, 255, 200);
+    border-style: none;
+}

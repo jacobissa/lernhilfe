@@ -1,0 +1,329 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: grcms02_learning_aid\n"
+"POT-Creation-Date: 2022-05-25 15:22+0200\n"
+"PO-Revision-Date: 2022-05-25 15:22+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/course_post_type.php:12
+msgid "Courses"
+msgstr "Kurse"
+
+#: includes/course_post_type.php:13 includes/exercise_post_type.php:127
+#: includes/exercise_post_type.php:179
+msgid "Course"
+msgstr "Kurs"
+
+#: includes/course_post_type.php:14 includes/course_post_type.php:15
+msgid "Add New Course"
+msgstr "Neuen Kurs hinzufügen"
+
+#: includes/course_post_type.php:16
+msgid "Edit Course"
+msgstr "Kurs bearbeiten"
+
+#: includes/course_post_type.php:17
+msgid "New Course"
+msgstr "Neuer Kurs"
+
+#: includes/course_post_type.php:18
+msgid "View Course"
+msgstr "Kurs anzeigen"
+
+#: includes/course_post_type.php:19
+msgid "View Courses"
+msgstr "Kurse anzeigen"
+
+#: includes/course_post_type.php:20
+msgid "Search Courses"
+msgstr "Kurse suchen"
+
+#: includes/course_post_type.php:21
+msgid "No Courses found."
+msgstr "Keine Kurse gefunden."
+
+#: includes/course_post_type.php:22
+msgid "No Courses found in Trash."
+msgstr "Keine Kurse im Papierkorb gefunden."
+
+#: includes/course_post_type.php:23
+msgid "All Courses"
+msgstr "Alle Kurse"
+
+#: includes/course_post_type.php:24
+msgid "Course Archives"
+msgstr "Kurs-Archiv"
+
+#: includes/course_post_type.php:25
+msgid "Course Attributes"
+msgstr "Kurs-Attribute"
+
+#: includes/course_post_type.php:26
+msgid "Insert into Course"
+msgstr "In Kurs einfügen"
+
+#: includes/course_post_type.php:27
+msgid "Uploaded to this Course"
+msgstr "In diesen Kurs hochgeladen"
+
+#: includes/course_post_type.php:28
+msgid "Filter Courses list"
+msgstr "Kurs-Liste filtern"
+
+#: includes/course_post_type.php:29
+msgid "Courses list navigation"
+msgstr "Kurs-Liste Navigation"
+
+#: includes/course_post_type.php:30
+msgid "Courses list"
+msgstr "Kurs-Liste"
+
+#: includes/course_post_type.php:31
+msgid "Course published."
+msgstr "Kurs veröffentlicht."
+
+#: includes/course_post_type.php:32
+msgid "Course published privately."
+msgstr "Kurs privat veröffentlicht."
+
+#: includes/course_post_type.php:33
+msgid "Course reverted to draft"
+msgstr "Kurs auf Entwurf zurückgesetzt"
+
+#: includes/course_post_type.php:34
+msgid "Course scheduled."
+msgstr "Kurs geplant."
+
+#: includes/course_post_type.php:35
+msgid "Course updated."
+msgstr "Kurs aktualisiert."
+
+#: includes/course_post_type.php:57
+msgid "Teachers"
+msgstr "Lehrer"
+
+#: includes/course_post_type.php:58
+msgid "Teacher"
+msgstr "Lehrer"
+
+#: includes/course_post_type.php:59
+msgid "Search Teachers"
+msgstr "Lehrer suchen"
+
+#: includes/course_post_type.php:60
+msgid "Popular Teachers"
+msgstr "Beliebte Lehrer"
+
+#: includes/course_post_type.php:61 includes/course_post_type.php:158
+msgid "All Teachers"
+msgstr "Alle Lehrer"
+
+#: includes/course_post_type.php:62
+msgid "Type the name of the Teacher"
+msgstr "Geben Sie den Namen des Lehrers ein"
+
+#: includes/course_post_type.php:63
+msgid "Type the slug of the Teacher (optional)"
+msgstr "Geben Sie den Slug des Lehrers ein (optional)"
+
+#: includes/course_post_type.php:64
+msgid "Type description about the Teacher (optional)"
+msgstr "Geben Sie eine Beschreibung über den Lehrer ein (optional)"
+
+#: includes/course_post_type.php:65
+msgid "Edit Teacher"
+msgstr "Lehrer bearbeiten"
+
+#: includes/course_post_type.php:66
+msgid "View Teacher"
+msgstr "Lehrer anzeigen"
+
+#: includes/course_post_type.php:67
+msgid "Update Teacher"
+msgstr "Lehrer aktualisieren"
+
+#: includes/course_post_type.php:68
+msgid "Add New Teacher"
+msgstr "Neuen Lehrer hinzufügen"
+
+#: includes/course_post_type.php:69
+msgid "New Teacher Name"
+msgstr "Neuer Lehrername"
+
+#: includes/course_post_type.php:70
+msgid "Separate Teachers with commas"
+msgstr "Trennen Sie Lehrer mit Kommas"
+
+#: includes/course_post_type.php:71
+msgid "Add or remove Teachers"
+msgstr "Hinzufügen oder Entfernen von Lehrern"
+
+#: includes/course_post_type.php:72
+msgid "Choose from the most used Teachers"
+msgstr "Wählen Sie aus den am häufigsten verwendeten Lehrern"
+
+#: includes/course_post_type.php:73
+msgid "No Teachers found."
+msgstr "Keine Lehrer gefunden."
+
+#: includes/course_post_type.php:74
+msgid "No Teachers"
+msgstr "Keine Lehrer"
+
+#: includes/course_post_type.php:75
+msgid "Filter by Teacher"
+msgstr "Filtern nach Lehrer"
+
+#: includes/course_post_type.php:76
+msgid "Teacher Link"
+msgstr "Lehrer-Link"
+
+#: includes/course_post_type.php:77
+msgid "A link to a Teacher"
+msgstr "Ein Link zu einem Lehrer"
+
+#: includes/course_post_type.php:134 includes/exercise_post_type.php:180
+msgid "Author"
+msgstr "Autor"
+
+#: includes/course_post_type.php:135 includes/exercise_post_type.php:181
+msgid "Date"
+msgstr "Datum"
+
+#: includes/exercise_post_type.php:12
+msgid "Exercises"
+msgstr "Übungen"
+
+#: includes/exercise_post_type.php:13
+msgid "Exercise"
+msgstr "Übung"
+
+#: includes/exercise_post_type.php:14 includes/exercise_post_type.php:15
+msgid "Add New Exercise"
+msgstr "Neue Übung hinzufügen"
+
+#: includes/exercise_post_type.php:16
+msgid "Edit Exercise"
+msgstr "Übung bearbeiten"
+
+#: includes/exercise_post_type.php:17
+msgid "New Exercise"
+msgstr "Neue Übung"
+
+#: includes/exercise_post_type.php:18
+msgid "View Exercise"
+msgstr "Übung anzeigen"
+
+#: includes/exercise_post_type.php:19
+msgid "View Exercises"
+msgstr "Übungen anzeigen"
+
+#: includes/exercise_post_type.php:20
+msgid "Search Exercises"
+msgstr "Übungen suchen"
+
+#: includes/exercise_post_type.php:21
+msgid "No Exercises found."
+msgstr "Keine Übungen gefunden."
+
+#: includes/exercise_post_type.php:22
+msgid "No Exercises found in Trash."
+msgstr "Keine Übungen im Papierkorb gefunden."
+
+#: includes/exercise_post_type.php:23
+msgid "All Exercises"
+msgstr "Alle Übungen"
+
+#: includes/exercise_post_type.php:24
+msgid "Exercise Archives"
+msgstr "Übungs-Archiv"
+
+#: includes/exercise_post_type.php:25
+msgid "Exercise Attributes"
+msgstr "Übungs-Attribute"
+
+#: includes/exercise_post_type.php:26
+msgid "Insert into Exercise"
+msgstr "In Übung einfügen"
+
+#: includes/exercise_post_type.php:27
+msgid "Uploaded to this Exercise"
+msgstr "Zu dieser Übung hochgeladen"
+
+#: includes/exercise_post_type.php:28
+msgid "Filter Exercises list"
+msgstr "Liste der Übungen filtern"
+
+#: includes/exercise_post_type.php:29
+msgid "Exercises list navigation"
+msgstr "Übungs-Liste Navigation"
+
+#: includes/exercise_post_type.php:30
+msgid "Exercises list"
+msgstr "Übungs-Liste"
+
+#: includes/exercise_post_type.php:31
+msgid "Exercise published."
+msgstr "Übung veröffentlicht."
+
+#: includes/exercise_post_type.php:32
+msgid "Exercise published privately."
+msgstr "Übung privat veröffentlicht."
+
+#: includes/exercise_post_type.php:33
+msgid "Exercise reverted to draft"
+msgstr "Übung als Entwurf zurückgegeben"
+
+#: includes/exercise_post_type.php:34
+msgid "Exercise scheduled."
+msgstr "Übung geplant."
+
+#: includes/exercise_post_type.php:35
+msgid "Exercise updated."
+msgstr "Übung aktualisiert."
+
+#: includes/exercise_post_type.php:92
+msgid "Exercise details"
+msgstr "Details zur Übung"
+
+#: templates/exercise-correction.php:28
+msgid "Thank you for answers! Here is the correction"
+msgstr "Vielen Dank für die Antworten! Hier ist die Korrektur"
+
+#: templates/exercise-correction.php:49
+msgid "Question:"
+msgstr "Frage:"
+
+#: templates/exercise-correction.php:53
+msgid "Your Answer:"
+msgstr "Ihre Antwort:"
+
+#: templates/exercise-correction.php:57
+msgid "Correct Words:"
+msgstr "Korrekte Worte:"
+
+#: templates/exercise-correction.php:61
+msgid "Missed Words:"
+msgstr "Verpasste Wörter:"
+
+#: templates/exercise-correction.php:65
+msgid "Mark:"
+msgstr "Bewertung:"
+
+#: templates/template-exercise.php:31
+msgid "Submit Answers"
+msgstr "Antworten abschicken"
+
+#: uninstall.php:32
+msgid "Uninstall stopped for debugging purposes."
+msgstr "Deinstallation zu Debugging-Zwecken gestoppt."

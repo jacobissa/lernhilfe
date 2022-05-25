@@ -7,32 +7,32 @@
 add_action('init', 'grcms02_register_post_type_exercise');
 function grcms02_register_post_type_exercise()
 {
-  $icon = file_get_contents(COURSE_PLUGIN_LOCATION . '/assets/icon_exercise.svg');
+  $icon = file_get_contents(LEARNINGAID_PLUGIN_LOCATION . '/images/icon_exercise.svg');
   $labels = array(
-    'name' => __('Exercises', COURSE_DOMAIN),
-    'singular_name' => __('Exercise', COURSE_DOMAIN),
-    'add_new' => __('Add New Exercise', COURSE_DOMAIN),
-    'add_new_item' => __('Add New Exercise', COURSE_DOMAIN),
-    'edit_item' => __('Edit Exercise', COURSE_DOMAIN),
-    'new_item' => __('New Exercise', COURSE_DOMAIN),
-    'view_item' => __('View Exercise', COURSE_DOMAIN),
-    'view_items' => __('View Exercises', COURSE_DOMAIN),
-    'search_items' => __('Search Exercises', COURSE_DOMAIN),
-    'not_found' => __('No Exercises found.', COURSE_DOMAIN),
-    'not_found_in_trash' => __('No Exercises found in Trash.', COURSE_DOMAIN),
-    'all_items' => __('All Exercises', COURSE_DOMAIN),
-    'archives' => __('Exercise Archives', COURSE_DOMAIN),
-    'attributes' => __('Exercise Attributes', COURSE_DOMAIN),
-    'insert_into_item' => __('Insert into Exercise', COURSE_DOMAIN),
-    'uploaded_to_this_item' => __('Uploaded to this Exercise', COURSE_DOMAIN),
-    'filter_items_list' => __('Filter Exercises list', COURSE_DOMAIN),
-    'items_list_navigation' => __('Exercises list navigation', COURSE_DOMAIN),
-    'items_list' => __('Exercises list', COURSE_DOMAIN),
-    'item_published' => __('Exercise published.', COURSE_DOMAIN),
-    'item_published_privately' => __('Exercise published privately.', COURSE_DOMAIN),
-    'item_reverted_to_draft' => __('Exercise reverted to draft', COURSE_DOMAIN),
-    'item_scheduled' => __('Exercise scheduled.', COURSE_DOMAIN),
-    'item_updated' => __('Exercise updated.', COURSE_DOMAIN),
+    'name' => __('Exercises', LEARNINGAID_DOMAIN),
+    'singular_name' => __('Exercise', LEARNINGAID_DOMAIN),
+    'add_new' => __('Add New Exercise', LEARNINGAID_DOMAIN),
+    'add_new_item' => __('Add New Exercise', LEARNINGAID_DOMAIN),
+    'edit_item' => __('Edit Exercise', LEARNINGAID_DOMAIN),
+    'new_item' => __('New Exercise', LEARNINGAID_DOMAIN),
+    'view_item' => __('View Exercise', LEARNINGAID_DOMAIN),
+    'view_items' => __('View Exercises', LEARNINGAID_DOMAIN),
+    'search_items' => __('Search Exercises', LEARNINGAID_DOMAIN),
+    'not_found' => __('No Exercises found.', LEARNINGAID_DOMAIN),
+    'not_found_in_trash' => __('No Exercises found in Trash.', LEARNINGAID_DOMAIN),
+    'all_items' => __('All Exercises', LEARNINGAID_DOMAIN),
+    'archives' => __('Exercise Archives', LEARNINGAID_DOMAIN),
+    'attributes' => __('Exercise Attributes', LEARNINGAID_DOMAIN),
+    'insert_into_item' => __('Insert into Exercise', LEARNINGAID_DOMAIN),
+    'uploaded_to_this_item' => __('Uploaded to this Exercise', LEARNINGAID_DOMAIN),
+    'filter_items_list' => __('Filter Exercises list', LEARNINGAID_DOMAIN),
+    'items_list_navigation' => __('Exercises list navigation', LEARNINGAID_DOMAIN),
+    'items_list' => __('Exercises list', LEARNINGAID_DOMAIN),
+    'item_published' => __('Exercise published.', LEARNINGAID_DOMAIN),
+    'item_published_privately' => __('Exercise published privately.', LEARNINGAID_DOMAIN),
+    'item_reverted_to_draft' => __('Exercise reverted to draft', LEARNINGAID_DOMAIN),
+    'item_scheduled' => __('Exercise scheduled.', LEARNINGAID_DOMAIN),
+    'item_updated' => __('Exercise updated.', LEARNINGAID_DOMAIN),
   );
   $args = array(
     'labels' => $labels,
@@ -89,7 +89,7 @@ add_action('admin_init', function ()
 {
   add_meta_box(
     'exercise_meta_box',
-    __('Exercise details', COURSE_DOMAIN),
+    __('Exercise details', LEARNINGAID_DOMAIN),
     'print_exercise_meta_box',
     'exercise'
   );
@@ -124,7 +124,7 @@ function print_exercise_meta_box($post)
 ?>
   <table>
     <tr>
-      <td style="width: 100%"><?php _e('Course', COURSE_DOMAIN); ?></td>
+      <td style="width: 100%"><?php _e('Course', LEARNINGAID_DOMAIN); ?></td>
       <td>
         <select name="<?php echo META_EXERCISE_COURSE; ?>" id="<?php echo META_EXERCISE_COURSE; ?>">
           <option value=""></option>
@@ -176,9 +176,9 @@ function grcms02_save_post_exercise($post_id, $post, $update)
 add_filter('manage_exercise_posts_columns', function ($columns)
 {
   unset($columns['date']);
-  $columns[META_EXERCISE_COURSE] = __('Course', COURSE_DOMAIN);
-  $columns['author'] = __('Author', COURSE_DOMAIN);
-  $columns['date'] = __('Date', COURSE_DOMAIN);
+  $columns[META_EXERCISE_COURSE] = __('Course', LEARNINGAID_DOMAIN);
+  $columns['author'] = __('Author', LEARNINGAID_DOMAIN);
+  $columns['date'] = __('Date', LEARNINGAID_DOMAIN);
   return $columns;
 });
 
