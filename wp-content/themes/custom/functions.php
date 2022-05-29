@@ -18,7 +18,8 @@ function init_add_index_card()
 {
     function add_index_card()
     {
-        check_ajax_referer('add_index_card_nonce', 'nonce');
+        if (!check_admin_referer('add_index_card_nonce', 'nonce'))
+            wp_send_json_error("No access from this host", 403);
 
         //TODO security and user profile https://www.phpkida.com/how-to-add-post-from-frontend-in-wordpress-without-plugin/
 
@@ -57,6 +58,7 @@ function init_add_index_card()
             'addIndexCard',
             'add_index_card_vars',
             array(
+                'action' => 'add_index_card',
                 'post_url' => admin_url('admin-post.php'),
                 'nonce' => wp_create_nonce('add_index_card_nonce')
             )

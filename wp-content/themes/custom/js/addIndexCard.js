@@ -18,7 +18,7 @@ function addIndexCard() {
         return;
     }
 
-    data.append("action", "add_index_card");
+    data.append("action", add_index_card_vars.action);
     data.append("nonce", add_index_card_vars.nonce);
 
     setChildrenDisabled(formSelector);
