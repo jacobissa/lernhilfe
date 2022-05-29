@@ -63,6 +63,54 @@
     flex-wrap: wrap;
 }
 
+.post-card-container {
+    width: 25%;
+    margin: 2rem auto;
+    background-color: rgb(100, 175, 255);
+    padding: 1rem 0;
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+    padding: 2em 1rem;
+}
+
+.post-card-container:hover {
+    background-color: rgb(50, 125, 255);
+}
+
+.post-card-container:hover>.post-card-title {
+    color: white;
+    font-weight: bolder;
+}
+
+.post-card-title {
+    display: block;
+    color: black;
+    font-weight: normal;
+    font-size: larger;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.post-card-description {
+    display: block;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+}
+
+.post-card-container a {
+    margin: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.post-card-container a:hover {
+    text-decoration: underline;
+}
+
 .submit-button {
     display: inline-block;
     background-color: #cd2653 !important;

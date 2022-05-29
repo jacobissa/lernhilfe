@@ -1,7 +1,14 @@
-<?php get_header();
+<?php
+
+/**
+ * Template name: View single course
+ * Post type: course
+ */
+
+get_header();
 get_sidebar(); ?>
 
-<main id="site-content">
+<main class="site-content">
 	<?php
 	if (have_posts()) :
 		$i = 0;
@@ -30,15 +37,15 @@ get_sidebar(); ?>
 					$exercise_query = new WP_Query(array(
 						'posts_per_page' => -1,
 						'post_type' => 'exercise',
-						'meta_key' => META_EXERCISE_COURSE,
+						'meta_key' => LEARNINGAID_META_EXERCISE_COURSE,
 						'meta_value' => basename(get_permalink(get_the_ID())),
 					));
 					$exercise_list = $exercise_query->posts;
 					if ($exercise_list != null)
 					{
 						echo '<div class="exercise-container">';
-						foreach ($exercise_list as $exerecise) :
-							echo '<a href="' . esc_url(get_permalink($exerecise->ID)) . '">' . $exerecise->post_title . '</a>';
+						foreach ($exercise_list as $exercise) :
+							echo '<a href="' . esc_url(get_permalink($exercise->ID)) . '">' . $exercise->post_title . '</a>';
 						endforeach;
 						echo '</div>';
 					}

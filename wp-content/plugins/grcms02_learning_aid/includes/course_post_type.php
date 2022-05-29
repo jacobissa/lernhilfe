@@ -1,13 +1,12 @@
 <?php
 
 /**
- * Create custom post type course
+ * Register custom post type 'course'.
+ * @Hook init
  */
-
-add_action('init', 'grcms02_register_post_type_course');
-function grcms02_register_post_type_course()
+function learningaid_register_post_type_course()
 {
-  $icon = file_get_contents(LEARNINGAID_PLUGIN_LOCATION . '/images/icon_course.svg');
+  $icon = file_get_contents(LEARNINGAID_PLUGIN_LOCATION_DIR . '/images/icon_course.svg');
   $labels = array(
     'name' => __('Courses', LEARNINGAID_DOMAIN),
     'singular_name' => __('Course', LEARNINGAID_DOMAIN),
@@ -46,12 +45,14 @@ function grcms02_register_post_type_course()
   );
   register_post_type('course', $args);
 }
+add_action('init', 'learningaid_register_post_type_course');
+
 
 /**
- * Create custom taxonomy teachers
+ * Register taxonomy 'teacher' for the post type 'course'.
+ * @Hook init
  */
-add_action('init', 'grcms02_register_taxonomy_teacher');
-function grcms02_register_taxonomy_teacher()
+function learningaid_register_taxonomy_teacher()
 {
   $labels = array(
     'name' => __('Teachers', LEARNINGAID_DOMAIN),
@@ -89,67 +90,42 @@ function grcms02_register_taxonomy_teacher()
   register_taxonomy('teacher', 'course', $args);
   register_taxonomy_for_object_type('teacher', 'course');
 }
+add_action('init', 'learningaid_register_taxonomy_teacher');
 
-/**
- * Remove "Parent" dropdown for Taxonomy teacher
- * Remove additional css classes from course
- */
-add_action('admin_head-edit-tags.php', 'grcms02_remove_unwanted_elements');
-add_action('admin_head-term.php', 'grcms02_remove_unwanted_elements');
-add_action('admin_head-post.php', 'grcms02_remove_unwanted_elements');
-add_action('admin_head-post-new.php', 'grcms02_remove_unwanted_elements');
-function grcms02_remove_unwanted_elements()
-{
-  $screen = get_current_screen();
-
-  if ('teacher' == $screen->taxonomy) :
-    $css = ".term-parent-wrap
-  			{display:none;}";
-  elseif ('course' == $screen->post_type || 'exercise' == $screen->post_type) :
-    $css = ".editor-post-taxonomies__hierarchical-terms-input+.components-base-control,
-  			.block-editor-block-inspector__advanced
-  			{display:none;}";
-  else :
-    return;
-  endif;
-
-  if (!empty($css))
-  {
-    echo '<style type="text/css">';
-    echo $css;
-    echo '</style>';
-  }
-}
-
-/* --------------------------------------------------
- * Extend sorting based on texonomy teacher and author in admin area.
- * -------------------------------------------------- */
 
 /*
- * Introduce a new column 'Author'
+ * Add a new column 'author' in the posts list table for the post type 'course' in the admin area.
+ * @Hook manage_{$post_type}_posts_columns
  */
-add_filter('manage_course_posts_columns', function ($columns)
+function learningaid_manage_columns_course($post_columns)
 {
-  unset($columns['date']);
-  $columns['author'] = __('Author', LEARNINGAID_DOMAIN);
-  $columns['date'] = __('Date', LEARNINGAID_DOMAIN);
-  return $columns;
-});
-
-/*
-   * Mark the new column 'Author' as sortable.
-   */
-add_filter('manage_edit-course_sortable_columns', 'grcms02_course_sortable_columns');
-function grcms02_course_sortable_columns($columns)
-{
-  $columns['author'] = 'author';
-  return $columns;
+  unset($post_columns['date']);
+  $post_columns['author'] = __('Author', LEARNINGAID_DOMAIN);
+  $post_columns['date'] = __('Date', LEARNINGAID_DOMAIN);
+  return $post_columns;
 }
+add_filter('manage_course_posts_columns', 'learningaid_manage_columns_course');
+
 
 /**
- * Add Filter for the column 'Teachers'
+ * Make the new column 'author' sortable
+ * in the posts list table for the post type 'course' in the admin area.
+ * @Hook manage_edit-{$post_type}_sortable_columns
  */
-add_action('restrict_manage_posts', function ()
+function learningaid_manage_columns_sortable_course($post_columns)
+{
+  $post_columns['author'] = 'author';
+  return $post_columns;
+}
+add_filter('manage_edit-course_sortable_columns', 'learningaid_manage_columns_sortable_course');
+
+
+/**
+ * Add a custom dropdown filter for the taxonomy 'teacher' 
+ * above the posts list table for the post type 'course' in the admin area. 
+ * @Hook restrict_manage_posts
+ */
+function learningaid_restrict_manage_posts_course()
 {
   global $typenow;
   if ($typenow == 'course')
@@ -167,4 +143,5 @@ add_action('restrict_manage_posts', function ()
       'hide_empty' => true,
     ));
   }
-});
+}
+add_action('restrict_manage_posts', 'learningaid_restrict_manage_posts_course');

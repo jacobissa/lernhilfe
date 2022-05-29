@@ -36,7 +36,10 @@
     background-color: rgb(100, 175, 255);
     padding: 1rem 0;
     box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
-    gap: 2rem;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
 }
 
 .block-textquestion-save-container:hover {
@@ -59,7 +62,8 @@
 
 .block-textquestion-save-input {
     display: block;
-    margin: 0 5%;
+    margin: auto 5%;
+    justify-self: center;
     min-width: 90%;
     max-width: 90%;
     height: 10rem;
