@@ -18,7 +18,7 @@ wp_die(__('Uninstall stopped before cleaning database for debugging purposes.', 
 /**
  * Clean up database.
  * Delete all taxonomies 'teacher'.
- * Delete all post types 'course' & 'exercise'.
+ * Delete all post types 'course' & 'lesson'.
  */
 $terms_query = new WP_Term_Query(array(
     'taxonomy' => 'teacher',
@@ -31,7 +31,7 @@ foreach ($terms_query->terms as $term)
 
 $posts_query = get_posts(array(
     'numberposts' => -1,
-    'post_type' => array('course', 'exercise'),
+    'post_type' => array('course', 'lesson'),
     'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash'),
 ));
 foreach ($posts_query as $post)

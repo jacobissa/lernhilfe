@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grcms02_learning_aid\n"
-"POT-Creation-Date: 2022-05-29 14:13+0200\n"
-"PO-Revision-Date: 2022-05-29 14:14+0200\n"
+"POT-Creation-Date: 2022-06-01 20:31+0200\n"
+"PO-Revision-Date: 2022-06-01 20:31+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -19,8 +19,8 @@ msgstr ""
 msgid "Courses"
 msgstr "Kurse"
 
-#: includes/course_post_type.php:12 includes/exercise_post_type.php:117
-#: includes/exercise_post_type.php:178
+#: includes/course_post_type.php:12 includes/lesson_post_type.php:118
+#: includes/lesson_post_type.php:180
 msgid "Course"
 msgstr "Kurs"
 
@@ -192,142 +192,146 @@ msgstr "Lehrer-Link"
 msgid "A link to a Teacher"
 msgstr "Ein Link zu einem Lehrer"
 
-#: includes/course_post_type.php:103 includes/exercise_post_type.php:179
+#: includes/course_post_type.php:103 includes/lesson_post_type.php:181
 msgid "Author"
 msgstr "Autor"
 
-#: includes/course_post_type.php:104 includes/exercise_post_type.php:180
+#: includes/course_post_type.php:104 includes/lesson_post_type.php:182
 msgid "Date"
 msgstr "Datum"
 
-#: includes/exercise_post_type.php:11
-msgid "Exercises"
-msgstr "Übungen"
+#: includes/lesson_post_type.php:11
+msgid "Lessons"
+msgstr "Lektionen"
 
-#: includes/exercise_post_type.php:12
-msgid "Exercise"
-msgstr "Übung"
+#: includes/lesson_post_type.php:12
+msgid "Lesson"
+msgstr "Lektion"
 
-#: includes/exercise_post_type.php:13 includes/exercise_post_type.php:14
-msgid "Add New Exercise"
-msgstr "Neue Übung hinzufügen"
+#: includes/lesson_post_type.php:13 includes/lesson_post_type.php:14
+msgid "Add New Lesson"
+msgstr "Neue Lektion hinzufügen"
 
-#: includes/exercise_post_type.php:15
-msgid "Edit Exercise"
-msgstr "Übung bearbeiten"
+#: includes/lesson_post_type.php:15
+msgid "Edit Lesson"
+msgstr "Lektion bearbeiten"
 
-#: includes/exercise_post_type.php:16
-msgid "New Exercise"
-msgstr "Neue Übung"
+#: includes/lesson_post_type.php:16
+msgid "New Lesson"
+msgstr "Neue Lektion"
 
-#: includes/exercise_post_type.php:17
-msgid "View Exercise"
-msgstr "Übung anzeigen"
+#: includes/lesson_post_type.php:17
+msgid "View Lesson"
+msgstr "Lektion anzeigen"
 
-#: includes/exercise_post_type.php:18
-msgid "View Exercises"
-msgstr "Übungen anzeigen"
+#: includes/lesson_post_type.php:18
+msgid "View Lessons"
+msgstr "Lektionen anzeigen"
 
-#: includes/exercise_post_type.php:19
-msgid "Search Exercises"
-msgstr "Übungen suchen"
+#: includes/lesson_post_type.php:19
+msgid "Search Lessons"
+msgstr "Lektionen suchen"
 
-#: includes/exercise_post_type.php:20
-msgid "No Exercises found."
-msgstr "Keine Übungen gefunden."
+#: includes/lesson_post_type.php:20
+msgid "No Lessons found."
+msgstr "Keine Lektionen gefunden."
 
-#: includes/exercise_post_type.php:21
-msgid "No Exercises found in Trash."
-msgstr "Keine Übungen im Papierkorb gefunden."
+#: includes/lesson_post_type.php:21
+msgid "No Lessons found in Trash."
+msgstr "Keine Lektionen im Papierkorb gefunden."
 
-#: includes/exercise_post_type.php:22
-msgid "All Exercises"
-msgstr "Alle Übungen"
+#: includes/lesson_post_type.php:22
+msgid "All Lessons"
+msgstr "Alle Lektionen"
 
-#: includes/exercise_post_type.php:23
-msgid "Exercise Archives"
-msgstr "Übungs-Archiv"
+#: includes/lesson_post_type.php:23
+msgid "Lesson Archives"
+msgstr "Lektions-Archiv"
 
-#: includes/exercise_post_type.php:24
-msgid "Exercise Attributes"
-msgstr "Übungs-Attribute"
+#: includes/lesson_post_type.php:24
+msgid "Lesson Attributes"
+msgstr "Lektions-Attribute"
 
-#: includes/exercise_post_type.php:25
-msgid "Insert into Exercise"
-msgstr "In Übung einfügen"
+#: includes/lesson_post_type.php:25
+msgid "Insert into Lesson"
+msgstr "In Lektion einfügen"
 
-#: includes/exercise_post_type.php:26
-msgid "Uploaded to this Exercise"
-msgstr "Zu dieser Übung hochgeladen"
+#: includes/lesson_post_type.php:26
+msgid "Uploaded to this Lesson"
+msgstr "Zu dieser Lektion hochgeladen"
 
-#: includes/exercise_post_type.php:27
-msgid "Filter Exercises list"
-msgstr "Liste der Übungen filtern"
+#: includes/lesson_post_type.php:27
+msgid "Filter Lessons list"
+msgstr "Liste der Lektionen filtern"
 
-#: includes/exercise_post_type.php:28
-msgid "Exercises list navigation"
-msgstr "Übungs-Liste Navigation"
+#: includes/lesson_post_type.php:28
+msgid "Lessons list navigation"
+msgstr "Lektions-Liste Navigation"
 
-#: includes/exercise_post_type.php:29
-msgid "Exercises list"
-msgstr "Übungs-Liste"
+#: includes/lesson_post_type.php:29
+msgid "Lessons list"
+msgstr "Lektions-Liste"
 
-#: includes/exercise_post_type.php:30
-msgid "Exercise published."
-msgstr "Übung veröffentlicht."
+#: includes/lesson_post_type.php:30
+msgid "Lesson published."
+msgstr "Lektion veröffentlicht."
 
-#: includes/exercise_post_type.php:31
-msgid "Exercise published privately."
-msgstr "Übung privat veröffentlicht."
+#: includes/lesson_post_type.php:31
+msgid "Lesson published privately."
+msgstr "Lektion privat veröffentlicht."
 
-#: includes/exercise_post_type.php:32
-msgid "Exercise reverted to draft"
-msgstr "Übung als Entwurf zurückgegeben"
+#: includes/lesson_post_type.php:32
+msgid "Lesson reverted to draft"
+msgstr "Lektion als Entwurf zurückgegeben"
 
-#: includes/exercise_post_type.php:33
-msgid "Exercise scheduled."
-msgstr "Übung geplant."
+#: includes/lesson_post_type.php:33
+msgid "Lesson scheduled."
+msgstr "Lektion geplant."
 
-#: includes/exercise_post_type.php:34
-msgid "Exercise updated."
-msgstr "Übung aktualisiert."
+#: includes/lesson_post_type.php:34
+msgid "Lesson updated."
+msgstr "Lektion aktualisiert."
 
-#: includes/exercise_post_type.php:103
-msgid "Exercise details"
-msgstr "Details zur Übung"
+#: includes/lesson_post_type.php:104
+msgid "Lesson details"
+msgstr "Details zur Lektion"
 
-#: templates/single-exercise.php:48
+#: templates/single-lesson.php:48
 msgid "Submit Answers"
 msgstr "Antworten abschicken"
 
-#: templates/single-exercise.php:83
+#: templates/single-lesson.php:83
 msgid "Thank you for answers! Here is the correction"
 msgstr "Vielen Dank für die Antworten! Hier ist die Korrektur"
 
-#: templates/single-exercise.php:104
+#: templates/single-lesson.php:104
 msgid "Question:"
 msgstr "Frage:"
 
-#: templates/single-exercise.php:108
+#: templates/single-lesson.php:108
 msgid "Your Answer:"
 msgstr "Ihre Antwort:"
 
-#: templates/single-exercise.php:112
+#: templates/single-lesson.php:112
 msgid "Correct Words:"
 msgstr "Korrekte Worte:"
 
-#: templates/single-exercise.php:116
+#: templates/single-lesson.php:116
 msgid "Missed Words:"
 msgstr "Verpasste Wörter:"
 
-#: templates/single-exercise.php:120
+#: templates/single-lesson.php:120
 msgid "Mark:"
 msgstr "Bewertung:"
 
-#: uninstall.php:14
+#: uninstall.php:15
 msgid "Uninstall stopped before cleaning database for debugging purposes."
-msgstr "Die Deinstallation wurde vor dem Bereinigen der Datenbank zu Debugzwecken gestoppt."
+msgstr ""
+"Die Deinstallation wurde vor dem Bereinigen der Datenbank zu Debugzwecken "
+"gestoppt."
 
-#: uninstall.php:44
+#: uninstall.php:46
 msgid "Uninstall stopped before deleting files for debugging purposes."
-msgstr "Die Deinstallation wurde gestoppt, bevor Dateien zu Debugging-Zwecken gelöscht wurden."
+msgstr ""
+"Die Deinstallation wurde gestoppt, bevor Dateien zu Debugging-Zwecken "
+"gelöscht wurden."

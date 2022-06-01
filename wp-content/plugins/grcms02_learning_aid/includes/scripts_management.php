@@ -18,8 +18,8 @@ add_action('wp_enqueue_scripts', 'learningaid_enqueue_scripts_public');
 
 /**
  * Hide unwanted elements in the admin area:
- * - Hide "Parent" dropdown for taxonomy 'teacher'
- * - Hide "additional css classes" from the gutenberg blocks in the post types (course & exercise).
+ * - Hide "Parent Category" dropdown for taxonomy 'teacher' in the 'Add New Teacher' sections.
+ * - Hide "additional css classes" from the gutenberg blocks in the post types (lesson).
  * @Hook admin_head
  */
 function learningaid_hide_unwanted_elements_in_admin_head()
@@ -28,7 +28,10 @@ function learningaid_hide_unwanted_elements_in_admin_head()
     if ('teacher' == $screen->taxonomy) :
         $css = ".term-parent-wrap
   			{display:none;}";
-    elseif ('course' == $screen->post_type || 'exercise' == $screen->post_type) :
+    elseif ('course' == $screen->post_type) :
+        $css = ".postbox-container .category-add .postform
+            {display:none;}";
+    elseif ('lesson' == $screen->post_type) :
         $css = ".editor-post-taxonomies__hierarchical-terms-input+.components-base-control,
   			.block-editor-block-inspector__advanced
   			{display:none;}";

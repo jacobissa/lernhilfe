@@ -26,7 +26,7 @@ function learningaid_shortcode_youtube_embed_url($atts, $content)
             {
                 // The video ID has been found in the v parameter.
                 $element = 'iframe';
-                $src = "https://www.youtube.com/embed/" . $youtube_id;
+                $src = "https://www.youtube-nocookie.com/embed/" . $youtube_id;
                 $width = (isset($atts['width'])) ? $atts['width'] : $width;
                 $height = (isset($atts['height'])) ? $atts['height'] : $height;
             }

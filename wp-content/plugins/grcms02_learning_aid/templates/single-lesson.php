@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template name: View single exercise
- * Post type: exercise
+ * Template name: View single lesson
+ * Post type: lesson
  */
 
 get_header();
@@ -25,7 +25,7 @@ get_sidebar(); ?>
 					</h2>
 					<div class="post-categories">
 						<?php
-						$course_slug = esc_html(get_post_meta(get_the_ID(), LEARNINGAID_META_EXERCISE_COURSE, true));
+						$course_slug = esc_html(get_post_meta(get_the_ID(), LEARNINGAID_META_LESSON_COURSE, true));
 						$query_course = new WP_Query(array(
 							'post_type' => 'course',
 							'name' => $course_slug,
