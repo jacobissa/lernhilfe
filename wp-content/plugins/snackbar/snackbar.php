@@ -25,6 +25,9 @@ function enqueue_snackbar_script()
             'template_dir' => SNACKBAR_PLUGIN_LOCATION_URL
         )
     );
+
+    wp_register_style( __NAMESPACE__ . '\stylesheet', SNACKBAR_PLUGIN_LOCATION_URL . '/css/style.css' );
+    wp_enqueue_style(__NAMESPACE__ . '\stylesheet');
 }
 
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_snackbar_script');
