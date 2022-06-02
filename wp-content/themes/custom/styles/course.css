@@ -1,0 +1,101 @@
+.teacher_names {
+    color: dimgrey;
+}
+
+.course_info {
+    margin-bottom: 1rem;
+}
+
+.course_content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.lessons_grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.lesson_container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    height: 12rem;
+    border: 1px solid dimgrey;
+    border-radius: 0.7rem;
+    background: #f5f5f5;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
+    transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+.lesson_container:hover, .lesson_container:focus {
+    outline: none;
+    transform: scale(1.01);
+    filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.3));
+}
+
+.lesson_name {
+    font-weight: 600;
+    font-size: 110%;
+}
+
+.view_switch {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+.view_switch > a {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    cursor: pointer;
+    padding: 0.7rem;
+    color: black;
+    text-decoration: none;
+}
+
+.view_switch > a:not(:first-child):not(:last-child) {
+    border-top: dimgrey solid;
+    border-bottom: dimgrey solid;
+    border-right: dimgrey solid;
+    border-width: 1px;
+}
+
+.view_switch > a:first-child {
+    border-top: dimgrey solid;
+    border-bottom: dimgrey solid;
+    border-left: dimgrey solid;
+    border-right: dimgrey solid;
+    border-width: 1px;
+    border-top-left-radius: 1000vh;
+    border-bottom-left-radius: 1000vh;
+}
+
+.view_switch > a:last-child {
+    border-top: dimgrey solid;
+    border-bottom: dimgrey solid;
+    border-right: dimgrey solid;
+    border-width: 1px;
+    border-top-right-radius: 1000vh;
+    border-bottom-right-radius: 1000vh;
+}
+
+.view_switch > a:hover, .view_switch > a:focus {
+    outline: none;
+    background: #f3f3f3;
+}
+
+.view_switch > a.selected {
+    background: #5f5f5f;
+    color: white;
+}

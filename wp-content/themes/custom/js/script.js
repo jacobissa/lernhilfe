@@ -1,8 +1,10 @@
 const toggleMenu = () => {
     const menu = document.querySelector("#navbar");
-    const open = menu.classList.contains("open");
-    menu.classList.remove(open ? "open" : "closed");
-    menu.classList.add(open ? "closed" : "open");
+    const previouslyOpen = menu.classList.contains("open");
+    menu.classList.remove(previouslyOpen ? "open" : "closed");
+    menu.classList.add(previouslyOpen ? "closed" : "open");
+    const menuItems = document.querySelectorAll("#navbar a");
+    menuItems.forEach(item => previouslyOpen ? item.tabIndex = -1 : item.removeAttribute("tabindex"));
 }
 
 const setChildrenDisabled = (selector, disabled) => {

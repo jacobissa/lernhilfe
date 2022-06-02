@@ -20,7 +20,7 @@ $query = new WP_Query(
             $teacher_string = $teacher_list == null ? 'Kein Dozent' : join(', ', wp_list_pluck($teacher_list, 'name'));
             ?>
             <li class="striped_list_item">
-                <a class="striped_list_anchor" href="<?php the_permalink(); ?>">
+                <a class="course_list_anchor" href="<?php the_permalink(); ?>">
                     <span class="list_prof_name"><?php echo the_title() ?></span>
                     <span><?php echo $teacher_string; ?></span>
                 </a>

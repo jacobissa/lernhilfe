@@ -1,4 +1,5 @@
 <?php
+namespace learningaid\main;
 
 if ( ! defined( 'WPINC' ) ) {
     die;
@@ -9,14 +10,14 @@ function add_script()
     wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js');
 }
 
-add_action("wp_enqueue_scripts", 'add_script');
+add_action("wp_enqueue_scripts", __NAMESPACE__ . '\add_script');
 
 function my_filter_head()
 {
     remove_action('wp_head', '_admin_bar_bump_cb');
 }
 
-add_action('get_header', 'my_filter_head');
+add_action('get_header', __NAMESPACE__ . '\my_filter_head');
 
 function init_add_index_card()
 {
@@ -52,8 +53,8 @@ function init_add_index_card()
         wp_send_json_success();
     }
 
-    add_action('admin_post_add_index_card', 'add_index_card');
-    add_action('admin_post_nopriv_add_index_card', 'add_index_card');
+    add_action('admin_post_add_index_card', __NAMESPACE__ . '\add_index_card');
+    add_action('admin_post_nopriv_add_index_card', __NAMESPACE__ . '\add_index_card');
 
     function enqueue_add_index_card_script()
     {
@@ -69,10 +70,10 @@ function init_add_index_card()
         );
     }
 
-    add_action("wp_enqueue_scripts", 'enqueue_add_index_card_script');
+    add_action("wp_enqueue_scripts", __NAMESPACE__ . '\enqueue_add_index_card_script');
 }
 
-add_action("init", "init_add_index_card");
+add_action("init", __NAMESPACE__ . '\init_add_index_card');
 
 
 add_filter( 'show_admin_bar', '__return_false' );

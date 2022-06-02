@@ -1,5 +1,5 @@
 <?php
-$wpb_all_query = new WP_Query(
+$course_query = new WP_Query(
     array(
         'post_type' => 'course',
         'post_status' => 'publish',
@@ -8,12 +8,12 @@ $wpb_all_query = new WP_Query(
 ); ?>
 <div id="navbar" class="closed">
     <ul class="navbar_list">
-        <?php while ($wpb_all_query->have_posts()) :
-            $wpb_all_query->the_post();
-            $custom = get_post_custom();
+        <?php while ($course_query->have_posts()) :
+            $course_query->the_post();
+            $custom = get_post_custom($course_query->post->ID);
             ?>
             <li class="navbar_list_item">
-                <a class="navbar_list_anchor" href="<?php the_permalink(); ?>">
+                <a class="navbar_list_anchor" tabindex="-1" href="<?php the_permalink(); ?>">
                     <span><?php echo $custom['short_name'][0]; ?></span>
                 </a>
             </li>

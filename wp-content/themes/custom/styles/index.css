@@ -1,0 +1,22 @@
+#course_list_header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: calc(1rem + 1px);
+    color: dimgrey;
+}
+
+.course_list_anchor {
+    padding: 1rem;
+    color: black;
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.course_list_anchor:hover {
+    filter: var(--text-shadow);
+}
+
+.list_prof_name {
+    font-weight: bold;
+}
