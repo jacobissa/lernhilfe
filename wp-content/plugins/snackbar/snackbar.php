@@ -33,4 +33,4 @@ function include_snackbar() {
     include('template/snackbar.php') ;
 }
 
-add_action('wp_footer', __NAMESPACE__ . '\print_stuff');
+add_action('wp_footer', __NAMESPACE__ . '\include_snackbar');
