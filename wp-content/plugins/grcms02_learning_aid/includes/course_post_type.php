@@ -44,13 +44,6 @@ function learningaid_register_post_type_course()
         "menu_icon" => 'data:image/svg+xml;base64,' . base64_encode($icon),
     );
     register_post_type('course', $post_args);
-
-//    $post_meta_args = array(
-//        'type' => 'string',
-//        'description' => 'Kurzname des Kurses',
-//        'show_in_rest' => true
-//    );
-//    register_post_meta('course', 'dingens', $post_meta_args);
 }
 
 add_action('init', 'learningaid_register_post_type_course');
@@ -90,7 +83,7 @@ function learningaid_register_taxonomy_teacher()
         'description' => 'Here are the Teachers',
         'public' => true,
         'show_in_rest' => false,
-        'hierarchical' => false,
+        'hierarchical' => true,
         'show_admin_column' => true,
         'meta_box_cb' => 'post_categories_meta_box',
         'rewrite' => ['slug' => 'teacher'],
