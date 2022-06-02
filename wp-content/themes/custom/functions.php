@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'WPINC' ) ) {
+    die;
+}
+
 function add_script()
 {
     wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js');
@@ -71,16 +75,4 @@ function init_add_index_card()
 add_action("init", "init_add_index_card");
 
 
-function enqueue_snackbar_script()
-{
-    wp_enqueue_script('snackbar', get_template_directory_uri() . '/js/snackbar.js');
-    wp_localize_script(
-        'snackbar',
-        'snackbar_vars',
-        array(
-            'template_dir' => get_template_directory_uri()
-        )
-    );
-}
-
-add_action("wp_enqueue_scripts", 'enqueue_snackbar_script');
+add_filter( 'show_admin_bar', '__return_false' );

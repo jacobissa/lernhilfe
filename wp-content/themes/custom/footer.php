@@ -1,3 +1,3 @@
 </div>
-<?php get_template_part("snackbar"); ?>
+<?php wp_footer(); ?>
 </body>

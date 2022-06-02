@@ -9,6 +9,7 @@ if (!defined('WP_UNINSTALL_PLUGIN'))
 }
 
 
+// TODO remove
 /**
  * Just for debugging, stopp before cleaning database
  */
