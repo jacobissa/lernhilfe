@@ -10,10 +10,11 @@ $wpb_all_query = new WP_Query(
     <ul class="navbar_list">
         <?php while ($wpb_all_query->have_posts()) :
             $wpb_all_query->the_post();
+            $custom = get_post_custom();
             ?>
             <li class="navbar_list_item">
                 <a class="navbar_list_anchor" href="<?php the_permalink(); ?>">
-                    <span><?php echo the_title(); ?></span>
+                    <span><?php echo $custom['short_name'][0]; ?></span>
                 </a>
             </li>
         <?php endwhile; ?>

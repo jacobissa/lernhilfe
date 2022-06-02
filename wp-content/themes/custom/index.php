@@ -1,7 +1,7 @@
 <?php get_header();
 get_sidebar(); ?>
 <?php
-$wpb_all_query = new WP_Query(
+$query = new WP_Query(
     array(
         'post_type' => 'course',
         'post_status' => 'publish',
@@ -13,14 +13,16 @@ $wpb_all_query = new WP_Query(
         <span>Dozent</span>
     </div>
     <ul class="striped_list">
-        <?php while ($wpb_all_query->have_posts()) :
-            $wpb_all_query->the_post();
+        <?php while ($query->have_posts()) :
+            $query->the_post();
             $custom = get_post_custom();
+            $teacher_list = get_the_terms( $query->post, 'teacher' );
+            $teacher_string = $teacher_list == null ? 'Kein Dozent' : join(', ', wp_list_pluck($teacher_list, 'name'));
             ?>
             <li class="striped_list_item">
                 <a class="striped_list_anchor" href="<?php the_permalink(); ?>">
-                    <span class="list_prof_name"><?php echo $custom['full_name'][0]; ?></span>
-                    <span><?php echo $custom['prof'][0]; ?></span>
+                    <span class="list_prof_name"><?php echo the_title() ?></span>
+                    <span><?php echo $teacher_string; ?></span>
                 </a>
             </li>
         <?php endwhile; ?>
