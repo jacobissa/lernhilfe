@@ -49,11 +49,15 @@ header {
     gap: 2rem;
 }
 
-header > #header_text {
+#header_text {
     margin: 0;
     color: white;
     line-height: 2rem;
     font-weight: normal;
+}
+
+#header_anchor {
+    text-decoration: none;
 }
 
 body {
