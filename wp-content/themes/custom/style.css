@@ -37,16 +37,18 @@ input[type=text]:focus-visible, textarea:focus-visible {
 
 header {
     z-index: 200;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     box-sizing: border-box;
     background-color: #0d66c2;
-    padding: 1rem;
+    padding: 0 1rem;
     left: 0;
     filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
     display: flex;
     gap: 2rem;
+    height: 4rem;
+    align-items: center;
 }
 
 #header_text {
@@ -62,10 +64,10 @@ header {
 
 body {
     margin: 0;
+    padding-top: 4rem;
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
     background: #a8a8a8;
 }
 
@@ -118,7 +120,7 @@ button, input[type=button], input[type=submit] {
 
 #navbar {
     z-index: 100;
-    position: absolute;
+    position: fixed;
     width: 200px;
     left: -210px;
     top: 4rem;
