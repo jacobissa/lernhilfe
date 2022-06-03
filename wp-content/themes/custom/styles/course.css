@@ -9,10 +9,11 @@
 .course_content {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    /*gap: 3rem;*/
 }
 
 .lessons_grid {
+    margin-top: 3rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -49,55 +50,42 @@
 .view_switch {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 100%;
-    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+    width: calc(100% + 4rem);
+    margin: 1rem -2rem 0 -2rem;
 }
 
 .view_switch > a {
     display: grid;
     align-items: center;
     justify-content: center;
-    background: white;
+    background: #f5f5f5;
     cursor: pointer;
     padding: 0.7rem;
     color: black;
     text-decoration: none;
 }
 
-.view_switch > a:not(:first-child):not(:last-child) {
-    border-top: dimgrey solid;
-    border-bottom: dimgrey solid;
-    border-right: dimgrey solid;
+.view_switch > a:not(:first-child) {
+    border-top: lightgrey solid;
+    border-bottom: lightgrey solid;
+    border-left: lightgrey solid;
     border-width: 1px;
 }
 
 .view_switch > a:first-child {
-    border-top: dimgrey solid;
-    border-bottom: dimgrey solid;
-    border-left: dimgrey solid;
-    border-right: dimgrey solid;
+    border-top: lightgrey solid;
+    border-bottom: lightgrey solid;
     border-width: 1px;
-    border-top-left-radius: 1000vh;
-    border-bottom-left-radius: 1000vh;
 }
 
-.view_switch > a:last-child {
-    border-top: dimgrey solid;
-    border-bottom: dimgrey solid;
-    border-right: dimgrey solid;
-    border-width: 1px;
-    border-top-right-radius: 1000vh;
-    border-bottom-right-radius: 1000vh;
+.view_switch > a.selected {
+    border-bottom-color: white;
+    background: white;
 }
 
 .view_switch > a:hover, .view_switch > a:focus {
     outline: none;
-    background: #f3f3f3;
-}
-
-.view_switch > a.selected {
-    background: #5f5f5f;
-    color: white;
+    background: #e8e8e8;
 }
 
 #summaries_list_header {
