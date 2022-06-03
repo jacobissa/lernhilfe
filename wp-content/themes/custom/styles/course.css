@@ -99,3 +99,26 @@
     background: #5f5f5f;
     color: white;
 }
+
+#summaries_list_header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: calc(1rem + 1px);
+    color: dimgrey;
+}
+
+.summaries_list_anchor {
+    padding: 1rem;
+    color: black;
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.summaries_list_anchor:hover {
+    filter: var(--text-shadow);
+}
+
+.list_file_name {
+    font-weight: bold;
+}
