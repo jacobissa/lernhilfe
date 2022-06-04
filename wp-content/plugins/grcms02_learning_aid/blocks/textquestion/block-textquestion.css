@@ -64,9 +64,9 @@
     margin: auto 5%;
     justify-self: center;
     min-width: 90%;
-    max-width: 90%;
     height: 10rem;
     border-style: none;
+    resize: none;
 }
 
 .block-textquestion-save-input:focus {
