@@ -35,19 +35,19 @@ function mc_question($atts): string
 
     $title = esc_attr($a['title']);
     $output = '<div class="mc_container">
-    <h5>' . $title . '</h5>';
+    <label class="mc_title">' . $title . '</label><div class="mc_content"><div class="mc_input_container">';
 
     $answers = explode(';', esc_attr($a['answers']));
     $alphabet = range('A', 'Z');
-    $name = str_replace(' ', '_', $title);
+    $name = str_replace(' ', '_', htmlspecialchars($title));
 
     for ($i = 0; $i < count($answers) && $i < count($alphabet); $i++) {
-        $output .= '<input type="radio" id="' . $name . $alphabet[$i] . '" name="' . $name . ' " value="' . $answers[$i] . '">
-            <label for="' . $name . $alphabet[$i] . '"> <span class="mc_label">' . $alphabet[$i] . '</span> ' . $answers[$i] . '  </label><br>';
+        $output .= '<div class="mc_input"><input type="radio" class="mc_radio" id="' . $name . $alphabet[$i] . '" name="' . $name . ' " value="' . $answers[$i] . '">
+            <label class="mc_label" for="' . $name . $alphabet[$i] . '"> <span class="mc_span">' . $alphabet[$i] . '</span>' . $answers[$i] . '  </label></div>';
     }
 
     $answer_id = uniqid();
-    $output .= '<div class="reveal_answer" id="button_' . $answer_id . '" title="Antwort einblenden" onclick="showAnswer(\'content_' . $answer_id . '\')">Antwort</div>
+    $output .= '</div><div class="reveal_answer" id="button_' . $answer_id . '" title="Antwort einblenden" onclick="showAnswer(\'content_' . $answer_id . '\')">Antwort anzeigen</div>
         <div class="answer_content" id="content_' . $answer_id . '">
         <div class="correct_answer"><b class="correct_checkmark">' . $a['correct'] . '</b></div>';
 
@@ -55,7 +55,7 @@ function mc_question($atts): string
         $output .= '<div class="answer_hint">' . $a['hint'] . '</div>';
     }
 
-    $output .= '</div></div>';
+    $output .= '</div></div></div>';
     return $output;
 }
 

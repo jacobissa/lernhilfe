@@ -1,35 +1,101 @@
 .mc_container {
-    border: 1px solid black;
-    padding: 10px;
+    width: 30%;
+    margin: 2rem auto;
+    background-color: rgb(100, 175, 255);
+    padding: 1rem 0;
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+}
+
+.mc_container:hover {
+    background-color: rgb(50, 125, 255);
+}
+
+.mc_title {
+    display: block;
+    color: black;
+    font-weight: normal;
+    font-size: larger;
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.mc_container:hover > .mc_title {
+    color: white;
+    font-weight: bolder;
+}
+
+.mc_content {
+    display: block;
+    margin: auto 5%;
+    justify-self: center;
+    min-width: 90%;
+    max-width: 90%;
+    min-height: 10rem;
+    height: fit-content;
+}
+
+.mc_input_container {
+
+}
+
+.mc_radio {
+    vertical-align: baseline;
+}
+
+.mc_span {
+    display: inline-block;
+    background: #f5f5f5;
+    color: black;
+    width: 1.2rem;
+    padding: 0.2rem;
+    text-align: center;
+    margin-bottom: 0.2rem;
+    margin-right: 0.4rem;
+    border: 1px solid dimgrey;
+    border-radius: 5px;
+    vertical-align: baseline;
 }
 
 .mc_label {
-    display: inline-block;
-    background: #2c3338;
-    color: #e5e5e5;
-    width: 1.5em;
-    height: 1.5em;
-    text-align: center;
-    margin: 0 5px 0 0;
+    vertical-align: baseline;
 }
 
 .reveal_answer {
-    padding: 10px;
-    background: #07526c;
-    color: #e5e5e5;
+    padding: 10px 1rem;
+    background: #cd2653;
+    color: white;
     cursor: pointer;
+    text-align: center;
+    margin-top: 1rem;
+    display: inline-block;
+    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
+    position: relative;
+
+}
+
+.reveal_answer:hover {
+    background-color: #fa0043;
+    text-decoration: underline;
+    color: black;
+    font-weight: bold;
 }
 
 .answer_content {
     display: none;
-    border: 1px solid black;
-    background: #116644;
-    margin: 10px 0;
-    padding: 10px;
+    background: #C8EB64FF;
+    padding: 10px 1rem;
+    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
+    margin: 0;
+    position: absolute;
+    align-content: center;
 }
 
 .correct_answer {
-    color: #e5e5e5;
+    color: black;
 }
 
 .correct_checkmark:before {
@@ -39,12 +105,14 @@
     color: black;
     margin: 0 5px 0 0;
     border-radius: 50%;
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.5rem;
+    height: 1.5rem;
     text-align: center;
+    border: 1px solid dimgrey;
+    vertical-align: baseline;
 }
 
 .answer_hint {
-    color: #e5e5e5;
+    color: black;
     margin: 5px 0 0 0;
 }
