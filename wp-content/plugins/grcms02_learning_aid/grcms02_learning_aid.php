@@ -4,7 +4,7 @@
  * Plugin Name:       GrCMS02 Learning Aid
  * Plugin URI:        http://grcms02.informatik.fh-nuernberg.de
  * Description:       Plugin for GrCMS02 in SS22.
- * Version:           1.1.1
+ * Version:           1.2.0
  * Author:            Jacob Issa
  * Author URI:        mailto:issaja73014@th-nuernberg.de
  */
@@ -26,6 +26,8 @@ define('LEARNINGAID_PLUGIN_LOCATION_URL', plugins_url('', __FILE__));
 define('LEARNINGAID_PLUGIN_BASE_NAME', dirname(plugin_basename(__FILE__)));
 define('LEARNINGAID_PLUGIN_MAIN_FILE_NAME', __FILE__);
 define('LEARNINGAID_META_LESSON_COURSE', 'lesson_course');
+define('LEARNINGAID_META_COURSE_SHORT_NAME', 'short_name');
+
 
 /**
  * Load plugin management (Localization)

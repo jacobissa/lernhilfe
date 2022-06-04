@@ -94,7 +94,7 @@ add_action('init', 'learningaid_register_post_meta_lesson');
 
 
 /**
- * Add a meta box to the post type 'lesson' in the admin area.
+ * Add a meta box 'course' to the post type 'lesson' in the admin area.
  * @Hook admin_init
  */
 function learningaid_add_meta_box_lesson()
@@ -102,14 +102,14 @@ function learningaid_add_meta_box_lesson()
   add_meta_box(
     'lesson_meta_box',
     __('Lesson details', LEARNINGAID_DOMAIN),
-    'learningaid_fill_meta_box_content',
-    'lesson'
+    'learningaid_fill_meta_box_lesson_content',
+    'lesson',
   );
 
   /**
    * Fill the meta box with dropdown menu to select the post type 'course'
    */
-  function learningaid_fill_meta_box_content($post)
+  function learningaid_fill_meta_box_lesson_content($post)
   {
     $course_selected = esc_html(get_post_meta($post->ID, LEARNINGAID_META_LESSON_COURSE, true));
 ?>
@@ -129,11 +129,12 @@ function learningaid_add_meta_box_lesson()
             while ($query_course->have_posts()) : $query_course->the_post();
               $post_name = esc_html($post->post_name);
               $post_title = esc_html($post->post_title);
+              $post_short_name = esc_html(get_post_meta($post->ID, LEARNINGAID_META_COURSE_SHORT_NAME, true));
               echo '<option value="' . $post_name . '"';
               if ($course_selected == $post_name) :
                 echo ' selected';
               endif;
-              echo '>' . $post_title . '</option>';
+              echo '>' . $post_short_name . '</option>';
             endwhile;
             wp_reset_query();
             ?>
@@ -258,12 +259,10 @@ function learningaid_get_posts_course_lesson($query)
     {
       if (is_array($post_type))
       {
-        // Current query specifies post types, add the new ones
         $query->set('post_type', array_merge($post_type, array('course', 'lesson')));
       }
       else
       {
-        // Current query does not specify post types, assign the new ones
         $query->set('post_type', array($post_type, 'course', 'lesson'));
       }
     }

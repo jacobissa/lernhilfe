@@ -91,7 +91,6 @@ function learningaid_register_taxonomy_teacher()
     register_taxonomy('teacher', 'course', $args);
     register_taxonomy_for_object_type('teacher', 'course');
 }
-
 add_action('init', 'learningaid_register_taxonomy_teacher');
 
 
@@ -132,7 +131,8 @@ add_filter('manage_edit-course_sortable_columns', 'learningaid_manage_columns_so
 function learningaid_restrict_manage_posts_course()
 {
     global $typenow;
-    if ($typenow == 'course') {
+    if ($typenow == 'course')
+    {
         wp_dropdown_categories(array(
             'show_option_all' => __("All Teachers", LEARNINGAID_DOMAIN),
             'taxonomy' => 'teacher',
@@ -147,45 +147,60 @@ function learningaid_restrict_manage_posts_course()
         ));
     }
 }
-
 add_action('restrict_manage_posts', 'learningaid_restrict_manage_posts_course');
 
-function course_add_meta_boxes()
+
+/**
+ * Add a meta box 'short_name' to the post type 'course' in the admin area.
+ * @Hook add_meta_boxes_{$post-type}
+ */
+function learningaid_add_meta_box_course()
 {
-    add_meta_box('course_meta_box', __('Additional Info', LEARNINGAID_DOMAIN), 'learningaid_build_course_meta_box', 'course', 'normal');
+    add_meta_box('course_meta_box', __('Additional Info', LEARNINGAID_DOMAIN), 'learningaid_fill_meta_box_course_content', 'course', 'normal');
+
+    /**
+     * Fill the meta box with input field to write the 'short_code'
+     */
+    function learningaid_fill_meta_box_course_content($post)
+    {
+        wp_nonce_field(LEARNINGAID_PLUGIN_MAIN_FILE_NAME, 'learningaid_course_meta_box_nonce');
+
+        $current_short_name = get_post_meta($post->ID, LEARNINGAID_META_COURSE_SHORT_NAME, true); ?>
+        <div class='inside'>
+            <h3><?php _e('Short name', LEARNINGAID_DOMAIN); ?></h3>
+            <p>
+                <input type="text" name="<?php echo LEARNINGAID_META_COURSE_SHORT_NAME; ?>" value="<?php echo $current_short_name; ?>" />
+            </p>
+        </div>
+<?php
+    }
 }
+add_action('add_meta_boxes_course', 'learningaid_add_meta_box_course');
 
-add_action('add_meta_boxes_course', 'course_add_meta_boxes');
 
-function learningaid_build_course_meta_box($post)
+/**
+ * Update the meta data once a post type 'course' has been saved.
+ * @Hook save_post_{$post_type}
+ */
+function learningaid_save_post_course($post_id)
 {
-    wp_nonce_field(basename(__FILE__), 'learningaid_course_meta_box_nonce');
-
-    $current_short_name = get_post_meta($post->ID, 'short_name', true);
-
-    ?>
-    <div class='inside'>
-        <h3><?php _e('Short name', LEARNINGAID_DOMAIN); ?></h3>
-        <p>
-            <input type="text" name="short_name" value="<?php echo $current_short_name; ?>"/>
-        </p>
-    </div>
-    <?php
-}
-
-function learningaid_save_course_meta_box_data($post_id)
-{
-    // TODO make field required
-
-    if (!isset($_POST['learningaid_course_meta_box_nonce']) ||
-        !wp_verify_nonce($_POST['learningaid_course_meta_box_nonce'], basename(__FILE__)) ||
-        !current_user_can('edit_post', $post_id)) {
+    if (
+        !isset($_POST['learningaid_course_meta_box_nonce'])
+        ||  !wp_verify_nonce($_POST['learningaid_course_meta_box_nonce'], LEARNINGAID_PLUGIN_MAIN_FILE_NAME)
+        || !current_user_can('edit_post', $post_id)
+    )
+    {
         return;
     }
 
-    if (isset($_REQUEST['short_name'])) {
-        update_post_meta($post_id, 'short_name', sanitize_text_field($_POST['short_name']));
+    if (isset($_REQUEST[LEARNINGAID_META_COURSE_SHORT_NAME]))
+    {
+        $short_name = $_REQUEST[LEARNINGAID_META_COURSE_SHORT_NAME];
+        if ($short_name === '')
+        {
+            $short_name = get_the_title($post_id);
+        }
+        update_post_meta($post_id, LEARNINGAID_META_COURSE_SHORT_NAME, sanitize_text_field($short_name));
     }
 }
-
-add_action('save_post_course', 'learningaid_save_course_meta_box_data');
+add_action('save_post_course', 'learningaid_save_post_course');

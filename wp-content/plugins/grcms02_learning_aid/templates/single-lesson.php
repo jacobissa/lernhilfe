@@ -117,7 +117,7 @@ get_sidebar(); ?>
 											<td><?php echo implode(" ; ", $missed_keywords); ?></td>
 										</tr>
 										<tr>
-											<td><?php _e('Mark:', LEARNINGAID_DOMAIN); ?></td>
+											<td><?php _e('Score:', LEARNINGAID_DOMAIN); ?></td>
 											<td><?php echo ceil($collected_marks * 100) . '%'; ?></td>
 										</tr>
 									</table>
