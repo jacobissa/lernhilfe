@@ -14,7 +14,7 @@ get_sidebar(); ?>
 			<a href="<?php echo esc_url(get_permalink(get_queried_object()->term_id)); ?>"><?php echo get_queried_object()->name; ?></a>
 		</h2>
 	</header>
-	<div class=" lesson-container">
+	<div class=" teacher-description">
 		<p><?php echo get_queried_object()->description; ?></p>
 	</div>
 	<div class="post-content">

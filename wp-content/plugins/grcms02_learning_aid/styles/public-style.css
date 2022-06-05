@@ -1,12 +1,7 @@
-.site-content {
-    display: block;
-}
-
-.post-separator {
-    width: 95%;
-    border: 10px solid rgb(150, 0, 0);
-    border-radius: 5px;
-    margin: 1rem auto;
+.post-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .post-header {
@@ -57,15 +52,9 @@
     text-decoration: underline;
 }
 
-.post-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 .submit-button {
     display: inline-block;
-    background-color: #cd2653 !important;
+    background-color: #9E2A2B !important;
     color: white;
     text-align: center;
     min-width: 25% !important;
@@ -77,50 +66,13 @@
 }
 
 .submit-button:hover {
-    background-color: #fa0043 !important;
+    background-color: #E55424 !important;
     text-decoration: underline;
     color: black;
     font-weight: bold;
 }
 
-#correction-container {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    z-index: 300;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgb(200, 235, 100);
-    overflow-x: hidden;
-    display: none;
-}
-
-#correction-container .closeCorrection {
-    position: absolute;
-    text-decoration: none;
-    top: 4%;
-    right: 4%;
-    font-size: 60px;
-    color: black;
-}
-
-#correction-container .closeCorrection:hover {
-    color: #cd2653;
-}
-
-#iframe-correction {
-    position: relative;
-    left: 10%;
-    right: 10%;
-    width: 80%;
-    top: 0;
-    bottom: 0;
-    height: calc(100%);
-    border-style: none;
-}
-
-.lesson-container {
+.teacher-description {
     margin: auto 1rem;
     width: calc(100% - 2rem);
     box-sizing: border-box;
@@ -131,39 +83,10 @@
     position: relative;
 }
 
-.lesson-container a {
-    margin: 1rem;
-    color: black;
-    text-decoration: none;
-}
-
-.lesson-container a:hover {
-    text-decoration: underline;
-}
-
-.correction-content {
-    padding: 1rem;
-}
-
-.correction-title,
-.block-correction-container {
-    text-align: center;
-    box-sizing: border-box;
-    background-color: #ffbe46;
-    padding: 1rem;
-    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
-    margin: 1rem 1rem 2rem;
-}
-
-.block-correction-container td {
-    padding: 0.5rem 3rem;
-    text-align: left;
-}
-
 .post-card-container {
     width: 24%;
     margin: 2rem auto;
-    background-color: rgb(100, 175, 255);
+    background-color: #64AFFF;
     padding: 1rem 0;
     box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
     display: grid;
@@ -173,12 +96,15 @@
 }
 
 .post-card-container:hover {
-    background-color: rgb(50, 125, 255);
+    background-color: #084B83;
 }
 
-.post-card-container:hover>.post-card-title {
-    color: white;
-    font-weight: bolder;
+.post-card-container:hover a {
+    color: whitesmoke;
+}
+
+.post-card-container:hover a:hover {
+    text-decoration: underline;
 }
 
 .post-card-title {
@@ -199,11 +125,81 @@
 
 .post-card-container a {
     margin: 1rem;
-    color: white;
+    color: black;
     text-decoration: none;
     display: block;
 }
 
 .post-card-container a:hover {
     text-decoration: underline;
+}
+
+.correction-content {
+    padding: 1rem;
+}
+
+.correction-title {
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #006fdf;
+    color: white;
+    padding: 1rem;
+    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
+    margin: 1rem 1rem 2rem;
+}
+
+.block-correction-container {
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #64AFFF;
+    padding: 1rem;
+    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
+    margin: 1rem 1rem 2rem;
+}
+
+.block-correction-container:hover {
+    background-color: #084B83;
+    color: white;
+}
+
+.block-correction-container td {
+    padding: 0.5rem 3rem;
+    text-align: left;
+}
+
+#correction-container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 300;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fce6a5;
+    overflow-x: hidden;
+    display: none;
+}
+
+#correction-container .closeCorrection {
+    position: absolute;
+    text-decoration: none;
+    top: 4%;
+    right: 4%;
+    font-size: 60px;
+    color: black;
+}
+
+#correction-container .closeCorrection:hover {
+    color: #A3002C;
+}
+
+#iframe-correction {
+    position: relative;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    top: 0;
+    bottom: 0;
+    height: calc(100%);
+    border-style: none;
 }

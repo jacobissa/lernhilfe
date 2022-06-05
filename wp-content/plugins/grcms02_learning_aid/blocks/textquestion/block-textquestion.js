@@ -91,6 +91,7 @@ wp.blocks.registerBlockType('learning-aid/block-textquestion', {
                     className: "block-textquestion-save-input",
                     id: 'answer_' + props.attributes.blockid,
                     name: 'answer_' + props.attributes.blockid,
+                    placeholder: ".....",
                 },
                 null,
             ),

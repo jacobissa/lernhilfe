@@ -1,7 +1,7 @@
 .mc_container {
     width: 30%;
     margin: 2rem auto;
-    background-color: rgb(100, 175, 255);
+    background-color: #64AFFF;
     padding: 1rem 0;
     box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
     gap: 1rem;
@@ -11,7 +11,7 @@
 }
 
 .mc_container:hover {
-    background-color: rgb(50, 125, 255);
+    background-color: #084B83;
 }
 
 .mc_title {
@@ -23,7 +23,7 @@
     margin: 0.5rem;
 }
 
-.mc_container:hover > .mc_title {
+.mc_container:hover>.mc_title {
     color: white;
     font-weight: bolder;
 }
@@ -38,9 +38,7 @@
     height: fit-content;
 }
 
-.mc_input_container {
-
-}
+.mc_input_container {}
 
 .mc_radio {
     vertical-align: baseline;
@@ -64,9 +62,13 @@
     vertical-align: baseline;
 }
 
+.mc_container:hover .mc_label {
+    color: white;
+}
+
 .reveal_answer {
     padding: 10px 1rem;
-    background: #cd2653;
+    background: #9E2A2B;
     color: white;
     cursor: pointer;
     text-align: center;
@@ -74,11 +76,10 @@
     display: inline-block;
     filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
     position: relative;
-
 }
 
 .reveal_answer:hover {
-    background-color: #fa0043;
+    background-color: #E55424;
     text-decoration: underline;
     color: black;
     font-weight: bold;
