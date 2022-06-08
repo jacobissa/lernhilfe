@@ -67,7 +67,7 @@ body {
     padding-top: 4rem;
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     background: #a8a8a8;
 }
 

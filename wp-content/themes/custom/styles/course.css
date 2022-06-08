@@ -1,19 +1,19 @@
+.course_heading {
+    margin: 0;
+}
+
 .teacher_names {
     color: dimgrey;
 }
 
 .course_info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     margin-bottom: 1rem;
 }
 
-.course_content {
-    display: flex;
-    flex-direction: column;
-    /*gap: 3rem;*/
-}
-
 .lessons_grid {
-    margin-top: 3rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -42,7 +42,7 @@
     filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.3));
 }
 
-.lesson_name {
+.lesson_list_lesson_name {
     font-weight: 600;
     font-size: 110%;
 }
@@ -51,7 +51,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: calc(100% + 4rem);
-    margin: 1rem -2rem 0 -2rem;
+    margin: 0 -2rem 2rem -2rem;
 }
 
 .view_switch > a {
@@ -109,4 +109,8 @@
 
 .list_file_name {
     font-weight: bold;
+}
+
+.course_content {
+    display: grid;
 }

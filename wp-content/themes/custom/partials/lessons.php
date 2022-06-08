@@ -17,7 +17,7 @@ $lesson_query = new WP_Query(
         $lesson_query->the_post();
         ?>
         <a class="lesson_container" href="<?php the_permalink($lesson_query->post); ?>">
-            <span class="lesson_name"><?php echo $lesson_query->post->post_title ?></span>
+            <span class="lesson_list_lesson_name"><?php echo $lesson_query->post->post_title ?></span>
         </a>
         <?php
     }

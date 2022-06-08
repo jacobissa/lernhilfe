@@ -10,7 +10,7 @@ if (have_posts()) {
         ?>
         <div class="course_content <?php echo esc_attr(implode(' ', get_post_class())); ?>">
             <div class="course_info">
-                <h1>
+                <h1 class="course_heading">
                     <?php the_title(); ?>
                 </h1>
                 <span class="teacher_names"><?php echo $teacher_string; ?></span>

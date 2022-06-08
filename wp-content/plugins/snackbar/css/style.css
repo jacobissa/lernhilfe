@@ -15,6 +15,7 @@
     filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.3));
     transition: margin-right 0.5s ease-in-out;
     margin-right: calc(-16rem - 20px);
+    color: white;
 }
 
 #snackbar.snackbar_visible {
@@ -27,17 +28,17 @@
 }
 
 #snackbar.success {
-    background: #5db860;
+    background: #005e06;
 }
 
 #snackbar.error {
-    background: #d06969;
+    background: #840000;
 }
 
 #snackbar.info {
-    background: #6995c6;
+    background: #1e5492;
 }
 
 #snackbar.warning {
-    background: #eac072;
+    background: #9c6c00;
 }
