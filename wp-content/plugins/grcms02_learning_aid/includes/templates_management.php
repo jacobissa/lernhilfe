@@ -13,12 +13,7 @@ function learningaid_custom_template_single($template)
     {
         if ($post->post_type == 'lesson')
         {
-            if (!is_user_logged_in())
-            {
-                // Require the user to login in order to access this page
-                auth_redirect();
-            }
-            elseif (file_exists(LEARNINGAID_PLUGIN_LOCATION_DIR . '/templates/single-lesson.php'))
+            if (file_exists(LEARNINGAID_PLUGIN_LOCATION_DIR . '/templates/single-lesson.php'))
             {
                 return LEARNINGAID_PLUGIN_LOCATION_DIR . '/templates/single-lesson.php';
             }
@@ -40,12 +35,7 @@ function learningaid_custom_template_taxonomy($template)
     {
         if ($post->post_type == 'course')
         {
-            if (!is_user_logged_in())
-            {
-                // Require the user to login in order to access this page
-                auth_redirect();
-            }
-            elseif (file_exists(LEARNINGAID_PLUGIN_LOCATION_DIR . '/templates/taxonomy-teacher.php'))
+            if (file_exists(LEARNINGAID_PLUGIN_LOCATION_DIR . '/templates/taxonomy-teacher.php'))
             {
                 return LEARNINGAID_PLUGIN_LOCATION_DIR . '/templates/taxonomy-teacher.php';
             }
