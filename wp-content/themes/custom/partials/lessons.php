@@ -10,6 +10,8 @@ $lesson_query = new WP_Query(
                 'value' => $post->post_name
             ],
         ],
+        'orderby' => 'id',
+        'order' => 'ASC'
     ]
 ); ?>
 <div class="lessons-grid">

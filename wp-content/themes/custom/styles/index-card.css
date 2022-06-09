@@ -63,19 +63,16 @@
     gap: 2rem;
 }
 
-.displayed-index-card.flip:hover, .displayed-index-card:focus {
-    transform: scale(1.01);
+.displayed-index-card:hover, .displayed-index-card:focus {
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .displayed-index-card.flip-card-front:hover, .displayed-index-card.flip-card-front:focus {
     transform: scale(1.01);
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .displayed-index-card.flip-card-back:hover, .displayed-index-card.flip-card-back:focus {
     transform: scale(1.01) rotateY(180deg);
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .displayed-index-card-question {
@@ -98,6 +95,10 @@
     transform-style: preserve-3d;
 }
 
+.flip-card-inner.flip-card-flipped {
+    transform: rotateY(180deg);
+}
+
 .flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
@@ -106,10 +107,6 @@
 }
 
 .flip-card-back {
-    transform: rotateY(180deg);
-}
-
-.flip-card-flipped {
     transform: rotateY(180deg);
 }
 

@@ -20,7 +20,8 @@ $course_query = new WP_Query(
                     <span><?php echo $custom['short_name'][0]; ?></span>
                 </a>
             </li>
-        <?php endwhile; ?>
+        <?php endwhile;
+        wp_meta(); ?>
     </ul>
 
     <?php wp_reset_postdata(); ?>
