@@ -15,8 +15,8 @@ $course_query = new WP_Query(
             $course_query->the_post();
             $custom = get_post_custom($course_query->post->ID);
             ?>
-            <li class="navbar_list_item">
-                <a class="navbar_list_anchor" tabindex="-1" href="<?php the_permalink(); ?>">
+            <li class="navbar-list-item">
+                <a class="navbar-list-anchor" tabindex="-1" href="<?php the_permalink(); ?>">
                     <span><?php echo $custom['short_name'][0]; ?></span>
                 </a>
             </li>

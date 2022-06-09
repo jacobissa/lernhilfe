@@ -1,5 +1,3 @@
-
-
 #snackbar {
     border-radius: 0.5rem;
     box-sizing: border-box;
@@ -18,11 +16,11 @@
     color: white;
 }
 
-#snackbar.snackbar_visible {
+#snackbar.snackbar-visible {
     margin-right: 0;
 }
 
-#snackbar_icon {
+#snackbar-icon {
     width: 20px;
     height: 20px;
 }

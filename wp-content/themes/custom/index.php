@@ -10,20 +10,20 @@ $query = new WP_Query(
         'order' => 'ASC'
     )
 ); ?>
-    <div id="course_list_header">
+    <div id="course-list-header">
         <span>Kursname</span>
         <span>Dozent</span>
     </div>
-    <ul class="striped_list">
+    <ul class="striped-list">
         <?php while ($query->have_posts()) :
             $query->the_post();
             $custom = get_post_custom();
             $teacher_list = get_the_terms( $query->post, 'teacher' );
             $teacher_string = $teacher_list == null ? 'Kein Dozent' : join(', ', wp_list_pluck($teacher_list, 'name'));
             ?>
-            <li class="striped_list_item">
-                <a class="course_list_anchor" href="<?php the_permalink(); ?>">
-                    <span class="list_prof_name"><?php echo the_title() ?></span>
+            <li class="striped-list-item">
+                <a class="course-list-anchor" href="<?php the_permalink(); ?>">
+                    <span class="list-prof-name"><?php echo the_title() ?></span>
                     <span><?php echo $teacher_string; ?></span>
                 </a>
             </li>

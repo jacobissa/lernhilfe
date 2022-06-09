@@ -1,11 +1,11 @@
-#course_list_header {
+#course-list-header {
     display: grid;
     grid-template-columns: 2fr 1fr;
     padding: calc(1rem + 1px);
     color: dimgrey;
 }
 
-.course_list_anchor {
+.course-list-anchor {
     padding: 1rem;
     color: black;
     text-decoration: none;
@@ -13,10 +13,10 @@
     grid-template-columns: 2fr 1fr;
 }
 
-.course_list_anchor:hover {
+.course-list-anchor:hover {
     filter: var(--text-shadow);
 }
 
-.list_prof_name {
+.list-prof-name {
     font-weight: bold;
 }

@@ -1,26 +1,26 @@
-.course_heading {
+.course-heading {
     margin: 0;
 }
 
-.teacher_names {
+.teacher-names {
     color: dimgrey;
 }
 
-.course_info {
+.course-info {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-bottom: 1rem;
 }
 
-.lessons_grid {
+.lessons-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 3rem;
 }
 
-.lesson_container {
+.lesson-container {
     display: grid;
     justify-content: center;
     align-items: center;
@@ -36,25 +36,25 @@
     text-decoration: none;
 }
 
-.lesson_container:hover, .lesson_container:focus {
+.lesson-container:hover, .lesson-container:focus {
     outline: none;
     transform: scale(1.01);
     filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.3));
 }
 
-.lesson_list_lesson_name {
+.lesson-list-lesson-name {
     font-weight: 600;
     font-size: 110%;
 }
 
-.view_switch {
+.view-switch {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: calc(100% + 4rem);
     margin: 0 -2rem 2rem -2rem;
 }
 
-.view_switch > a {
+.view-switch > a {
     display: grid;
     align-items: center;
     justify-content: center;
@@ -65,37 +65,37 @@
     text-decoration: none;
 }
 
-.view_switch > a:not(:first-child) {
+.view-switch > a:not(:first-child) {
     border-top: lightgrey solid;
     border-bottom: lightgrey solid;
     border-left: lightgrey solid;
     border-width: 1px;
 }
 
-.view_switch > a:first-child {
+.view-switch > a:first-child {
     border-top: lightgrey solid;
     border-bottom: lightgrey solid;
     border-width: 1px;
 }
 
-.view_switch > a.selected {
+.view-switch > a.selected {
     border-bottom-color: white;
     background: white;
 }
 
-.view_switch > a:hover, .view_switch > a:focus {
+.view-switch > a:hover, .view-switch > a:focus {
     outline: none;
     background: #e8e8e8;
 }
 
-#summaries_list_header {
+#summaries-list-header {
     display: grid;
     grid-template-columns: 2fr 1fr;
     padding: calc(1rem + 1px);
     color: dimgrey;
 }
 
-.summaries_list_anchor {
+.summaries-list-anchor {
     padding: 1rem;
     color: black;
     text-decoration: none;
@@ -103,14 +103,14 @@
     grid-template-columns: 2fr 1fr;
 }
 
-.summaries_list_anchor:hover {
+.summaries-list-anchor:hover {
     filter: var(--text-shadow);
 }
 
-.list_file_name {
+.list-file-name {
     font-weight: bold;
 }
 
-.course_content {
+.course-content {
     display: grid;
 }

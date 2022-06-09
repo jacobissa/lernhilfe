@@ -21,23 +21,23 @@ const displaySnackbar = (message, variant) => {
     }
 
     let snackbar = document.querySelector("#snackbar");
-    let iconElement = document.querySelector("#snackbar_icon");
-    let messageElement = document.querySelector("#snackbar_message");
+    let iconElement = document.querySelector("#snackbar-icon");
+    let messageElement = document.querySelector("#snackbar-message");
 
     clearTimeout(snackbarHideTimeout);
     clearTimeout(snackbarResetTimeout);
 
     const executeChange = () => {
         snackbar.classList.remove("success", "error", "warning", "info");
-        snackbar.classList.add(variant, "snackbar_visible");
+        snackbar.classList.add(variant, "snackbar-visible");
         iconElement.setAttribute("src", iconUrl);
         messageElement.innerText = message;
 
-        snackbarHideTimeout = setTimeout(() => snackbar.classList.remove("snackbar_visible"), 5000);
+        snackbarHideTimeout = setTimeout(() => snackbar.classList.remove("snackbar-visible"), 5000);
     }
 
-    if (snackbar.classList.contains("snackbar_visible")) {
-        snackbar.classList.remove("snackbar_visible");
+    if (snackbar.classList.contains("snackbar-visible")) {
+        snackbar.classList.remove("snackbar-visible");
 
         snackbarResetTimeout = setTimeout(executeChange, 500);
     } else {

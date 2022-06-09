@@ -8,12 +8,12 @@ if (have_posts()) {
         $teacher_list = get_the_terms($post, 'teacher');
         $teacher_string = $teacher_list == null ? 'Kein Dozent' : join(', ', wp_list_pluck($teacher_list, 'name'));
         ?>
-        <div class="course_content <?php echo esc_attr(implode(' ', get_post_class())); ?>">
-            <div class="course_info">
-                <h1 class="course_heading">
+        <div class="course-content <?php echo esc_attr(implode(' ', get_post_class())); ?>">
+            <div class="course-info">
+                <h1 class="course-heading">
                     <?php the_title(); ?>
                 </h1>
-                <span class="teacher_names"><?php echo $teacher_string; ?></span>
+                <span class="teacher-names"><?php echo $teacher_string; ?></span>
             </div>
             <?php
             $view = $_GET['view'] ?? 'lessons';
@@ -22,7 +22,7 @@ if (have_posts()) {
                 $view = 'lessons';
             }
             ?>
-            <div class="view_switch">
+            <div class="view-switch">
                 <a class="<?php echo $view == 'lessons' ? 'selected' : '' ?>" href="?view=lessons">
                     <span>Lerneinheiten</span>
                 </a>

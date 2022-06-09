@@ -12,12 +12,12 @@ $lesson_query = new WP_Query(
         ],
     ]
 ); ?>
-<div class="lessons_grid">
+<div class="lessons-grid">
     <?php while ($lesson_query->have_posts()) {
         $lesson_query->the_post();
         ?>
-        <a class="lesson_container" href="<?php the_permalink($lesson_query->post); ?>">
-            <span class="lesson_list_lesson_name"><?php echo $lesson_query->post->post_title ?></span>
+        <a class="lesson-container" href="<?php the_permalink($lesson_query->post); ?>">
+            <span class="lesson-list-lesson-name"><?php echo $lesson_query->post->post_title ?></span>
         </a>
         <?php
     }

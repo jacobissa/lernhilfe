@@ -3,7 +3,6 @@ Theme Name: Lernhilfe
 Theme URI: http://www.example.com
 Description: Template für Lernhilfe
 Author: GrCMS Team 2
-Author URI: http://www.example.com
 */
 
 :root {
@@ -51,14 +50,14 @@ header {
     align-items: center;
 }
 
-#header_text {
+#header-text {
     margin: 0;
     color: white;
     line-height: 2rem;
     font-weight: normal;
 }
 
-#header_anchor {
+#header-anchor {
     text-decoration: none;
 }
 
@@ -90,7 +89,7 @@ button, input[type=button], input[type=submit] {
     font-size: inherit;
 }
 
-#content_container {
+#content-container {
     margin: 2rem 3rem;
     box-sizing: border-box;
     width: calc(100% - 6rem);
@@ -100,21 +99,21 @@ button, input[type=button], input[type=submit] {
     border-radius: 0.5rem;
 }
 
-.striped_list {
+.striped-list {
     border-radius: 0.5rem;
     overflow: hidden;
     border: 1px solid grey;
 }
 
-.striped_list_item:not(:first-child) {
+.striped-list-item:not(:first-child) {
     border-top: 1px solid dimgrey;
 }
 
-.striped_list_item:nth-child(odd) {
+.striped-list-item:nth-child(odd) {
     background: white;
 }
 
-.striped_list_item:nth-child(even) {
+.striped-list-item:nth-child(even) {
     background: #e8e8e8;
 }
 
@@ -139,23 +138,23 @@ button, input[type=button], input[type=submit] {
     left: -210px;
 }
 
-.navbar_list_item {
+.navbar-list-item {
     border-bottom: 1px solid lightgrey;
 }
 
-.navbar_list_anchor {
+.navbar-list-anchor {
     display: grid;
     padding: 1rem;
     color: black;
     text-decoration: none;
 }
 
-.navbar_list_anchor:hover, .navbar_list_anchor:focus {
+.navbar-list-anchor:hover, .navbar-list-anchor:focus {
     outline: none;
     filter: var(--text-shadow);
 }
 
-.icon_button {
+.icon-button {
     width: 2rem;
     height: 2rem;
     display: flex;
@@ -163,11 +162,78 @@ button, input[type=button], input[type=submit] {
     justify-content: center;
 }
 
-.icon_button > svg {
+.icon-button > svg {
     width: 1.8rem;
     height: 1.8rem;
 }
 
-.icon_button:focus > svg {
+.icon-button:focus > svg {
     filter: var(--text-shadow);
+}
+
+.icon-action-button {
+    background: #0d66c2;
+    color: white;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+    text-decoration: none;
+}
+
+.icon-action-button:hover, .icon-action-button:focus {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.icon-action-button:disabled {
+    background: dimgrey;
+    cursor: not-allowed;
+}
+
+.icon-action-button img {
+    width: 1.2rem;
+    margin: -0.1rem;
+    filter: brightness(0) invert(1);
+}
+
+.action-button {
+    background: #0d66c2;
+    color: white;
+    padding: 0.5rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+    text-decoration: none;
+}
+
+.action-button:hover, .action-button:focus {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.action-button:disabled {
+    background: dimgrey;
+    cursor: not-allowed;
+}
+
+.text-action-button {
+    padding: 0.5rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: dimgrey;
+    text-decoration: none;
+}
+
+.text-action-button:hover, .text-action-button:focus {
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.text-action-button:disabled {
+    cursor: not-allowed;
 }

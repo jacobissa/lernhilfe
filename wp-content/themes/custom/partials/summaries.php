@@ -40,20 +40,20 @@ if (isset($_POST['add_summary']) && isset($_POST['course_slug']) && isset($_FILE
 }
 ?>
 <div id="summaries">
-    <div id="summaries_list_header">
+    <div id="summaries-list-header">
         <span>Zusammenfassung</span>
         <span>Datum</span>
     </div>
-    <ul class="striped_list">
+    <ul class="striped-list">
         <?php
         $sub_dir = basename(get_the_permalink());
         $pdf_files = glob($upload_dir['basedir'] . "/" . $sub_dir . "/*.pdf");
         foreach ($pdf_files as $file) {
             $sub_url = explode('wp-content/uploads', $file)[1];
             $full_url = $upload_dir['baseurl'] . $sub_url;
-            echo('<li class="striped_list_item">
-                        <a class="summaries_list_anchor" id="wp-block-file-pdf" target="_blank" href="' . $full_url . '">
-                        <span class="list_file_name">' . basename($full_url) . '</span>
+            echo('<li class="striped-list-item">
+                        <a class="summaries-list-anchor" id="wp-block-file-pdf" target="_blank" href="' . $full_url . '">
+                        <span class="list-file-name">' . basename($full_url) . '</span>
                         <span>' . date("d.m.Y H:i", filemtime($file)) . '</span>
                         </a></li>');
         }
