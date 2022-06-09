@@ -13,12 +13,12 @@ function add_script()
 
 add_action("wp_enqueue_scripts", __NAMESPACE__ . '\add_script');
 
-function my_filter_head()
+function filter_head()
 {
     remove_action('wp_head', '_admin_bar_bump_cb');
 }
 
-add_action('get_header', __NAMESPACE__ . '\my_filter_head');
+add_action('get_header', __NAMESPACE__ . '\filter_head');
 
 function init_index_card()
 {
@@ -26,8 +26,6 @@ function init_index_card()
     {
         if (!check_admin_referer('index_card_nonce', 'nonce'))
             wp_send_json_error("No access from this host", 403);
-
-        //TODO security and user profile https://www.phpkida.com/how-to-add-post-from-frontend-in-wordpress-without-plugin/
 
         $username = "testuser";
         $question = wp_strip_all_tags($_POST["question"]);
@@ -56,15 +54,13 @@ function init_index_card()
         wp_send_json_error("Could not create Index Card", 500);
     }
 
-    add_action('admin_post_add_index_card', __NAMESPACE__ . '\add_index_card');
-    add_action('admin_post_nopriv_add_index_card', __NAMESPACE__ . '\add_index_card');
+    add_action('wp_ajax_add_index_card', __NAMESPACE__ . '\add_index_card');
+    add_action('wp_ajax_nopriv_add_index_card', __NAMESPACE__ . '\add_index_card');
 
     function delete_index_card()
     {
         if (!check_admin_referer('index_card_nonce', 'nonce'))
             wp_send_json_error("No access from this host", 403);
-
-        //TODO security and user profile https://www.phpkida.com/how-to-add-post-from-frontend-in-wordpress-without-plugin/
 
         $username = "testuser";
         $index_card_id = wp_strip_all_tags($_POST["index_card_id"]);
@@ -88,8 +84,8 @@ function init_index_card()
         wp_send_json_success();
     }
 
-    add_action('admin_post_delete_index_card', __NAMESPACE__ . '\delete_index_card');
-    add_action('admin_post_nopriv_delete_index_card', __NAMESPACE__ . '\delete_index_card');
+    add_action('wp_ajax_delete_index_card', __NAMESPACE__ . '\delete_index_card');
+    add_action('wp_ajax_nopriv_delete_index_card', __NAMESPACE__ . '\delete_index_card');
 
     function enqueue_index_card_script()
     {
@@ -100,7 +96,7 @@ function init_index_card()
             array(
                 'add_action' => 'add_index_card',
                 'delete_action' => 'delete_index_card',
-                'post_url' => admin_url('admin-post.php'),
+                'post_url' => admin_url('admin-ajax.php'),
                 'nonce' => wp_create_nonce('index_card_nonce')
             )
         );
