@@ -23,15 +23,28 @@ if (isset($_POST['add_summary']) && isset($_POST['course_slug']) && isset($_FILE
     $file_name = str_replace(' ', '_', $file_name);
     $temp_name = $_FILES['summary_to_upload']['tmp_name'];
     $file_type = wp_check_filetype($file_name);
+    $new_full_path = $upload_path . $file_name;
 
     if ($file_type['ext'] != 'pdf') {
         echo 'File not supported';
     } else {
-        if (file_exists($upload_path . $file_name)) {
+        if (file_exists($new_full_path)) {
             echo 'The file already exists';
         } else {
-            if (move_uploaded_file($temp_name, $upload_path . $file_name)) {
-                echo 'File was successfully uploaded';
+            if (move_uploaded_file($temp_name, $new_full_path)) {
+                $attachment_args = array(
+                    'guid' => $new_full_path,
+                    'post_mime_type' => $file_type['type'],
+                    'post_title' => $file_name,
+                    'post_content' => '',
+                    'post_status' => 'inherit',
+                    'post_excerpt' => $folder_name
+                );
+                $attach_id = wp_insert_attachment($attachment_args, $new_full_path);
+                if ($attach_id != 0) {
+                    echo 'File was successfully uploaded';
+                    //echo "<script> displaySnackbar('File was successfully uploaded', 'success'); </script>";
+                }
             } else {
                 echo 'The file was not uploaded';
             }

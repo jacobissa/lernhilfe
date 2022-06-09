@@ -22,7 +22,7 @@ wp.blocks.registerBlockType('learning-aid/block-textquestion', {
                 question: event.target.value
             });
             props.setAttributes({
-                blockid: crypto.randomUUID()
+                blockid: Date.now()
             })
         }
 
@@ -31,7 +31,7 @@ wp.blocks.registerBlockType('learning-aid/block-textquestion', {
                 solution: event.target.value
             })
             props.setAttributes({
-                blockid: crypto.randomUUID()
+                blockid: Date.now()
             })
         }
 
