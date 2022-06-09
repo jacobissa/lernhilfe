@@ -109,3 +109,77 @@ add_action("init", __NAMESPACE__ . '\init_index_card');
 
 
 add_filter('show_admin_bar', '__return_false');
+
+
+function enqueue_summaries_script()
+{
+    wp_register_script('summaries-script', get_template_directory_uri() . '/js/summaries-script.js');
+    wp_enqueue_script('summaries-script');
+    wp_localize_script('summaries-script', 'summaries_args',
+        array('post_url' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('summary_nonce')));
+}
+
+add_action('wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_summaries_script');
+
+function add_summary()
+{
+    if (!check_admin_referer('summary_nonce', 'nonce')) {
+        wp_send_json_error("No access from this host", 403);
+    }
+
+    if (!function_exists('move_uploaded_file')) {
+        require_once(ABSPATH . 'wp-admin/includes/file.php');
+    }
+
+    if (isset($_POST['course_slug']) && isset($_FILES['summary_to_upload'])) {
+        $folder_name = htmlspecialchars($_POST['course_slug']);
+        $folder_name = trim($folder_name);
+        $upload_dir = wp_upload_dir();
+        $upload_path = sprintf('%s/%s/', $upload_dir['basedir'], $folder_name);
+
+        if (!file_exists($upload_path)) {
+            mkdir($upload_path);
+        }
+
+        $file_name = htmlspecialchars($_FILES['summary_to_upload']['name']);
+        $file_name = str_replace(' ', '_', $file_name);
+        $temp_name = $_FILES['summary_to_upload']['tmp_name'];
+        $file_type = wp_check_filetype($file_name);
+        $new_full_path = $upload_path . $file_name;
+
+        if ($file_type['ext'] != 'pdf') {
+            wp_send_json_error('File not supported', 415);
+        } else {
+            if (file_exists($new_full_path)) {
+                wp_send_json_error('The file already exist', 409);
+            } else {
+                if (move_uploaded_file($temp_name, $new_full_path)) {
+                    $attachment_args = array(
+                        'guid' => $new_full_path,
+                        'post_mime_type' => $file_type['type'],
+                        'post_title' => $file_name,
+                        'post_content' => '',
+                        'post_status' => 'inherit',
+                        'post_excerpt' => $folder_name
+                    );
+                    $attach_id = wp_insert_attachment($attachment_args, $new_full_path);
+                    if ($attach_id != 0) {
+                        $full_url = sprintf('%s/%s/%s', $upload_dir['baseurl'], $folder_name, $file_name);
+                        $response_data = array(
+                            'fullUrl' => $full_url,
+                            'name' => $file_name,
+                            'date' => date("d.m.Y H:i", filemtime($new_full_path))
+                        );
+                        wp_send_json_success($response_data, 200);
+                    }
+                } else {
+                    wp_send_json_error('The file was not uploaded', 500);
+                }
+            }
+        }
+    }
+    wp_send_json_error('Invalid data', 400);
+}
+
+add_action('wp_ajax_add_summary', __NAMESPACE__ . '\add_summary');
