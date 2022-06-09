@@ -17,21 +17,22 @@ wp.blocks.registerBlockType('learning-aid/block-textquestion', {
     },
 
     edit: function(props) {
+
         function updateQuestion(event) {
             props.setAttributes({
                 question: event.target.value
             });
             props.setAttributes({
-                blockid: Date.now()
+                blockid: props.clientId
             })
         }
 
         function updateSolution(event) {
             props.setAttributes({
                 solution: event.target.value
-            })
+            });
             props.setAttributes({
-                blockid: Date.now()
+                blockid: props.clientId
             })
         }
 
