@@ -3,7 +3,10 @@ $course_query = new WP_Query(
     array(
         'post_type' => 'course',
         'post_status' => 'publish',
-        'posts_per_page' => -1
+        'posts_per_page' => -1,
+        'orderby' => 'meta_value',
+        'meta_key' => 'short_name',
+        'order' => 'ASC'
     )
 ); ?>
 <div id="navbar" class="closed">

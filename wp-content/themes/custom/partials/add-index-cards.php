@@ -1,7 +1,10 @@
 <div class="index-card-container">
     <div class="index-card-stack">
         <div class="index-card-lower"></div>
-        <form class="index-card-upper" id="index-card-form" onsubmit="addIndexCard(); return false;" action="">
+        <form class="index-card-upper"
+              id="index-card-form"
+              onsubmit="addIndexCard(<?php echo $post->ID ?>); return false;"
+              action="">
             <label for="index-card-question-input" hidden>Frage</label>
             <input id="index-card-question-input" type="text" name="question" placeholder="Frage"/>
             <hr/>
@@ -16,7 +19,7 @@
         <button class="text-action-button" onclick="window.location.href = '?view=index-cards'">
             Zurück
         </button>
-        <button class="icon-action-button" onclick="addIndexCard()">
+        <button class="icon-action-button" onclick="document.querySelector('#index-card-form').onsubmit()">
             Speichern
             <img src="<?php echo get_template_directory_uri(); ?>/svg/save.svg" alt="Save">
         </button>

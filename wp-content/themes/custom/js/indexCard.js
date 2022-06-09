@@ -1,4 +1,10 @@
-function addIndexCard() {
+const flipIndexCard = () => {
+    document.querySelector('.flip-card-inner').classList.add('flip-card-flipped');
+    document.querySelector('.displayed-index-card.flip-card-front').disabled = true;
+    document.querySelector('.displayed-index-card.flip-card-back').disabled = false;
+}
+
+const addIndexCard = courseId => {
     let formSelector = "#index-card-form";
     const indexCardForm = document.querySelector(formSelector);
 
@@ -18,6 +24,12 @@ function addIndexCard() {
         displaySnackbar("Bitte gib Frage und Antwort an", "warning");
         return;
     }
+
+    if (courseId === null || courseId === undefined) {
+        console.error("course id for index card not specified");
+        return;
+    }
+    data.append("course_id", courseId);
 
     data.append("action", index_card_vars.add_action);
     data.append("nonce", index_card_vars.nonce);
@@ -39,9 +51,9 @@ function addIndexCard() {
             displaySnackbar("Die Karteikarte konnte nicht gespeichert werden", "error");
         })
         .finally(() => setChildrenDisabled(formSelector, false));
-}
+};
 
-function deleteIndexCard(id) {
+const deleteIndexCard = id => {
     const data = new FormData();
     data.append("index_card_id", id)
     data.append("action", index_card_vars.delete_action);
@@ -60,4 +72,4 @@ function deleteIndexCard(id) {
         .catch(() => {
             displaySnackbar("Die Karteikarte konnte nicht gelöscht werden", "error");
         });
-}
+};

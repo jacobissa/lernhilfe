@@ -6,6 +6,10 @@ $index_card_query = new WP_Query([
             'key' => 'username',
             'value' => 'testuser'
         ],
+        [
+            'key' => 'course_id',
+            'value' => $post->ID
+        ],
     ],
     'orderby' => 'rand',
     'posts_per_page' => '1'
@@ -27,11 +31,12 @@ $have_posts = $index_card_query->have_posts();
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <button class="index-card-upper displayed-index-card flip-card-front"
-                                    onclick="document.querySelector('.flip-card-inner').classList.add('flip-card-flipped')">
+                                    onclick="flipIndexCard()">
                                 <span class="displayed-index-card-question"><?php echo $question; ?></span>
                             </button>
                             <button class="index-card-upper displayed-index-card flip-card-back"
-                                    onclick="window.location.reload()">
+                                    onclick="window.location.reload()"
+                                    disabled>
                                 <span class="displayed-index-card-question"><?php echo $question; ?></span>
                                 <span class="displayed-index-card-anwser"><?php echo $answer; ?></span>
                             </button>

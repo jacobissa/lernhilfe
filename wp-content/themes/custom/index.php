@@ -5,7 +5,9 @@ $query = new WP_Query(
     array(
         'post_type' => 'course',
         'post_status' => 'publish',
-        'posts_per_page' => -1
+        'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC'
     )
 ); ?>
     <div id="course_list_header">

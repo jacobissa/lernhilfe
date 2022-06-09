@@ -32,6 +32,7 @@ function init_index_card()
         $username = "testuser";
         $question = wp_strip_all_tags($_POST["question"]);
         $answer = wp_strip_all_tags($_POST["answer"]);
+        $course_id = wp_strip_all_tags($_POST["course_id"]);
 
         if ($question == null || $answer == null)
             wp_send_json_error("Missing data for Index Card", 400);
@@ -44,14 +45,15 @@ function init_index_card()
 
         $inserted_id = wp_insert_post($new_index_card);
 
-        if ($inserted_id == 0)
-            wp_send_json_error("Could not create Index Card", 500);
+        if ($inserted_id !== 0 &&
+            add_post_meta($inserted_id, 'question', $question) &&
+            add_post_meta($inserted_id, 'answer', $answer) &&
+            add_post_meta($inserted_id, 'username', $username) &&
+            add_post_meta($inserted_id, 'course_id', $course_id)) {
+            wp_send_json_success();
+        }
 
-        add_post_meta($inserted_id, 'question', $question);
-        add_post_meta($inserted_id, 'answer', $answer);
-        add_post_meta($inserted_id, 'username', $username);
-
-        wp_send_json_success();
+        wp_send_json_error("Could not create Index Card", 500);
     }
 
     add_action('admin_post_add_index_card', __NAMESPACE__ . '\add_index_card');
