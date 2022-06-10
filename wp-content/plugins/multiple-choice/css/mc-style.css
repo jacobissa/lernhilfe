@@ -38,8 +38,6 @@
     height: fit-content;
 }
 
-.mc_input_container {}
-
 .mc_radio {
     vertical-align: baseline;
 }
@@ -51,8 +49,9 @@
     width: 1.2rem;
     padding: 0.2rem;
     text-align: center;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.4rem;
     margin-right: 0.4rem;
+    margin-left: 0.1rem;
     border: 1px solid dimgrey;
     border-radius: 5px;
     vertical-align: baseline;
@@ -64,57 +63,4 @@
 
 .mc_container:hover .mc_label {
     color: white;
-}
-
-.reveal_answer {
-    padding: 10px 1rem;
-    background: #9E2A2B;
-    color: white;
-    cursor: pointer;
-    text-align: center;
-    margin-top: 1rem;
-    display: inline-block;
-    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
-    position: relative;
-    border-radius: 5px;
-}
-
-.reveal_answer:hover {
-    background-color: #E55424;
-    text-decoration: underline;
-    color: black;
-    font-weight: bold;
-}
-
-.answer_content {
-    display: none;
-    background: #C8EB64FF;
-    padding: 10px 1rem;
-    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
-    margin: 0;
-    position: absolute;
-    align-content: center;
-}
-
-.correct_answer {
-    color: black;
-}
-
-.correct_checkmark:before {
-    display: inline-block;
-    content: '\2714';
-    background: #e5e5e5;
-    color: black;
-    margin: 0 5px 0 0;
-    border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    text-align: center;
-    border: 1px solid dimgrey;
-    vertical-align: baseline;
-}
-
-.answer_hint {
-    color: black;
-    margin: 5px 0 0 0;
 }
