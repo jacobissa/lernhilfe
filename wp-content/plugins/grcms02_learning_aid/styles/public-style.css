@@ -54,22 +54,19 @@
 
 .submit-button {
     display: inline-block;
-    background-color: #9E2A2B !important;
+    background-color: #0d66c2 !important;
     color: white;
     text-align: center;
     min-width: 25% !important;
     height: 4rem;
     margin: 2rem 4%;
     border-radius: 5px;
-    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
     padding: 1rem !important;
 }
 
 .submit-button:hover {
-    background-color: #E55424 !important;
-    text-decoration: underline;
-    color: black;
-    font-weight: bold;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .teacher-description {

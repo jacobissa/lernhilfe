@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grcms02_learning_aid\n"
-"POT-Creation-Date: 2022-06-04 21:19+0200\n"
-"PO-Revision-Date: 2022-06-04 21:19+0200\n"
+"POT-Creation-Date: 2022-06-10 14:27+0200\n"
+"PO-Revision-Date: 2022-06-10 14:27+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -124,7 +124,7 @@ msgstr "Lehrer suchen"
 msgid "Popular Teachers"
 msgstr "Beliebte Lehrer"
 
-#: includes/course_post_type.php:63 includes/course_post_type.php:138
+#: includes/course_post_type.php:63 includes/course_post_type.php:137
 msgid "All Teachers"
 msgstr "Alle Lehrer"
 
@@ -192,19 +192,19 @@ msgstr "Lehrer-Link"
 msgid "A link to a Teacher"
 msgstr "Ein Link zu einem Lehrer"
 
-#: includes/course_post_type.php:105 includes/lesson_post_type.php:182
+#: includes/course_post_type.php:104 includes/lesson_post_type.php:182
 msgid "Author"
 msgstr "Autor"
 
-#: includes/course_post_type.php:106 includes/lesson_post_type.php:183
+#: includes/course_post_type.php:105 includes/lesson_post_type.php:183
 msgid "Date"
 msgstr "Datum"
 
-#: includes/course_post_type.php:160
+#: includes/course_post_type.php:159
 msgid "Additional Info"
 msgstr "Zusätzliche Informationen"
 
-#: includes/course_post_type.php:171
+#: includes/course_post_type.php:170
 msgid "Short name"
 msgstr "Kurzname"
 
@@ -308,38 +308,45 @@ msgstr "Details zur Lektion"
 msgid "Submit Answers"
 msgstr "Antworten abschicken"
 
-#: templates/single-lesson.php:83
+#: templates/single-lesson.php:104
 msgid "Thank you for answers! Here is the correction"
 msgstr "Vielen Dank für die Antworten! Hier ist die Korrektur"
 
-#: templates/single-lesson.php:104
+#: templates/single-lesson.php:126 templates/single-lesson.php:156
 msgid "Question:"
 msgstr "Frage:"
 
-#: templates/single-lesson.php:108
+#: templates/single-lesson.php:130 templates/single-lesson.php:160
 msgid "Your Answer:"
 msgstr "Ihre Antwort:"
 
-#: templates/single-lesson.php:112
+#: templates/single-lesson.php:134
 msgid "Correct Words:"
 msgstr "Richtige Wörter:"
 
-#: templates/single-lesson.php:116
+#: templates/single-lesson.php:138
 msgid "Missed Words:"
 msgstr "Verpasste Wörter:"
 
-#: templates/single-lesson.php:120
+#: templates/single-lesson.php:142
 msgid "Score:"
 msgstr "Bewertung:"
 
-#: uninstall.php:16
-msgid "Uninstall stopped before cleaning database for debugging purposes."
-msgstr ""
-"Die Deinstallation wurde vor dem Bereinigen der Datenbank zu Debugzwecken "
-"gestoppt."
+#: templates/single-lesson.php:164
+msgid "Correct Answer:"
+msgstr "Richtige Antwort:"
 
-#: uninstall.php:47
+#: templates/single-lesson.php:168
+msgid "Hint:"
+msgstr "Hinweis:"
+
+#: uninstall.php:59
 msgid "Uninstall stopped before deleting files for debugging purposes."
 msgstr ""
 "Die Deinstallation wurde gestoppt, bevor Dateien zu Debugging-Zwecken "
 "gelöscht wurden."
+
+#~ msgid "Uninstall stopped before cleaning database for debugging purposes."
+#~ msgstr ""
+#~ "Die Deinstallation wurde vor dem Bereinigen der Datenbank zu Debugzwecken "
+#~ "gestoppt."
