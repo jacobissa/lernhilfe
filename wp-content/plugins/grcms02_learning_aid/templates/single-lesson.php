@@ -66,9 +66,30 @@ get_sidebar(); ?>
 								$answer = (isset($_POST['answer_' . $blockid])) ? $_POST['answer_' . $blockid] : '';
 
 								$entry = array(
-									'question' => $question,
-									'solution' => explode(';', $solution),
-									'answer' => $answer,
+									'textquestion' => array(
+										'question' => $question,
+										'solution' => explode(';', $solution),
+										'answer' => $answer,
+									)
+								);
+								array_push(
+									$all_entries,
+									$entry
+								);
+							elseif (str_contains($key, 'mc_q_')) :
+								$blockid = strtr($key, array('mc_q_' => ''));
+								$question = $value;
+								$solution = (isset($_POST['mc_s_' . $blockid])) ? $_POST['mc_s_' . $blockid] : '';
+								$answer = (isset($_POST['mc_a_' . $blockid])) ? $_POST['mc_a_' . $blockid] : '';
+								$hint = (isset($_POST['mc_h_' . $blockid])) ? $_POST['mc_h_' . $blockid] : '';
+
+								$entry = array(
+									'mcquestion' => array(
+										'question' => $question,
+										'solution' => $solution,
+										'answer' => $answer,
+										'hint' => $hint,
+									)
 								);
 								array_push(
 									$all_entries,
@@ -83,46 +104,74 @@ get_sidebar(); ?>
 							<h3 class="correction-title"><?php _e('Thank you for answers! Here is the correction', LEARNINGAID_DOMAIN); ?></h3>
 							<?php
 							foreach ($all_entries as $entry) :
-								$question = $entry['question'];
-								$solution_array = $entry['solution'];
-								$answer = $entry['answer'];
-								$mark_per_keyword = 1 / count($solution_array);
-								$collected_marks = 0;
-								$founded_keywords = array();
-								$missed_keywords = array();
-								foreach ($solution_array as $solution) :
-									if (stripos($answer, $solution) !== false) :
-										array_push($founded_keywords, $solution);
-										$collected_marks += $mark_per_keyword;
-									else :
-										array_push($missed_keywords, $solution);
-									endif;
-								endforeach; ?>
-								<div class="block-correction-container">
-									<table>
-										<tr>
-											<td><?php _e('Question:', LEARNINGAID_DOMAIN); ?></td>
-											<td><?php echo $question; ?></td>
-										</tr>
-										<tr>
-											<td><?php _e('Your Answer:', LEARNINGAID_DOMAIN); ?></td>
-											<td><?php echo $answer; ?></td>
-										</tr>
-										<tr>
-											<td><?php _e('Correct Words:', LEARNINGAID_DOMAIN); ?></td>
-											<td><?php echo implode(" ; ", $founded_keywords); ?></td>
-										</tr>
-										<tr>
-											<td><?php _e('Missed Words:', LEARNINGAID_DOMAIN); ?></td>
-											<td><?php echo implode(" ; ", $missed_keywords); ?></td>
-										</tr>
-										<tr>
-											<td><?php _e('Score:', LEARNINGAID_DOMAIN); ?></td>
-											<td><?php echo ceil($collected_marks * 100) . '%'; ?></td>
-										</tr>
-									</table>
-								</div>
+								if (isset($entry['textquestion'])) :
+									$question = $entry['textquestion']['question'];
+									$solution_array = $entry['textquestion']['solution'];
+									$answer = $entry['textquestion']['answer'];
+									$mark_per_keyword = 1 / count($solution_array);
+									$collected_marks = 0;
+									$founded_keywords = array();
+									$missed_keywords = array();
+									foreach ($solution_array as $solution) :
+										if (stripos($answer, $solution) !== false) :
+											array_push($founded_keywords, $solution);
+											$collected_marks += $mark_per_keyword;
+										else :
+											array_push($missed_keywords, $solution);
+										endif;
+									endforeach; ?>
+									<div class="block-correction-container">
+										<table>
+											<tr>
+												<td><?php _e('Question:', LEARNINGAID_DOMAIN); ?></td>
+												<td><?php echo $question; ?></td>
+											</tr>
+											<tr>
+												<td><?php _e('Your Answer:', LEARNINGAID_DOMAIN); ?></td>
+												<td><?php echo $answer; ?></td>
+											</tr>
+											<tr>
+												<td><?php _e('Correct Words:', LEARNINGAID_DOMAIN); ?></td>
+												<td><?php echo implode(" ; ", $founded_keywords); ?></td>
+											</tr>
+											<tr>
+												<td><?php _e('Missed Words:', LEARNINGAID_DOMAIN); ?></td>
+												<td><?php echo implode(" ; ", $missed_keywords); ?></td>
+											</tr>
+											<tr>
+												<td><?php _e('Score:', LEARNINGAID_DOMAIN); ?></td>
+												<td><?php echo ceil($collected_marks * 100) . '%'; ?></td>
+											</tr>
+										</table>
+									</div>
+								<?php
+								elseif (isset($entry['mcquestion'])) :
+									$question = $entry['mcquestion']['question'];
+									$solution = $entry['mcquestion']['solution'];
+									$answer = $entry['mcquestion']['answer'];
+									$hint = $entry['mcquestion']['hint']; ?>
+									<div class="block-correction-container">
+										<table>
+											<tr>
+												<td><?php _e('Question:', LEARNINGAID_DOMAIN); ?></td>
+												<td><?php echo $question; ?></td>
+											</tr>
+											<tr>
+												<td><?php _e('Your Answer:', LEARNINGAID_DOMAIN); ?></td>
+												<td><?php echo $answer; ?></td>
+											</tr>
+											<tr>
+												<td><?php _e('Correct Answer:', LEARNINGAID_DOMAIN); ?></td>
+												<td><?php echo $solution; ?></td>
+											</tr>
+											<tr>
+												<td><?php _e('Hint:', LEARNINGAID_DOMAIN); ?></td>
+												<td><?php echo $hint; ?></td>
+											</tr>
+										</table>
+									</div>
 							<?php
+								endif;
 							endforeach; ?>
 						</main>
 					<?php

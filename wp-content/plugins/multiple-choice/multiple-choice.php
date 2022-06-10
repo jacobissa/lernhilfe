@@ -8,7 +8,8 @@
  */
 
 /** Prevent direct access to the file */
-if (!defined('WPINC')) {
+if (!defined('WPINC'))
+{
     die;
 }
 
@@ -41,19 +42,32 @@ function mc_question($atts): string
     $alphabet = range('A', 'Z');
     $name = str_replace(' ', '_', htmlspecialchars($title));
 
-    for ($i = 0; $i < count($answers) && $i < count($alphabet); $i++) {
-        $output .= '<div class="mc_input"><input type="radio" class="mc_radio" id="' . $name . $alphabet[$i] . '" name="' . $name . ' " value="' . $answers[$i] . '">
+    $mc_id = uniqid();
+    $mc_question_id = "mc_q_" . $mc_id;
+    $mc_answer_id = "mc_a_" . $mc_id;
+    $mc_solution_id = "mc_s_" . $mc_id;
+    $mc_hint_id = "mc_h_" . $mc_id;
+
+    for ($i = 0; $i < count($answers) && $i < count($alphabet); $i++)
+    {
+        $output .= '<div class="mc_input"><input type="radio" class="mc_radio" id="' . $name . $alphabet[$i] . '" name="' . $mc_answer_id . '" value="' . $answers[$i] . '">
             <label class="mc_label" for="' . $name . $alphabet[$i] . '"> <span class="mc_span">' . $alphabet[$i] . '</span>' . $answers[$i] . '  </label></div>';
     }
+    $output .= "<input type='hidden' name='" . $mc_question_id . "' value='" . $a['title'] . "'>";
+    $output .= "<input type='hidden' name='" . $mc_solution_id . "' value='" . $a['correct'] . "'>";
+    $output .= "<input type='hidden' name='" . $mc_hint_id . "' value='" . $a['hint'] . "'>";
 
+    /*
     $answer_id = uniqid();
     $output .= '</div><div class="reveal_answer" id="button_' . $answer_id . '" title="Antwort einblenden" onclick="showAnswer(\'content_' . $answer_id . '\')">Antwort anzeigen</div>
         <div class="answer_content" id="content_' . $answer_id . '">
         <div class="correct_answer"><b class="correct_checkmark">' . $a['correct'] . '</b></div>';
 
-    if (!empty($a['hint'])) {
+    if (!empty($a['hint']))
+    {
         $output .= '<div class="answer_hint">' . $a['hint'] . '</div>';
     }
+    */
 
     $output .= '</div></div></div>';
     return $output;
@@ -64,7 +78,8 @@ function mc_enqueue_scripts()
 {
     global $post;
     $has_shortcode = has_shortcode($post->post_content, 'multiple_choice_question');
-    if (is_a($post, 'WP_Post') && $has_shortcode) {
+    if (is_a($post, 'WP_Post') && $has_shortcode)
+    {
         wp_register_style('mc-style', plugin_dir_url(__FILE__) . 'css/mc-style.css');
         wp_enqueue_style('mc-style');
 
