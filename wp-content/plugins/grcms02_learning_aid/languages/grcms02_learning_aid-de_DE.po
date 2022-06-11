@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grcms02_learning_aid\n"
-"POT-Creation-Date: 2022-06-10 14:27+0200\n"
-"PO-Revision-Date: 2022-06-10 14:27+0200\n"
+"POT-Creation-Date: 2022-06-11 12:39+0200\n"
+"PO-Revision-Date: 2022-06-11 12:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -124,7 +124,7 @@ msgstr "Lehrer suchen"
 msgid "Popular Teachers"
 msgstr "Beliebte Lehrer"
 
-#: includes/course_post_type.php:63 includes/course_post_type.php:137
+#: includes/course_post_type.php:63 includes/course_post_type.php:169
 msgid "All Teachers"
 msgstr "Alle Lehrer"
 
@@ -192,21 +192,21 @@ msgstr "Lehrer-Link"
 msgid "A link to a Teacher"
 msgstr "Ein Link zu einem Lehrer"
 
-#: includes/course_post_type.php:104 includes/lesson_post_type.php:182
+#: includes/course_post_type.php:104 includes/course_post_type.php:202
+msgid "Short name"
+msgstr "Kurzname"
+
+#: includes/course_post_type.php:105
 msgid "Author"
 msgstr "Autor"
 
-#: includes/course_post_type.php:105 includes/lesson_post_type.php:183
+#: includes/course_post_type.php:106 includes/lesson_post_type.php:182
 msgid "Date"
 msgstr "Datum"
 
-#: includes/course_post_type.php:159
+#: includes/course_post_type.php:191
 msgid "Additional Info"
 msgstr "Zusätzliche Informationen"
-
-#: includes/course_post_type.php:170
-msgid "Short name"
-msgstr "Kurzname"
 
 #: includes/lesson_post_type.php:11
 msgid "Lessons"
@@ -340,13 +340,14 @@ msgstr "Richtige Antwort:"
 msgid "Hint:"
 msgstr "Hinweis:"
 
+#: uninstall.php:15
+msgid "Uninstall stopped before cleaning database for debugging purposes."
+msgstr ""
+"Die Deinstallation wurde vor dem Bereinigen der Datenbank zu Debugzwecken "
+"gestoppt."
+
 #: uninstall.php:59
 msgid "Uninstall stopped before deleting files for debugging purposes."
 msgstr ""
 "Die Deinstallation wurde gestoppt, bevor Dateien zu Debugging-Zwecken "
 "gelöscht wurden."
-
-#~ msgid "Uninstall stopped before cleaning database for debugging purposes."
-#~ msgstr ""
-#~ "Die Deinstallation wurde vor dem Bereinigen der Datenbank zu Debugzwecken "
-#~ "gestoppt."
