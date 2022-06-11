@@ -31,6 +31,9 @@ function addSummary() {
                     case 409:
                         displaySnackbar('Die Datei existiert bereits', 'warning');
                         break;
+                    case 401:
+                        displaySnackbar('Nur angemeldete Benutzer können Zusammenfassungen hochladen', 'error');
+                        break;
                     default:
                         displaySnackbar('Die Zusammenfassung konnte nicht hochgeladen werden', 'error');
                         break;

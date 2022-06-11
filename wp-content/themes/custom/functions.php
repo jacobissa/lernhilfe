@@ -186,4 +186,10 @@ function add_summary()
     wp_send_json_error('Invalid data', 400);
 }
 
+function nopriv_add_summary()
+{
+    wp_send_json_error('Authentication required', 401);
+}
+
 add_action('wp_ajax_add_summary', __NAMESPACE__ . '\add_summary');
+add_action('wp_ajax_nopriv_add_summary', __NAMESPACE__ . '\nopriv_add_summary');
