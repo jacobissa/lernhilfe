@@ -80,12 +80,11 @@ const deleteIndexCard = id => {
     fetch(indexcards_wordpress_vars.post_url, {method: "POST", credentials: "same-origin", body: data})
         .then(response => {
             if (response.ok)
-                return response.json();
+                // reload page
+                window.location.reload();
             else
+                // error out on HTTP error
                 throw new Error(response.statusText);
-        })
-        .then(() => {
-            window.location.reload();
         })
         .catch(() => {
             snackbarAvailable && displaySnackbar(__("Could not delete index card", indexcards_wordpress_vars.domain), "error");
