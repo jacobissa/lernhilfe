@@ -1,14 +1,19 @@
+/**
+ * Flips the index card to display the content on the back.
+ */
 const flipIndexCard = () => {
     document.querySelector('.flip-card-inner').classList.add('flip-card-flipped');
     document.querySelector('.displayed-index-card.flip-card-front').disabled = true;
     document.querySelector('.displayed-index-card.flip-card-back').disabled = false;
 }
 
+/**
+ * Asynchronously calls the backend to save a new index card.
+ */
 const addIndexCard = courseId => {
     let formSelector = "#index-card-form";
     const indexCardForm = document.querySelector(formSelector);
 
-    // load data
     const data = new FormData(indexCardForm);
 
     // validate and display result
@@ -38,8 +43,8 @@ const addIndexCard = courseId => {
     data.append("action", indexcards_wordpress_vars.add_action);
     data.append("nonce", indexcards_wordpress_vars.nonce);
 
-    // prevent edit
-    setChildrenDisabled(formSelector);
+    // prevent form edit
+    setChildrenDisabledProperty(formSelector);
 
     fetch(indexcards_wordpress_vars.post_url, {method: "POST", credentials: "same-origin", body: data})
         .then(response => {
@@ -50,6 +55,7 @@ const addIndexCard = courseId => {
                 throw new Error(response.statusText);
         })
         .then(() => {
+            // reset form
             clearInputs(formSelector);
 
             snackbarAvailable && displaySnackbar(__("Index card saved", indexcards_wordpress_vars.domain), "success");
@@ -59,12 +65,17 @@ const addIndexCard = courseId => {
         })
         .finally(() =>
             // allow edit
-            setChildrenDisabled(formSelector, false));
+            setChildrenDisabledProperty(formSelector, false));
 };
 
+/**
+ * Asynchronously calls the backend to delete an index card.
+ */
 const deleteIndexCard = id => {
     const data = new FormData();
     data.append("index_card_id", id)
+
+    // append wordpress ajax properties
     data.append("action", indexcards_wordpress_vars.delete_action);
     data.append("nonce", indexcards_wordpress_vars.nonce);
 

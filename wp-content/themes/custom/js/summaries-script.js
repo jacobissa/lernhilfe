@@ -1,6 +1,6 @@
 window.addEventListener('load', function () {
     let fileInput = document.querySelector('#summary_to_upload');
-    fileInput.addEventListener('change', toggleSubmitSummary);
+    fileInput?.addEventListener('change', toggleSubmitSummary);
 });
 
 function toggleSubmitSummary(e) {

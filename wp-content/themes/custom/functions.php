@@ -10,6 +10,10 @@ define('THEME_DOMAIN', 'grcms02_theme');
 define('THEME_DIR_URI', get_template_directory_uri());
 define('THEME_DIR', get_template_directory());
 
+/**
+ * Loads translation files for theme.
+ * @Hook after_setup_theme
+ */
 function load_theme_localization()
 {
     load_theme_textdomain(THEME_DOMAIN, THEME_DIR . '/languages');
@@ -17,7 +21,10 @@ function load_theme_localization()
 
 add_action('after_setup_theme', __NAMESPACE__ . '\load_theme_localization');
 
-
+/**
+ * Loads main JS file
+ * @Hook wp_enqueue_scripts
+ */
 function add_script()
 {
     wp_register_script('script', THEME_DIR_URI . '/js/script.js', ['wp-i18n']);
@@ -26,32 +33,32 @@ function add_script()
 
 add_action("wp_enqueue_scripts", __NAMESPACE__ . '\add_script');
 
-function filter_head()
-{
-    remove_action('wp_head', '_admin_bar_bump_cb');
-}
+// Remove admin bar
+add_filter('show_admin_bar', '__return_false');
 
-add_action('get_header', __NAMESPACE__ . '\filter_head');
-
+/**
+ * Initializes index card feature.
+ * @Hook init
+ */
 function init_index_card()
 {
+    /**
+     * Action to save new index card.
+     * @Hook wp_ajax_{$action_name}, wp_ajax_nopriv_{$action_name}
+     */
     function add_index_card()
     {
-        // make sure sender is allowed to access API
         if (!check_admin_referer('index_card_nonce', 'nonce'))
             wp_send_json_error("No access from this host", 403);
 
-        // load index card data
         $username = "testuser";
         $question = wp_strip_all_tags($_POST["question"]);
         $answer = wp_strip_all_tags($_POST["answer"]);
         $course_id = wp_strip_all_tags($_POST["course_id"]);
 
-        // validate data
         if ($question == null || $answer == null || $course_id == null)
             wp_send_json_error("Missing data for Index Card", 400);
 
-        // save index card
         $new_index_card = array(
             'post_title' => $username . ' - ' . $question,
             'post_status' => 'publish',
@@ -74,6 +81,10 @@ function init_index_card()
     add_action('wp_ajax_add_index_card', __NAMESPACE__ . '\add_index_card');
     add_action('wp_ajax_nopriv_add_index_card', __NAMESPACE__ . '\add_index_card');
 
+    /**
+     * Action to delete index card.
+     * @Hook wp_ajax_{$action_name}, wp_ajax_nopriv_{$action_name}
+     */
     function delete_index_card()
     {
         if (!check_admin_referer('index_card_nonce', 'nonce'))
@@ -104,6 +115,10 @@ function init_index_card()
     add_action('wp_ajax_delete_index_card', __NAMESPACE__ . '\delete_index_card');
     add_action('wp_ajax_nopriv_delete_index_card', __NAMESPACE__ . '\delete_index_card');
 
+    /**
+     * Enqueue and configure JS script for index cards.
+     * @Hook wp_enqueue_scripts
+     */
     function enqueue_index_card_script()
     {
         wp_enqueue_script('index_card_script', THEME_DIR_URI . '/js/indexCard.js');
@@ -125,10 +140,6 @@ function init_index_card()
 }
 
 add_action("init", __NAMESPACE__ . '\init_index_card');
-
-
-add_filter('show_admin_bar', '__return_false');
-
 
 function enqueue_summaries_script()
 {

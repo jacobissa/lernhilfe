@@ -46,13 +46,13 @@ if (have_posts()) {
             <?php
             switch ($view) {
                 case 'summaries':
-                    include TEMPLATEPATH . '/partials/summaries.php';
+                    get_template_part('partials/summaries');
                     break;
                 case 'index-cards':
-                    include TEMPLATEPATH . '/partials/index-cards.php';
+                    get_template_part('partials/index-cards');
                     break;
                 case 'lessons':
-                    include TEMPLATEPATH . '/partials/lessons.php';
+                    get_template_part('partials/lessons');
                     break;
                 default:
                     die('unknown view "' . $view . '"');

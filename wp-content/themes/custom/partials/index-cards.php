@@ -3,7 +3,7 @@ $mode = $_GET['mode'] ?? 'view';
 $create_mode = $mode == 'create';
 
 if ($create_mode) {
-    include TEMPLATEPATH . '/partials/add-index-cards.php';
+    get_template_part('partials/add-index-cards');
 } else {
-    include TEMPLATEPATH . '/partials/view-index-cards.php';
+    get_template_part('partials/view-index-cards');
 }

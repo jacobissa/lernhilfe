@@ -11,6 +11,7 @@
           type="text/css"/>
     <?php
     if (is_singular()) {
+        // if page for single post load post-specific style, if available
         $post = get_queried_object();
         $postType = get_post_type_object(get_post_type($post));
         $post_type_name = esc_html($postType->name);
@@ -26,6 +27,7 @@
             <?php
         }
 
+        // load additional styles per post type, if necessary
         switch ($post_type_name) {
             case 'course':
                 ?>
@@ -36,6 +38,8 @@
                 break;
         }
     }
+
+    //load frontpage style only when necessary
     if (is_home()) {
         ?>
         <link rel="stylesheet"

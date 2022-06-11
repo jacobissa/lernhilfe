@@ -1,4 +1,5 @@
 <?php
+// load a random index card for this course
 $index_card_query = new WP_Query([
     'post_type' => 'index_card',
     'meta_query' => [

@@ -225,7 +225,7 @@ function timetable_save_post_timetable($post_id)
 }
 add_action('save_post', 'timetable_save_post_timetable', 10, 1);
 
-/*
+/**
  * Add a new column 'author'
  * in the posts list table for the post type 'timetable' in the admin area.
  * @Hook manage_{$post_type}_posts_columns
