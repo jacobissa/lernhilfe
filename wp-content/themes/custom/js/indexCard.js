@@ -23,7 +23,7 @@ const addIndexCard = courseId => {
         if (!data.get("answer")) {
             indexCardAnswer.style.borderColor = "red";
         }
-        displaySnackbar("Bitte gib Frage und Antwort an", "warning");
+        snackbarAvailable && displaySnackbar("Bitte gib Frage und Antwort an", "warning");
         return;
     }
 
@@ -51,10 +51,11 @@ const addIndexCard = courseId => {
         })
         .then(() => {
             clearInputs(formSelector);
-            displaySnackbar("Die Karteikarte wurde erfolgreich gespeichert", "success");
+
+            snackbarAvailable && displaySnackbar("Die Karteikarte wurde erfolgreich gespeichert", "success");
         })
         .catch(() => {
-            displaySnackbar("Die Karteikarte konnte nicht gespeichert werden", "error");
+            snackbarAvailable && displaySnackbar("Die Karteikarte konnte nicht gespeichert werden", "error");
         })
         .finally(() =>
             // allow edit
@@ -78,6 +79,6 @@ const deleteIndexCard = id => {
             window.location.reload();
         })
         .catch(() => {
-            displaySnackbar("Die Karteikarte konnte nicht gelöscht werden", "error");
+            snackbarAvailable && displaySnackbar("Die Karteikarte konnte nicht gelöscht werden", "error");
         });
 };

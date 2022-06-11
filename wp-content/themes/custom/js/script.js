@@ -16,3 +16,7 @@ const clearInputs = (selector) => {
     document.querySelectorAll(`${selector} > input, ${selector} > select, ${selector} > textarea`)
         .forEach(element => element.value = "");
 }
+
+const functionDefined = (fn) => typeof (fn) === typeof (Function)
+
+const snackbarAvailable = functionDefined(displaySnackbar);
