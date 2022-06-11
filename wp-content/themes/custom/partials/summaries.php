@@ -39,7 +39,7 @@ if (!function_exists('move_uploaded_file')) {
         <form id="add_summary_form" action="" onsubmit="addSummary(); return false;" enctype="multipart/form-data">
             <input type="hidden" name="course_slug" value=" <?php echo(basename(get_the_permalink())) ?> ">
             <input type="file" name="summary_to_upload" id="summary_to_upload" accept="application/pdf">
-            <input type="submit" name="add_summary" id="add_summary" value="Hinzufügen">
+            <input type="submit" name="add_summary" id="add_summary" disabled="disabled" value="Hinzufügen">
         </form>
     </div>
 </div>

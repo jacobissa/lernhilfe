@@ -1,3 +1,17 @@
+window.addEventListener('load', function () {
+    let fileInput = document.querySelector('#summary_to_upload');
+    fileInput.addEventListener('change', toggleSubmitSummary);
+});
+
+function toggleSubmitSummary(e) {
+    let submitSummary = document.querySelector('#add_summary');
+    if (e.target.value === null || e.target.value === '') {
+        submitSummary.setAttribute('disabled', 'disabled');
+    } else {
+        submitSummary.removeAttribute('disabled');
+    }
+}
+
 function addSummary() {
     let indexCardForm = document.querySelector('#add_summary_form');
     let data = new FormData(indexCardForm);
@@ -6,15 +20,19 @@ function addSummary() {
 
     fetch(summaries_args.post_url, {method: 'POST', credentials: 'same-origin', body: data})
         .then(response => {
-            if (response.ok)
+            if (response.ok) {
+                displaySnackbar('Die Zusammenfassung wurde erfolgreich hochgeldaden', 'success');
                 return response.json();
-            else {
+            } else {
                 switch (response.status) {
                     case 415:
                         displaySnackbar('Dateityp nicht unterstützt', 'warning');
                         break;
                     case 409:
                         displaySnackbar('Die Datei existiert bereits', 'warning');
+                        break;
+                    case 401:
+                        displaySnackbar('Nur angemeldete Benutzer können Zusammenfassungen hochladen', 'error');
                         break;
                     default:
                         displaySnackbar('Die Zusammenfassung konnte nicht hochgeladen werden', 'error');
@@ -24,9 +42,7 @@ function addSummary() {
             }
         })
         .then(json => {
-            displaySnackbar('Die Zusammenfassung wurde erfolgreich hochgeldaden', 'success');
-
-            // Add uploaded file to summary list
+            // Add uploaded file to summary list without having to refresh the page
             let ul = document.querySelector('#summaries_list');
 
             let li = document.createElement('li');
@@ -50,8 +66,9 @@ function addSummary() {
             li.appendChild(anchor);
             ul.appendChild(li);
 
-            // Clear file input
+            // Clear file input and disable submit button
             document.querySelector('#summary_to_upload').value = null;
+            document.querySelector('#add_summary').setAttribute('disabled', 'disabled');
         })
         .catch(error => {
             console.error(error)
