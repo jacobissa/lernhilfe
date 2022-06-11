@@ -171,7 +171,7 @@ add_action('save_post', 'learningaid_save_post_lesson', 10, 1);
 
 
 /*
- * Add a new columns 'course' & 'author'
+ * Add a new column 'course'
  * in the posts list table for the post type 'lesson' in the admin area.
  * @Hook manage_{$post_type}_posts_columns
  */
@@ -179,7 +179,6 @@ function learningaid_manage_columns_lesson($post_columns)
 {
   unset($post_columns['date']);
   $post_columns[LEARNINGAID_META_LESSON_COURSE] = __('Course', LEARNINGAID_DOMAIN);
-  $post_columns['author'] = __('Author', LEARNINGAID_DOMAIN);
   $post_columns['date'] = __('Date', LEARNINGAID_DOMAIN);
   return $post_columns;
 }
@@ -215,14 +214,13 @@ add_action('manage_lesson_posts_custom_column', 'learningaid_manage_custom_colum
 
 
 /**
- * Make the new columns 'course' & 'author' sortable
+ * Make the new column 'course' sortable
  * in the posts list table for the post type 'lesson' in the admin area.
  * @Hook manage_edit-{$post_type}_sortable_columns
  */
 function learningaid_manage_columns_sortable_lesson($post_columns)
 {
   $post_columns[LEARNINGAID_META_LESSON_COURSE] = LEARNINGAID_META_LESSON_COURSE;
-  $post_columns['author'] = 'author';
   return $post_columns;
 }
 add_filter('manage_edit-lesson_sortable_columns', 'learningaid_manage_columns_sortable_lesson');
