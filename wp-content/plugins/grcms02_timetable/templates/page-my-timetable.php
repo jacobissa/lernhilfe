@@ -11,8 +11,10 @@ get_sidebar(); ?>
 
 <main class="site-content">
     <?php
+    $current_user = wp_get_current_user();
     $timetable_all = new WP_Query(
         array(
+            'author' =>  $current_user->ID,
             'post_type' => 'timetable',
             'post_status' => 'private',
             'posts_per_page' => 1

@@ -95,32 +95,64 @@ add_action('init', 'learningaid_register_taxonomy_teacher');
 
 
 /*
- * Add a new column 'author' in the posts list table for the post type 'course' in the admin area.
+ * Add a new columns 'short_name' & 'author' in the posts list table for the post type 'course' in the admin area.
  * @Hook manage_{$post_type}_posts_columns
  */
 function learningaid_manage_columns_course($post_columns)
 {
     unset($post_columns['date']);
+    $post_columns[LEARNINGAID_META_COURSE_SHORT_NAME] = __('Short name', LEARNINGAID_DOMAIN);
     $post_columns['author'] = __('Author', LEARNINGAID_DOMAIN);
     $post_columns['date'] = __('Date', LEARNINGAID_DOMAIN);
     return $post_columns;
 }
-
 add_filter('manage_course_posts_columns', 'learningaid_manage_columns_course');
+
+/**
+ * Fill the new custom column 'short_name'
+ * in the posts list table for the post type 'course' in the admin area.
+ * @Hook manage_{$post->post_type}_posts_custom_column
+ */
+function learningaid_manage_custom_column_course($column_name, $post_id)
+{
+    if ($column_name == LEARNINGAID_META_COURSE_SHORT_NAME)
+    {
+        $short_name = get_post_meta($post_id, LEARNINGAID_META_COURSE_SHORT_NAME, true);
+        echo '<a href="' . get_post_permalink($post_id) . '">' . esc_html($short_name) . ' ' . '</a>';
+    }
+}
+add_action('manage_course_posts_custom_column', 'learningaid_manage_custom_column_course', 10, 2);
 
 
 /**
- * Make the new column 'author' sortable
+ * Make the new columns 'short_name' & 'author' sortable
  * in the posts list table for the post type 'course' in the admin area.
  * @Hook manage_edit-{$post_type}_sortable_columns
  */
 function learningaid_manage_columns_sortable_course($post_columns)
 {
+    $post_columns[LEARNINGAID_META_COURSE_SHORT_NAME] = LEARNINGAID_META_COURSE_SHORT_NAME;
     $post_columns['author'] = 'author';
     return $post_columns;
 }
-
 add_filter('manage_edit-course_sortable_columns', 'learningaid_manage_columns_sortable_course');
+
+/**
+ * Assign incoming sorting requests to the meta key.
+ * @Hook request
+ */
+function learningaid_request_order_course_by_meta_key($query_vars)
+{
+    if (is_admin())
+    {
+        if (isset($query_vars['orderby']) && LEARNINGAID_META_COURSE_SHORT_NAME == $query_vars['orderby'])
+        {
+            $query_vars = array_merge($query_vars, array('meta_key' => LEARNINGAID_META_COURSE_SHORT_NAME));
+        }
+    }
+    return $query_vars;
+}
+add_filter('request', 'learningaid_request_order_course_by_meta_key');
 
 
 /**

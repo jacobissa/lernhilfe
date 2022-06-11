@@ -12,7 +12,7 @@ if (!defined('WP_UNINSTALL_PLUGIN'))
 /**
  * Just for debugging, stopp before cleaning database
  */
-wp_die(__('Uninstall stopped before cleaning database for debugging purposes.', 'grcms02_timetable'));
+//wp_die(__('Uninstall stopped before cleaning database for debugging purposes.', 'grcms02_timetable'));
 
 
 /**

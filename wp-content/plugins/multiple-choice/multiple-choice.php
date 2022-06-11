@@ -34,28 +34,27 @@ function mc_question($atts): string
     ), $atts);
 
     $title = esc_attr($a['title']);
-    $output = '<div class="mc_container">
-    <label class="mc_title">' . $title . '</label><div class="mc_content"><div class="mc_input_container">';
-
+    $correct = esc_attr($a['correct']);
+    $hint = esc_attr($a['hint']);
     $answers = explode(';', esc_attr($a['answers']));
     $alphabet = range('A', 'Z');
     $name = str_replace(' ', '_', htmlspecialchars($title));
 
+    $output = '<div class="mc_container">
+    <label class="mc_title">' . $title . '</label><div class="mc_content"><div class="mc_input_container">';
+
+    $mc_id = uniqid();
+
     for ($i = 0; $i < count($answers) && $i < count($alphabet); $i++) {
-        $output .= '<div class="mc_input"><input type="radio" class="mc_radio" id="' . $name . $alphabet[$i] . '" name="' . $name . ' " value="' . $answers[$i] . '">
+        $output .= '<div class="mc_input"><input type="radio" class="mc_radio" id="' . $name . $alphabet[$i] . '" name="mc_a_' . $mc_id . '" value="' . $answers[$i] . '">
             <label class="mc_label" for="' . $name . $alphabet[$i] . '"> <span class="mc_span">' . $alphabet[$i] . '</span>' . $answers[$i] . '  </label></div>';
     }
 
-    $answer_id = uniqid();
-    $output .= '</div><div class="reveal_answer" id="button_' . $answer_id . '" title="Antwort einblenden" onclick="showAnswer(\'content_' . $answer_id . '\')">Antwort anzeigen</div>
-        <div class="answer_content" id="content_' . $answer_id . '">
-        <div class="correct_answer"><b class="correct_checkmark">' . $a['correct'] . '</b></div>';
-
-    if (!empty($a['hint'])) {
-        $output .= '<div class="answer_hint">' . $a['hint'] . '</div>';
-    }
-
+    $output .= '<input type="hidden" name="mc_q_' . $mc_id . '" value="' . $title . '">';
+    $output .= '<input type="hidden" name="mc_s_' . $mc_id . '" value="' . $correct . '">';
+    $output .= '<input type="hidden" name="mc_h_' . $mc_id . '" value="' . $hint . '">';
     $output .= '</div></div></div>';
+
     return $output;
 }
 

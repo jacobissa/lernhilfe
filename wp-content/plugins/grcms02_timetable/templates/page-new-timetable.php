@@ -75,7 +75,9 @@ get_sidebar(); ?>
         if (isset($_POST['doCreateTimetable']) && isset($_POST['timetable_title']) && isset($_POST[TIMETABLE_META_COURSE]))
         {
             // delete all private timetable
+            $current_user = wp_get_current_user();
             $private_posts = get_posts(array(
+                'author' =>  $current_user->ID,
                 'numberposts' => -1,
                 'post_type' => 'timetable',
                 'post_status' => 'private',
