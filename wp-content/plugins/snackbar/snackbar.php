@@ -1,20 +1,23 @@
 <?php
 /**
-Plugin Name: Snackbar
-Version: 1.0
-Description: Adds JS function to display snackbar
-Author: Manuel Wälzlein
-*/
+ * Plugin Name: Snackbar
+ * Version: 1.0
+ * Description: Adds JS function to display snackbar
+ * Author: Manuel Wälzlein
+ */
 
 namespace learningaid\snackbar;
 
-if ( ! defined( 'WPINC' ) ) {
+if (!defined('WPINC')) {
     die;
 }
 
 define('SNACKBAR_PLUGIN_LOCATION_DIR', dirname(__FILE__));
 define('SNACKBAR_PLUGIN_LOCATION_URL', plugins_url('', __FILE__));
 
+/**
+ * Configure and load JS for snackbar.
+ */
 function enqueue_snackbar_script()
 {
     wp_enqueue_script('snackbar_script', SNACKBAR_PLUGIN_LOCATION_URL . '/js/snackbar.js');
@@ -26,14 +29,19 @@ function enqueue_snackbar_script()
         )
     );
 
-    wp_register_style( __NAMESPACE__ . '\stylesheet', SNACKBAR_PLUGIN_LOCATION_URL . '/css/style.css' );
+    wp_register_style(__NAMESPACE__ . '\stylesheet', SNACKBAR_PLUGIN_LOCATION_URL . '/css/style.css');
     wp_enqueue_style(__NAMESPACE__ . '\stylesheet');
 }
 
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_snackbar_script');
 
-function include_snackbar() {
-    include('template/snackbar.php') ;
+/**
+ * Load snackbar.
+ * @Hook wp_footer
+ */
+function include_snackbar()
+{
+    include('template/snackbar.php');
 }
 
 add_action('wp_footer', __NAMESPACE__ . '\include_snackbar');
