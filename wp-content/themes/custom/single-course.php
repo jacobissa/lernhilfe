@@ -6,14 +6,23 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         $teacher_list = get_the_terms($post, 'teacher');
-        $teacher_string = $teacher_list == null ? 'Kein Dozent' : join(', ', wp_list_pluck($teacher_list, 'name'));
+        $has_teachers = !($teacher_list == null || is_wp_error($teacher_list) || count($teacher_list) == 0);
+
         ?>
         <div class="course-content <?php echo esc_attr(implode(' ', get_post_class())); ?>">
             <div class="course-info">
                 <h1 class="course-heading">
                     <?php the_title(); ?>
                 </h1>
-                <span class="teacher-names"><?php echo $teacher_string; ?></span>
+                <span class="teacher-names">
+                    <?php echo $has_teachers ?
+                        join(', ', array_map(
+                            function (WP_Term $teacher): string {
+                                return '<a href="' . get_term_link($teacher) . '">' . $teacher->name . '</a>';
+                            },
+                            $teacher_list)) :
+                        'Kein Dozent'; ?>
+                </span>
             </div>
             <?php
             $view = $_GET['view'] ?? 'lessons';

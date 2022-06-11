@@ -6,6 +6,15 @@
     color: dimgrey;
 }
 
+.teacher-names a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.teacher-names a:hover {
+    filter: var(--text-shadow);
+}
+
 .course-info {
     display: flex;
     flex-direction: column;

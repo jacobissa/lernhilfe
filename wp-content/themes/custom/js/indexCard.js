@@ -8,8 +8,10 @@ const addIndexCard = courseId => {
     let formSelector = "#index-card-form";
     const indexCardForm = document.querySelector(formSelector);
 
+    // load data
     const data = new FormData(indexCardForm);
 
+    // validate and display result
     const indexCardQuestion = document.querySelector("#index-card-question-input");
     const indexCardAnswer = document.querySelector("#index-card-answer-input");
     indexCardQuestion.style.borderColor = "dimgray";
@@ -25,19 +27,23 @@ const addIndexCard = courseId => {
         return;
     }
 
+    // make sure course id has been passed and append it
     if (courseId === null || courseId === undefined) {
         console.error("course id for index card not specified");
         return;
     }
     data.append("course_id", courseId);
 
+    // append wordpress ajax properties
     data.append("action", index_card_vars.add_action);
     data.append("nonce", index_card_vars.nonce);
 
+    // prevent edit
     setChildrenDisabled(formSelector);
 
     fetch(index_card_vars.post_url, {method: "POST", credentials: "same-origin", body: data})
         .then(response => {
+            // load response
             if (response.ok)
                 return response.json();
             else
@@ -50,7 +56,9 @@ const addIndexCard = courseId => {
         .catch(() => {
             displaySnackbar("Die Karteikarte konnte nicht gespeichert werden", "error");
         })
-        .finally(() => setChildrenDisabled(formSelector, false));
+        .finally(() =>
+            // allow edit
+            setChildrenDisabled(formSelector, false));
 };
 
 const deleteIndexCard = id => {

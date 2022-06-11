@@ -24,17 +24,21 @@ function init_index_card()
 {
     function add_index_card()
     {
+        // make sure sender is allowed to access API
         if (!check_admin_referer('index_card_nonce', 'nonce'))
             wp_send_json_error("No access from this host", 403);
 
+        // load index card data
         $username = "testuser";
         $question = wp_strip_all_tags($_POST["question"]);
         $answer = wp_strip_all_tags($_POST["answer"]);
         $course_id = wp_strip_all_tags($_POST["course_id"]);
 
-        if ($question == null || $answer == null)
+        // validate data
+        if ($question == null || $answer == null || $course_id == null)
             wp_send_json_error("Missing data for Index Card", 400);
 
+        // save index card
         $new_index_card = array(
             'post_title' => $username . ' - ' . $question,
             'post_status' => 'publish',
