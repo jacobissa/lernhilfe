@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: grcms02_theme\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Manuel Wälzlein\n"
+"Language-Team: GrCMS Team 2\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-06-11 16:58+0200\n"
+"PO-Revision-Date: 2022-06-11 18:32+0100\n"
+"Language: de_DE\n"
+"Plural-Forms: \n"
+"X-Generator: Eazy Po 1.0.0.0\n"
+
+#: header.php:57
+msgid "Learning aid"
+msgstr "Lernhilfe"
+
+#: index.php:14
+msgid "Course name"
+msgstr "Kursname"
+
+#: index.php:15
+msgid "Teacher"
+msgstr "Dozent"
+
+#: index.php:29
+#: single-course.php:24
+msgid "No teacher"
+msgstr "Kein Dozent"
+
+#: single-course.php:36
+msgid "Lessons"
+msgstr "Lerneinheiten"
+
+#: single-course.php:39
+msgid "Index cards"
+msgstr "Karteikarten"
+
+#: single-course.php:42
+msgid "Summaries"
+msgstr "Zusammenfassungen"
+
+#: partials/add-index-cards.php:8
+#: partials/add-index-cards.php:9
+msgid "Question"
+msgstr "Frage"
+
+#: partials/add-index-cards.php:11
+#: partials/add-index-cards.php:15
+msgid "Answer"
+msgstr "Antwort"
+
+#: partials/add-index-cards.php:24
+msgid "Save"
+msgstr "Speichern"
+
+#: partials/view-index-cards.php:50
+msgid "No index cards available"
+msgstr "Keine Karteikarten verfügbar"
+
+#: partials/view-index-cards.php:57
+#: partials/view-index-cards.php:58
+msgid "Create"
+msgstr "Erstellen"
+
+#: partials/view-index-cards.php:63
+#: partials/view-index-cards.php:64
+msgid "Delete"
+msgstr "Löschen"
+
+#: partials/view-index-cards.php:69
+#: partials/view-index-cards.php:70
+msgid "Next"
+msgstr "Nächste"

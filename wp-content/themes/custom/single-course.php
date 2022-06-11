@@ -21,7 +21,7 @@ if (have_posts()) {
                                 return '<a href="' . get_term_link($teacher) . '">' . $teacher->name . '</a>';
                             },
                             $teacher_list)) :
-                        'Kein Dozent'; ?>
+                        __('No teacher', THEME_DOMAIN); ?>
                 </span>
             </div>
             <?php
@@ -33,13 +33,13 @@ if (have_posts()) {
             ?>
             <div class="view-switch">
                 <a class="<?php echo $view == 'lessons' ? 'selected' : '' ?>" href="?view=lessons">
-                    <span>Lerneinheiten</span>
+                    <span><?php _e('Lessons', THEME_DOMAIN); ?></span>
                 </a>
                 <a class="<?php echo $view == 'index-cards' ? 'selected' : '' ?>" href="?view=index-cards">
-                    <span>Karteikarten</span>
+                    <span><?php _e('Index cards', THEME_DOMAIN); ?></span>
                 </a>
                 <a class="<?php echo $view == 'summaries' ? 'selected' : '' ?>" href="?view=summaries">
-                    <span>Zusammenfassungen</span>
+                    <span><?php _e('Summaries', THEME_DOMAIN); ?></span>
                 </a>
             </div>
 

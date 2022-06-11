@@ -1,3 +1,5 @@
+const {__} = wp.i18n;
+
 const toggleMenu = () => {
     const menu = document.querySelector("#navbar");
     const previouslyOpen = menu.classList.contains("open");

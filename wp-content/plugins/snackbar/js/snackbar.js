@@ -2,7 +2,7 @@ let snackbarHideTimeout;
 let snackbarResetTimeout;
 
 const displaySnackbar = (message, variant) => {
-    let iconUrl = snackbar_vars.template_dir + "/svg/";
+    let iconUrl = snackbar_wordpress_vars.template_dir + "/svg/";
     switch (variant) {
         case "success":
             iconUrl += "success.svg";

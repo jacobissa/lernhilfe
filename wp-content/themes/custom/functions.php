@@ -6,9 +6,22 @@ if (!defined('WPINC')) {
     die;
 }
 
+define('THEME_DOMAIN', 'grcms02_theme');
+define('THEME_DIR_URI', get_template_directory_uri());
+define('THEME_DIR', get_template_directory());
+
+function load_theme_localization()
+{
+    load_theme_textdomain(THEME_DOMAIN, THEME_DIR . '/languages');
+}
+
+add_action('after_setup_theme', __NAMESPACE__ . '\load_theme_localization');
+
+
 function add_script()
 {
-    wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js');
+    wp_register_script('script', THEME_DIR_URI . '/js/script.js', ['wp-i18n']);
+    wp_enqueue_script('script');
 }
 
 add_action("wp_enqueue_scripts", __NAMESPACE__ . '\add_script');
@@ -93,17 +106,19 @@ function init_index_card()
 
     function enqueue_index_card_script()
     {
-        wp_enqueue_script('indexCard', get_template_directory_uri() . '/js/indexCard.js');
+        wp_enqueue_script('index_card_script', THEME_DIR_URI . '/js/indexCard.js');
         wp_localize_script(
-            'indexCard',
-            'index_card_vars',
+            'index_card_script',
+            'indexcards_wordpress_vars',
             array(
                 'add_action' => 'add_index_card',
                 'delete_action' => 'delete_index_card',
                 'post_url' => admin_url('admin-ajax.php'),
-                'nonce' => wp_create_nonce('index_card_nonce')
+                'nonce' => wp_create_nonce('index_card_nonce'),
+                'domain' => THEME_DOMAIN
             )
         );
+        wp_set_script_translations('index_card_script', THEME_DOMAIN, THEME_DIR . '/languages');
     }
 
     add_action("wp_enqueue_scripts", __NAMESPACE__ . '\enqueue_index_card_script');
@@ -117,7 +132,7 @@ add_filter('show_admin_bar', '__return_false');
 
 function enqueue_summaries_script()
 {
-    wp_register_script('summaries-script', get_template_directory_uri() . '/js/summaries-script.js');
+    wp_register_script('summaries-script', THEME_DIR_URI . '/js/summaries-script.js');
     wp_enqueue_script('summaries-script');
     wp_localize_script('summaries-script', 'summaries_args',
         array('post_url' => admin_url('admin-ajax.php'),

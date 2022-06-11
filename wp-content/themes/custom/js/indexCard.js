@@ -23,7 +23,7 @@ const addIndexCard = courseId => {
         if (!data.get("answer")) {
             indexCardAnswer.style.borderColor = "red";
         }
-        snackbarAvailable && displaySnackbar("Bitte gib Frage und Antwort an", "warning");
+        snackbarAvailable && displaySnackbar(__("Please specify both question and answer", indexcards_wordpress_vars.domain), "warning");
         return;
     }
 
@@ -35,13 +35,13 @@ const addIndexCard = courseId => {
     data.append("course_id", courseId);
 
     // append wordpress ajax properties
-    data.append("action", index_card_vars.add_action);
-    data.append("nonce", index_card_vars.nonce);
+    data.append("action", indexcards_wordpress_vars.add_action);
+    data.append("nonce", indexcards_wordpress_vars.nonce);
 
     // prevent edit
     setChildrenDisabled(formSelector);
 
-    fetch(index_card_vars.post_url, {method: "POST", credentials: "same-origin", body: data})
+    fetch(indexcards_wordpress_vars.post_url, {method: "POST", credentials: "same-origin", body: data})
         .then(response => {
             // load response
             if (response.ok)
@@ -52,10 +52,10 @@ const addIndexCard = courseId => {
         .then(() => {
             clearInputs(formSelector);
 
-            snackbarAvailable && displaySnackbar("Die Karteikarte wurde erfolgreich gespeichert", "success");
+            snackbarAvailable && displaySnackbar(__("Index card saved", indexcards_wordpress_vars.domain), "success");
         })
         .catch(() => {
-            snackbarAvailable && displaySnackbar("Die Karteikarte konnte nicht gespeichert werden", "error");
+            snackbarAvailable && displaySnackbar(__("Could not save index card", indexcards_wordpress_vars.domain), "error");
         })
         .finally(() =>
             // allow edit
@@ -65,10 +65,10 @@ const addIndexCard = courseId => {
 const deleteIndexCard = id => {
     const data = new FormData();
     data.append("index_card_id", id)
-    data.append("action", index_card_vars.delete_action);
-    data.append("nonce", index_card_vars.nonce);
+    data.append("action", indexcards_wordpress_vars.delete_action);
+    data.append("nonce", indexcards_wordpress_vars.nonce);
 
-    fetch(index_card_vars.post_url, {method: "POST", credentials: "same-origin", body: data})
+    fetch(indexcards_wordpress_vars.post_url, {method: "POST", credentials: "same-origin", body: data})
         .then(response => {
             if (response.ok)
                 return response.json();
@@ -79,6 +79,6 @@ const deleteIndexCard = id => {
             window.location.reload();
         })
         .catch(() => {
-            snackbarAvailable && displaySnackbar("Die Karteikarte konnte nicht gelöscht werden", "error");
+            snackbarAvailable && displaySnackbar(__("Could not delete index card", indexcards_wordpress_vars.domain), "error");
         });
 };

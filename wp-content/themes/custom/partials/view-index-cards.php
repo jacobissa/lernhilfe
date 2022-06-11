@@ -47,27 +47,27 @@ $have_posts = $index_card_query->have_posts();
             }
         } else {
             ?>
-            <span>Keine Karteikarten vorhanden</span>
+            <span><?php _e('No index cards available', THEME_DOMAIN); ?></span>
             <?php
         }
         ?>
 
         <div class="index-card-actions">
             <button class="icon-action-button" onclick="window.location.href = '?view=index-cards&mode=create'">
-                Erstellen
-                <img src="<?php echo get_template_directory_uri(); ?>/svg/add.svg" alt="Create">
+                <?php _e('Create', THEME_DOMAIN); ?>
+                <img src="<?php echo get_template_directory_uri(); ?>/svg/add.svg" alt="<?php _e('Create', THEME_DOMAIN); ?>">
             </button>
             <button class="icon-action-button"
                 <?php if (!$have_posts) echo 'disabled' ?>
                     onclick="deleteIndexCard(<?php the_ID(); ?>)">
-                Löschen
-                <img src="<?php echo get_template_directory_uri(); ?>/svg/delete.svg" alt="Delete">
+                <?php _e('Delete', THEME_DOMAIN); ?>
+                <img src="<?php echo get_template_directory_uri(); ?>/svg/delete.svg" alt="<?php _e('Delete', THEME_DOMAIN); ?>">
             </button>
             <button class="icon-action-button"
                 <?php if (!$have_posts) echo 'disabled' ?>
                     onclick="window.location.reload()">
-                Nächste
-                <img src="<?php echo get_template_directory_uri(); ?>/svg/next.svg" alt="Next">
+                <?php _e('Next', THEME_DOMAIN); ?>
+                <img src="<?php echo get_template_directory_uri(); ?>/svg/next.svg" alt="<?php _e('Next', THEME_DOMAIN); ?>">
             </button>
         </div>
     </div>

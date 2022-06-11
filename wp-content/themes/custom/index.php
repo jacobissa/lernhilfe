@@ -11,8 +11,8 @@ $query = new WP_Query(
     )
 ); ?>
     <div id="course-list-header">
-        <span>Kursname</span>
-        <span>Dozent</span>
+        <span><?php _e('Course name', THEME_DOMAIN); ?></span>
+        <span><?php _e('Teacher', THEME_DOMAIN); ?></span>
     </div>
     <ul class="striped-list">
         <?php while ($query->have_posts()) {
@@ -26,7 +26,7 @@ $query = new WP_Query(
                     <span>
                         <?php echo $has_teachers ?
                             join(', ', wp_list_pluck($teacher_list, 'name')) :
-                            'Kein Dozent'; ?>
+                            __('No teacher', THEME_DOMAIN); ?>
                     </span>
                 </a>
             </li>
