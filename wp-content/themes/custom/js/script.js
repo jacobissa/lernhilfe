@@ -19,6 +19,4 @@ const clearInputs = (selector) => {
         .forEach(element => element.value = "");
 }
 
-const functionDefined = (fn) => typeof (fn) === typeof (Function)
-
-const snackbarAvailable = functionDefined(displaySnackbar);
+const snackbarAvailable = typeof (displaySnackbar) === typeof (Function);
