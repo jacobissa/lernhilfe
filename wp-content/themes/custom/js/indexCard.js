@@ -48,17 +48,15 @@ const addIndexCard = courseId => {
 
     fetch(indexcards_wordpress_vars.post_url, {method: "POST", credentials: "same-origin", body: data})
         .then(response => {
-            // load response
-            if (response.ok)
-                return response.json();
-            else
-                throw new Error(response.statusText);
-        })
-        .then(() => {
-            // reset form
-            clearInputs(formSelector);
+            if (response.ok) {
+                // reset form
+                clearInputs(formSelector);
 
-            snackbarAvailable && displaySnackbar(__("Index card saved", indexcards_wordpress_vars.domain), "success");
+                snackbarAvailable && displaySnackbar(__("Index card saved", indexcards_wordpress_vars.domain), "success");
+            } else {
+                // error out on HTTP error
+                throw new Error(response.statusText);
+            }
         })
         .catch(() => {
             snackbarAvailable && displaySnackbar(__("Could not save index card", indexcards_wordpress_vars.domain), "error");
