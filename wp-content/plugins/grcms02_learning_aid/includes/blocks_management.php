@@ -6,6 +6,7 @@
  */
 require_once(LEARNINGAID_PLUGIN_LOCATION_DIR . '/blocks/ytvideo/block-ytvideo.php');
 require_once(LEARNINGAID_PLUGIN_LOCATION_DIR . '/blocks/textquestion/block-textquestion.php');
+require_once(WP_PLUGIN_DIR . '/multiple-choice/multiple-choice.php');
 
 
 /**
@@ -16,7 +17,7 @@ require_once(LEARNINGAID_PLUGIN_LOCATION_DIR . '/blocks/textquestion/block-textq
 function learningaid_allowed_block_types($allowed_block_types, $post)
 {
     if ($post->post_type === 'lesson') :
-        return array('learning-aid/block-textquestion', 'learning-aid/block-ytvideo', 'core/shortcode');
+        return array('learning-aid/block-textquestion', 'learning-aid/block-ytvideo', 'learning-aid/block-multiple-choice', 'core/shortcode');
     else :
         return $allowed_block_types;
     endif;

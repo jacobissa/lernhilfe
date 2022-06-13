@@ -184,7 +184,7 @@ function add_summary()
         wp_send_json_error('The file already exist', 409);
 
     if (!move_uploaded_file($temp_name, $new_full_path))
-        wp_send_json_error('The file was not uploaded', 500);
+        wp_send_json_error('The file could not be uploaded', 500);
 
     $attachment_args = array(
         'guid' => $new_full_path,

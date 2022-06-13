@@ -23,7 +23,7 @@
     margin: 0.5rem;
 }
 
-.mc_container:hover>.mc_title {
+.mc_container:hover > .mc_title {
     color: white;
     font-weight: bolder;
 }
@@ -63,4 +63,35 @@
 
 .mc_container:hover .mc_label {
     color: white;
+}
+
+.block-multiple-choice-edit-container {
+    background-color: #ABDBFB;
+    padding: 1rem;
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
+    display: block;
+}
+
+.block-multiple-choice-edit-container:focus-within {
+    background-color: #5FBCFA;
+}
+
+.block-multiple-choice-edit-container:focus-within .block-multiple-choice-edit-label {
+    font-weight: bold;
+}
+
+.block-multiple-choice-edit-label {
+    display: block;
+    color: #000000;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.block-multiple-choice-edit-input {
+    width: 100%;
+}
+
+.block-multiple-choice-edit-input:focus {
+    background-color: rgb(255, 255, 200);
+    border-style: none;
 }

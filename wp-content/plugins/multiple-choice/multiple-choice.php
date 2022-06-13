@@ -64,12 +64,25 @@ function mc_enqueue_scripts()
     global $post;
     $has_shortcode = has_shortcode($post->post_content, 'multiple_choice_question');
     if (is_a($post, 'WP_Post') && $has_shortcode) {
-        wp_register_style('mc-style', plugin_dir_url(__FILE__) . 'css/mc-style.css');
+        wp_register_style('mc-style', plugin_dir_url(__FILE__) . '/css/mc-style.css');
         wp_enqueue_style('mc-style');
 
-        wp_register_script('mc-script', plugin_dir_url(__FILE__) . 'js/mc-script.js');
-        wp_enqueue_script('mc-script');
+//        wp_register_script('mc-script', plugin_dir_url(__FILE__) . '/js/mc-script.js');
+//        wp_enqueue_script('mc-script');
     }
 }
 
 add_action('wp_enqueue_scripts', 'mc_enqueue_scripts');
+
+function register_block_type_multiple_choice()
+{
+    wp_register_script('block-multiple-choice-js', plugins_url('', __FILE__) . '/js/mc-script.js', array('wp-blocks', 'wp-editor'));
+    wp_register_style('block-multiple-choice-css', plugins_url('', __FILE__) . '/css/mc-style.css');
+    $args = array(
+        'editor_script' => 'block-multiple-choice-js',
+        'style' => 'block-multiple-choice-css',
+    );
+    register_block_type('learning-aid/block-multiple-choice', $args);
+}
+
+add_action('init', 'register_block_type_multiple_choice');
