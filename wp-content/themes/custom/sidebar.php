@@ -13,11 +13,10 @@ $course_query = new WP_Query(
     <ul class="navbar_list">
         <?php while ($course_query->have_posts()) :
             $course_query->the_post();
-            $short_name = get_post_custom_values($course_query->post->ID, 'short_name')[0];
             ?>
             <li class="navbar-list-item">
                 <a class="navbar-list-anchor" tabindex="-1" href="<?php the_permalink(); ?>">
-                    <span><?php echo $short_name; ?></span>
+                    <span><?php echo get_post_custom_values('short_name')[0]; ?></span>
                 </a>
             </li>
         <?php endwhile;
