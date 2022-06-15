@@ -77,9 +77,12 @@ add_filter('page_template', 'template_custom_template_page');
 
 function timetable_wp_footer()
 {
-    echo '<div id="myTimetable">';
-    echo '<a href="' . get_permalink(get_page_by_path(TIMETABLE_PAGE_SLUG_MY)) . '">';
-    echo '<img src= "' . TIMETABLE_PLUGIN_LOCATION_URL . '/images/timetable-floating-button.svg' . '" class="timetable-floating-button">';
-    echo '</a></div>';
+    if (is_user_logged_in())
+    {
+        echo '<div id="myTimetable">';
+        echo '<a href="' . get_permalink(get_page_by_path(TIMETABLE_PAGE_SLUG_MY)) . '">';
+        echo '<img src= "' . TIMETABLE_PLUGIN_LOCATION_URL . '/images/timetable-floating-button.svg' . '" class="timetable-floating-button">';
+        echo '</a></div>';
+    }
 }
 add_action('wp_footer', 'timetable_wp_footer', 10);
