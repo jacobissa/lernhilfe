@@ -36,6 +36,11 @@ add_action("wp_enqueue_scripts", __NAMESPACE__ . '\add_script');
 // Remove admin bar
 add_filter('show_admin_bar', '__return_false');
 
+function respond_unauthorized()
+{
+    wp_send_json_error('Authentication required', 401);
+}
+
 /**
  * Initializes index card feature.
  * @Hook init
@@ -79,7 +84,7 @@ function init_index_card()
     }
 
     add_action('wp_ajax_add_index_card', __NAMESPACE__ . '\add_index_card');
-    add_action('wp_ajax_nopriv_add_index_card', __NAMESPACE__ . '\add_index_card');
+    add_action('wp_ajax_nopriv_add_index_card', __NAMESPACE__ . '\respond_unauthorized');
 
     /**
      * Action to delete index card.
@@ -113,7 +118,7 @@ function init_index_card()
     }
 
     add_action('wp_ajax_delete_index_card', __NAMESPACE__ . '\delete_index_card');
-    add_action('wp_ajax_nopriv_delete_index_card', __NAMESPACE__ . '\delete_index_card');
+    add_action('wp_ajax_nopriv_delete_index_card', __NAMESPACE__ . '\respond_unauthorized');
 
     /**
      * Enqueue and configure JS script for index cards.
@@ -208,10 +213,5 @@ function add_summary()
     wp_send_json_success($response_data, 200);
 }
 
-function nopriv_add_summary()
-{
-    wp_send_json_error('Authentication required', 401);
-}
-
 add_action('wp_ajax_add_summary', __NAMESPACE__ . '\add_summary');
-add_action('wp_ajax_nopriv_add_summary', __NAMESPACE__ . '\nopriv_add_summary');
+add_action('wp_ajax_nopriv_add_summary', __NAMESPACE__ . '\respond_unauthorized');
