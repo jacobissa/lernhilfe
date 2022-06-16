@@ -185,7 +185,7 @@ button, input[type=button], input[type=submit] {
     text-decoration: none;
 }
 
-.icon-action-button:hover, .icon-action-button:focus {
+.icon-action-button:hover:enabled, .icon-action-button:focus {
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
@@ -212,7 +212,7 @@ button, input[type=button], input[type=submit] {
     text-decoration: none;
 }
 
-.action-button:hover, .action-button:focus {
+.action-button:hover:enabled, .action-button:focus {
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
@@ -230,7 +230,7 @@ button, input[type=button], input[type=submit] {
     text-decoration: none;
 }
 
-.text-action-button:hover, .text-action-button:focus {
+.text-action-button:hover:enabled, .text-action-button:focus {
     filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
 }
 

@@ -37,14 +37,18 @@ const addIndexCard = courseId => {
         console.error("course id for index card not specified");
         return;
     }
+
+    // prevent form edit
+    setChildrenDisabledProperty(formSelector);
+
+    // disable add button
+    document.querySelector("#add-index-card-button").disabled = true;
+
     data.append("course_id", courseId);
 
     // append wordpress ajax properties
     data.append("action", indexcards_wordpress_vars.add_action);
     data.append("nonce", indexcards_wordpress_vars.nonce);
-
-    // prevent form edit
-    setChildrenDisabledProperty(formSelector);
 
     fetch(indexcards_wordpress_vars.post_url, {method: "POST", credentials: "same-origin", body: data})
         .then(response => {
@@ -61,15 +65,22 @@ const addIndexCard = courseId => {
         .catch(() => {
             snackbarAvailable && displaySnackbar(__("Could not save index card", indexcards_wordpress_vars.domain), "error");
         })
-        .finally(() =>
+        .finally(() => {
             // allow edit
-            setChildrenDisabledProperty(formSelector, false));
+            setChildrenDisabledProperty(formSelector, false)
+            // enable add button
+            document.querySelector("#add-index-card-button").disabled = false;
+            }
+        );
 };
 
 /**
  * Asynchronously calls the backend to delete an index card.
  */
 const deleteIndexCard = id => {
+    // disable delete button
+    document.querySelector("#delete-index-card-button").disabled = true;
+
     const data = new FormData();
     data.append("index_card_id", id)
 

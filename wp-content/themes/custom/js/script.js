@@ -19,7 +19,7 @@ const toggleMenu = () => {
  */
 const setChildrenDisabledProperty = (selector, disabled) => {
     document.querySelectorAll(`${selector} > input, ${selector} > select, ${selector} > textarea, ${selector} > button`)
-        .forEach(element => disabled ?? true ? element.setAttribute("disabled", "") : element.removeAttribute("disabled"));
+        .forEach(element => element.disabled = disabled ?? true);
 }
 
 /**

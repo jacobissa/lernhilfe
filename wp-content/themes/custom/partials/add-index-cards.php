@@ -19,7 +19,7 @@
         <button class="text-action-button" onclick="window.location.href = '?view=index-cards'">
             Zurück
         </button>
-        <button class="icon-action-button" onclick="document.querySelector('#index-card-form').onsubmit()">
+        <button class="icon-action-button" id="add-index-card-button" onclick="document.querySelector('#index-card-form').onsubmit()">
             Speichern
             <img src="<?php echo get_template_directory_uri(); ?>/svg/save.svg" alt="<?php _e("Save", THEME_DOMAIN); ?>">
         </button>

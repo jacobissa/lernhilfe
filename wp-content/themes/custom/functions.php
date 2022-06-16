@@ -56,7 +56,7 @@ function init_index_card()
         if (!check_admin_referer('index_card_nonce', 'nonce'))
             wp_send_json_error("No access from this host", 403);
 
-        $username = "testuser";
+        $username = wp_get_current_user()->user_login;
         $question = wp_strip_all_tags($_POST["question"]);
         $answer = wp_strip_all_tags($_POST["answer"]);
         $course_id = wp_strip_all_tags($_POST["course_id"]);
@@ -75,7 +75,6 @@ function init_index_card()
         if ($inserted_id !== 0 &&
             add_post_meta($inserted_id, 'question', $question) &&
             add_post_meta($inserted_id, 'answer', $answer) &&
-            add_post_meta($inserted_id, 'username', $username) &&
             add_post_meta($inserted_id, 'course_id', $course_id)) {
             wp_send_json_success();
         }
@@ -95,7 +94,6 @@ function init_index_card()
         if (!check_admin_referer('index_card_nonce', 'nonce'))
             wp_send_json_error("No access from this host", 403);
 
-        $username = "testuser";
         $index_card_id = wp_strip_all_tags($_POST["index_card_id"]);
 
         if ($index_card_id == null)
@@ -104,14 +102,14 @@ function init_index_card()
         if (!is_numeric($index_card_id))
             wp_send_json_error("Invalid Index Card format", 400);
 
-        $post_username = get_post_meta($index_card_id, 'username')[0];
+        $post_user_id = get_post($index_card_id)->post_author;
 
-        if ($post_username != $username)
+        if ($post_user_id != wp_get_current_user()->ID)
             wp_send_json_error("Not Index Card owner" . $index_card_id, 401);
 
         $result = wp_delete_post($index_card_id);
 
-        if ($result == false || $result == null)
+        if ($result == null || $result == false)
             wp_send_json_error("Could not delete Index Card", 500);
 
         wp_send_json_success();
