@@ -4,7 +4,7 @@
  * Plugin Name:       GrCMS02 Timetable
  * Plugin URI:        http://grcms02.informatik.fh-nuernberg.de
  * Description:       Plugin for GrCMS02 in SS22.
- * Version:           1.2.0
+ * Version:           1.3.0
  * Author:            Jacob Issa
  * Author URI:        mailto:issaja73014@th-nuernberg.de
  */
