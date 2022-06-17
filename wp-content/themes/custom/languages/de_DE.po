@@ -13,64 +13,47 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Eazy Po 1.0.0.0\n"
 
-#: header.php:57
 msgid "Learning aid"
 msgstr "Lernhilfe"
 
-#: index.php:14
 msgid "Course name"
 msgstr "Kursname"
 
-#: index.php:15
 msgid "Teacher"
 msgstr "Dozent"
 
-#: index.php:29
-#: single-course.php:24
 msgid "No teacher"
 msgstr "Kein Dozent"
 
-#: single-course.php:36
 msgid "Lessons"
 msgstr "Lerneinheiten"
 
-#: single-course.php:39
 msgid "Index cards"
 msgstr "Karteikarten"
 
-#: single-course.php:42
 msgid "Summaries"
 msgstr "Zusammenfassungen"
 
-#: partials/add-index-cards.php:8
-#: partials/add-index-cards.php:9
 msgid "Question"
 msgstr "Frage"
 
-#: partials/add-index-cards.php:11
-#: partials/add-index-cards.php:15
 msgid "Answer"
 msgstr "Antwort"
 
-#: partials/add-index-cards.php:24
 msgid "Save"
 msgstr "Speichern"
 
-#: partials/view-index-cards.php:50
 msgid "No index cards available"
 msgstr "Keine Karteikarten verfügbar"
 
-#: partials/view-index-cards.php:57
-#: partials/view-index-cards.php:58
 msgid "Create"
 msgstr "Erstellen"
 
-#: partials/view-index-cards.php:63
-#: partials/view-index-cards.php:64
 msgid "Delete"
 msgstr "Löschen"
 
-#: partials/view-index-cards.php:69
-#: partials/view-index-cards.php:70
 msgid "Next"
 msgstr "Nächste"
+
+msgid "Please log in to use index cards"
+msgstr "Bitte melde dich an um Karteikarten zu nutzen"

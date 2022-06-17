@@ -49,7 +49,7 @@ if (have_posts()) {
                     get_template_part('partials/summaries');
                     break;
                 case 'index-cards':
-                    get_template_part('partials/index-cards');
+                    get_template_part('partials/index-cards/index-cards');
                     break;
                 case 'lessons':
                     get_template_part('partials/lessons');
