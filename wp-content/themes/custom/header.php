@@ -48,6 +48,15 @@
         <?php
     }
 
+    //load 404 page style only when necessary
+    if (is_404()) {
+        ?>
+        <link rel="stylesheet"
+              href="<?php echo get_template_directory_uri() . '/styles/404.css'; ?>"
+              type="text/css"/>
+        <?php
+    }
+
     wp_head();
     ?>
 </head>

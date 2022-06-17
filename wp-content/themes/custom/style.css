@@ -11,6 +11,9 @@ Author: GrCMS Team 2
 html {
     font-family: 'Roboto', sans-serif;
     margin: 0 !important;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 input, textarea {
@@ -65,8 +68,10 @@ body {
     padding-top: 4rem;
     display: flex;
     flex-direction: column;
-    width: 100%;
     background: #a8a8a8;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 ul {
