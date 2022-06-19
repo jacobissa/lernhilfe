@@ -62,13 +62,12 @@ function mc_question($atts): string
 function mc_enqueue_scripts()
 {
     global $post;
-    $has_shortcode = has_shortcode($post->post_content, 'multiple_choice_question');
-    if (is_a($post, 'WP_Post') && $has_shortcode) {
-        wp_register_style('mc-style', plugin_dir_url(__FILE__) . '/css/mc-style.css');
-        wp_enqueue_style('mc-style');
-
-//        wp_register_script('mc-script', plugin_dir_url(__FILE__) . '/js/mc-script.js');
-//        wp_enqueue_script('mc-script');
+    if (is_a($post, 'WP_Post')) {
+        $has_shortcode = has_shortcode($post->post_content, 'multiple_choice_question');
+        if ($has_shortcode) {
+            wp_register_style('mc-style', plugin_dir_url(__FILE__) . '/css/mc-style.css');
+            wp_enqueue_style('mc-style');
+        }
     }
 }
 
