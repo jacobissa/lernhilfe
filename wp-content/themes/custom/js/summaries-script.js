@@ -61,8 +61,12 @@ function addSummary() {
             let spanFileDate = document.createElement('span');
             spanFileDate.appendChild(document.createTextNode(json.data.date));
 
+            let spanFileAuthor = document.createElement('span');
+            spanFileAuthor.appendChild(document.createTextNode(json.data.user));
+
             anchor.appendChild(spanFileName);
             anchor.appendChild(spanFileDate);
+            anchor.appendChild(spanFileAuthor);
             li.appendChild(anchor);
             ul.appendChild(li);
 

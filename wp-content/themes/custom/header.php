@@ -34,6 +34,9 @@
                 <link rel="stylesheet"
                       href="<?php echo get_template_directory_uri() . '/styles/index-card.css'; ?>"
                       type="text/css"/>
+                <link rel="stylesheet"
+                      href="<?php echo get_template_directory_uri() . '/styles/summaries.css'; ?>"
+                      type="text/css"/>
                 <?php
                 break;
         }

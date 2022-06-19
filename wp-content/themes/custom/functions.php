@@ -160,31 +160,32 @@ function add_summary()
     if (!check_admin_referer('summary_nonce', 'nonce'))
         wp_send_json_error("No access from this host", 403);
 
-    if (!isset($_POST['course_slug']) || !isset($_FILES['summary_to_upload']))
+    if (!isset($_POST['course_slug']) || !isset($_POST['course_id']) || !isset($_FILES['summary_to_upload']))
         wp_send_json_error('Invalid data', 400);
 
     if (!function_exists('move_uploaded_file'))
         require_once(ABSPATH . 'wp-admin/includes/file.php');
 
-    $folder_name = htmlspecialchars($_POST['course_slug']);
-    $folder_name = trim($folder_name);
+    $folder_name = trim(htmlspecialchars($_POST['course_slug']));
     $upload_dir = wp_upload_dir();
     $upload_path = sprintf('%s/%s/', $upload_dir['basedir'], $folder_name);
 
-    if (!file_exists($upload_path))
-        mkdir($upload_path);
-
-    $file_name = htmlspecialchars($_FILES['summary_to_upload']['name']);
+    $file_name = trim(htmlspecialchars($_FILES['summary_to_upload']['name']));
     $file_name = str_replace(' ', '_', $file_name);
-    $temp_name = $_FILES['summary_to_upload']['tmp_name'];
-    $file_type = wp_check_filetype($file_name);
     $new_full_path = $upload_path . $file_name;
+    $file_type = wp_check_filetype($file_name);
+
+    $parent_id = trim(htmlspecialchars($_POST['course_id']));
+    $temp_name = $_FILES['summary_to_upload']['tmp_name'];
 
     if ($file_type['ext'] != 'pdf')
         wp_send_json_error('File not supported', 415);
 
     if (file_exists($new_full_path))
         wp_send_json_error('The file already exist', 409);
+
+    if (!file_exists($upload_path))
+        mkdir($upload_path);
 
     if (!move_uploaded_file($temp_name, $new_full_path))
         wp_send_json_error('The file could not be uploaded', 500);
@@ -195,18 +196,18 @@ function add_summary()
         'post_title' => $file_name,
         'post_content' => '',
         'post_status' => 'inherit',
-        'post_excerpt' => $folder_name
+        'post_parent' => $parent_id
     );
-    $attach_id = wp_insert_attachment($attachment_args, $new_full_path);
+    $attachment_id = wp_insert_attachment($attachment_args, $new_full_path);
 
-    if ($attach_id == 0)
+    if ($attachment_id == 0)
         wp_send_json_error('The file was uploaded but could not be inserted into the attachments', 500);
 
-    $full_url = sprintf('%s/%s/%s', $upload_dir['baseurl'], $folder_name, $file_name);
     $response_data = array(
-        'fullUrl' => $full_url,
         'name' => $file_name,
-        'date' => date("d.m.Y H:i", filemtime($new_full_path))
+        'fullUrl' => wp_get_attachment_url($attachment_id),
+        'date' => get_the_date('d.m.Y H:i', $attachment_id),
+        'user' => get_the_author_meta('display_name', get_post_field('post_author', $attachment_id))
     );
     wp_send_json_success($response_data, 200);
 }

@@ -97,51 +97,6 @@
     background: #e8e8e8;
 }
 
-#summaries-list-header {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    padding: calc(1rem + 1px);
-    color: dimgrey;
-}
-
-.summaries-list-anchor {
-    padding: 1rem;
-    color: black;
-    text-decoration: none;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-}
-
-.summaries-list-anchor:hover {
-    filter: var(--text-shadow);
-}
-
-
-#add_summary {
-    padding: 0.3rem 0.7rem;
-    background: #0d66c2;
-    color: white;
-    display: inline-block;
-    text-align: center;
-    border-radius: 5px;
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
-    text-decoration: none;
-    margin-left: 1rem;
-}
-
-#add_summary:hover, #add_summary:focus {
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-#add_summary:disabled {
-    background: dimgrey;
-    cursor: not-allowed;
-}
-
-.list-file-name {
-    font-weight: bold;
-}
-
 .course-content {
     display: grid;
 }
