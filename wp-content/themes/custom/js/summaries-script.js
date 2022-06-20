@@ -21,21 +21,21 @@ function addSummary() {
     fetch(summaries_args.post_url, {method: 'POST', credentials: 'same-origin', body: data})
         .then(response => {
             if (response.ok) {
-                displaySnackbar('Die Zusammenfassung wurde erfolgreich hochgeldaden', 'success');
+                snackbarAvailable && displaySnackbar(__('The summary was uploaded successfully', summaries_args.text_domain), 'success');
                 return response.json();
             } else {
                 switch (response.status) {
                     case 415:
-                        displaySnackbar('Dateityp nicht unterstützt', 'warning');
+                        snackbarAvailable && displaySnackbar(__('Unsupported filetype', summaries_args.text_domain), 'warning');
                         break;
                     case 409:
-                        displaySnackbar('Die Datei existiert bereits', 'warning');
+                        snackbarAvailable && displaySnackbar(__('The file already exists', summaries_args.text_domain), 'warning');
                         break;
                     case 401:
-                        displaySnackbar('Nur angemeldete Benutzer können Zusammenfassungen hochladen', 'error');
+                        snackbarAvailable && displaySnackbar(__('Only logged in users are allowed to upload summaries', summaries_args.text_domain), 'error');
                         break;
                     default:
-                        displaySnackbar('Die Zusammenfassung konnte nicht hochgeladen werden', 'error');
+                        snackbarAvailable && displaySnackbar(__('The summary could not be uploaded', summaries_args.text_domain), 'error');
                         break;
                 }
                 throw new Error(response.statusText);

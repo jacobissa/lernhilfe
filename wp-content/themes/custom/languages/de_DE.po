@@ -57,3 +57,27 @@ msgstr "Nächste"
 
 msgid "Please log in to use index cards"
 msgstr "Bitte melde dich an um Karteikarten zu nutzen"
+
+#: summaries.php:13
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: summaries.php:14
+msgid "Date"
+msgstr "Datum"
+
+#: summaries.php:15
+msgid "User"
+msgstr "Benutzer"
+
+#: summaries.php:40
+msgid "No Summaries found"
+msgstr "Keine Zusammenfassungen gefunden"
+
+#: summaries.php:47
+msgid "Add new summary"
+msgstr "Neue Zusammenfassung hinzufügen"
+
+#: summaries.php:53
+msgid "Add"
+msgstr "Hinzufügen"

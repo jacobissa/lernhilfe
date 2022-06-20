@@ -150,7 +150,9 @@ function enqueue_summaries_script()
     wp_enqueue_script('summaries-script');
     wp_localize_script('summaries-script', 'summaries_args',
         array('post_url' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('summary_nonce')));
+            'nonce' => wp_create_nonce('summary_nonce'),
+            'text_domain' => THEME_DOMAIN));
+    wp_set_script_translations('summaries-script', THEME_DOMAIN, THEME_DIR . '/languages');
 }
 
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_summaries_script');
@@ -166,16 +168,16 @@ function add_summary()
     if (!function_exists('move_uploaded_file'))
         require_once(ABSPATH . 'wp-admin/includes/file.php');
 
-    $folder_name = trim(htmlspecialchars($_POST['course_slug']));
+    $folder_name = trim(wp_strip_all_tags($_POST['course_slug']));
     $upload_dir = wp_upload_dir();
     $upload_path = sprintf('%s/%s/', $upload_dir['basedir'], $folder_name);
 
-    $file_name = trim(htmlspecialchars($_FILES['summary_to_upload']['name']));
+    $file_name = trim(wp_strip_all_tags($_FILES['summary_to_upload']['name']));
     $file_name = str_replace(' ', '_', $file_name);
     $new_full_path = $upload_path . $file_name;
     $file_type = wp_check_filetype($file_name);
 
-    $parent_id = trim(htmlspecialchars($_POST['course_id']));
+    $parent_id = trim(wp_strip_all_tags($_POST['course_id']));
     $temp_name = $_FILES['summary_to_upload']['tmp_name'];
 
     if ($file_type['ext'] != 'pdf')
