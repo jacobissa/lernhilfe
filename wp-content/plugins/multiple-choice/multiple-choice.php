@@ -5,12 +5,17 @@
  * Version: 1.0
  * Description: Adds Shortcodes for Multiple Choice Questions. Usage: [multiple_choice_question title="" answers=";" correct="" (optional)hint=""]
  * Author: Louis Meglitsch
+ * Text Domain: multiple-choice
+ * Domain Path: /languages/
  */
 
 /** Prevent direct access to the file */
 if (!defined('WPINC')) {
     die;
 }
+
+define('MC_DOMAIN', 'multiple-choice');
+define('MC_DIR', dirname(__FILE__));
 
 /** Register the shortcodes after WordPress has finished loading */
 function multiple_choice_init()
@@ -45,8 +50,10 @@ function mc_question($atts): string
     <label class="mc_title">' . $title . '</label><div class="mc_content"><div class="mc_input_container">';
 
     for ($i = 0; $i < count($answers) && $i < count($alphabet); $i++) {
-        $output .= '<div class="mc_input"><input type="radio" class="mc_radio" id="' . $name . $alphabet[$i] . '" name="mc_a_' . $mc_id . '" value="' . $answers[$i] . '">
+        if ($answers[$i] != '') {
+            $output .= '<div class="mc_input"><input type="radio" class="mc_radio" id="' . $name . $alphabet[$i] . '" name="mc_a_' . $mc_id . '" value="' . $answers[$i] . '">
             <label class="mc_label" for="' . $name . $alphabet[$i] . '"> <span class="mc_span">' . $alphabet[$i] . '</span>' . $answers[$i] . '  </label></div>';
+        }
     }
 
     // Add hidden inputs to check the answer later
@@ -75,10 +82,11 @@ add_action('wp_enqueue_scripts', 'mc_enqueue_scripts');
 
 function register_block_type_multiple_choice()
 {
-    wp_register_script('block-multiple-choice-js', plugins_url('', __FILE__) . '/js/mc-script.js', array('wp-blocks', 'wp-editor'));
+    wp_register_script('block-multiple-choice-script', plugins_url('', __FILE__) . '/js/mc-script.js', array('wp-blocks', 'wp-editor', 'wp-i18n'));
+    wp_set_script_translations('block-multiple-choice-script', MC_DOMAIN, MC_DIR . '/languages');
     wp_register_style('block-multiple-choice-css', plugins_url('', __FILE__) . '/css/mc-style.css');
     $args = array(
-        'editor_script' => 'block-multiple-choice-js',
+        'editor_script' => 'block-multiple-choice-script',
         'style' => 'block-multiple-choice-css',
     );
     register_block_type('learning-aid/block-multiple-choice', $args);
