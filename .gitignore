@@ -27,6 +27,7 @@
 !wp-content/
 !wp-config.php
 !waelzleinma80092/
+!meglitschlo76147/
 
 # Ignore everything in the "wp-content" directory, except the "plugins"
 # and "themes" directories.
