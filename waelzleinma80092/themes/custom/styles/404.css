@@ -1,0 +1,23 @@
+.not-found-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-found-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-found-info > h1 {
+    margin: 0;
+    font-size: 500%;
+}
+
+#content-container {
+    height: 100%;
+}

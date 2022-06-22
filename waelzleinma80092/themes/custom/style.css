@@ -1,0 +1,243 @@
+/*
+Theme Name: Lernhilfe
+Description: Template für Lernhilfe
+Author: GrCMS Team 2
+*/
+
+:root {
+    --text-shadow: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    margin: 0 !important;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+hr {
+    width: 100%;
+    border-top: 1px solid dimgrey;
+    border-bottom: none;
+}
+
+input[type=text], textarea {
+    border: 1px solid dimgrey;
+}
+
+input[type=text]:focus-visible, textarea:focus-visible {
+    outline: 1px solid dimgrey;
+}
+
+header {
+    z-index: 200;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #0d66c2;
+    padding: 0 1rem;
+    left: 0;
+    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
+    display: flex;
+    gap: 2rem;
+    height: 4rem;
+    align-items: center;
+}
+
+#header-text {
+    margin: 0;
+    color: white;
+    line-height: 2rem;
+    font-weight: normal;
+}
+
+#header-anchor {
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    background: #a8a8a8;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+}
+
+button, input[type=button], input[type=submit] {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+#content-container {
+    margin: 2rem 3rem;
+    box-sizing: border-box;
+    width: calc(100% - 6rem);
+    padding: 2rem;
+    display: grid;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.striped-list {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid grey;
+}
+
+.striped-list-item:not(:first-child) {
+    border-top: 1px solid dimgrey;
+}
+
+.striped-list-item:nth-child(odd) {
+    background: white;
+}
+
+.striped-list-item:nth-child(even) {
+    background: #e8e8e8;
+}
+
+#navbar {
+    z-index: 100;
+    position: fixed;
+    width: 200px;
+    left: -210px;
+    top: 4rem;
+    bottom: 0;
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.3));
+    background: white;
+    border: 1px solid lightgrey;
+    transition: left 0.2s ease-in-out;
+}
+
+#navbar.open {
+    left: 0;
+}
+
+#navbar.closed {
+    left: -210px;
+}
+
+.navbar-list-item {
+    border-bottom: 1px solid lightgrey;
+}
+
+.navbar-list-anchor {
+    display: grid;
+    padding: 1rem;
+    color: black;
+    text-decoration: none;
+}
+
+.navbar-list-anchor:hover, .navbar-list-anchor:focus {
+    outline: none;
+    filter: var(--text-shadow);
+}
+
+.icon-button {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button > svg {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.icon-button:focus > svg {
+    filter: var(--text-shadow);
+}
+
+.icon-action-button {
+    background: #0d66c2;
+    color: white;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+    text-decoration: none;
+}
+
+.icon-action-button:hover:enabled, .icon-action-button:focus {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.icon-action-button:disabled {
+    background: dimgrey;
+    cursor: not-allowed;
+}
+
+.icon-action-button img {
+    width: 1.2rem;
+    margin: -0.1rem;
+    filter: brightness(0) invert(1);
+}
+
+.action-button {
+    background: #0d66c2;
+    color: white;
+    padding: 0.5rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+    text-decoration: none;
+}
+
+.action-button:hover:enabled, .action-button:focus {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.action-button:disabled {
+    background: dimgrey;
+    cursor: not-allowed;
+}
+
+.text-action-button {
+    padding: 0.5rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: dimgrey;
+    text-decoration: none;
+}
+
+.text-action-button:hover:enabled, .text-action-button:focus {
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.text-action-button:disabled {
+    cursor: not-allowed;
+}
