@@ -1,0 +1,63 @@
+.timetable-container {
+    box-sizing: border-box;
+    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
+    background-color: white;
+}
+
+.table-timetable {
+    margin: 1rem 0;
+    border-collapse: collapse;
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+.table-timetable td,
+.table-timetable th {
+    border: 1px solid #aadddd;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100px;
+    height: 2rem;
+    display: table-cell;
+}
+
+.table-timetable td select {
+    height: 100%;
+    width: 95%;
+}
+
+.table-timetable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-timetable tr:hover {
+    background-color: #fffab7;
+}
+
+.table-timetable th {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.table-timetable .weekday-cell {
+    font-weight: 600;
+}
+
+.status-message-admin {
+    z-index: 10;
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    display: inline;
+    border: 1px solid #c52828;
+    background: #ffbf9f;
+    border: 1px solid #000;
+    padding: 1rem;
+    margin: 0;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    box-sizing: border-box;
+    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.4));
+}

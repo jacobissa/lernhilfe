@@ -1,0 +1,97 @@
+.mc_container {
+    width: 30%;
+    margin: 2rem auto;
+    background-color: #64AFFF;
+    padding: 1rem 0;
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+}
+
+.mc_container:hover {
+    background-color: #084B83;
+}
+
+.mc_title {
+    display: block;
+    color: black;
+    font-weight: normal;
+    font-size: larger;
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.mc_container:hover > .mc_title {
+    color: white;
+    font-weight: bolder;
+}
+
+.mc_content {
+    display: block;
+    margin: auto 5%;
+    justify-self: center;
+    min-width: 90%;
+    max-width: 90%;
+    min-height: 10rem;
+    height: fit-content;
+}
+
+.mc_radio {
+    vertical-align: baseline;
+}
+
+.mc_span {
+    display: inline-block;
+    background: #f5f5f5;
+    color: black;
+    width: 1.2rem;
+    padding: 0.2rem;
+    text-align: center;
+    margin-bottom: 0.4rem;
+    margin-right: 0.4rem;
+    margin-left: 0.1rem;
+    border: 1px solid dimgrey;
+    border-radius: 5px;
+    vertical-align: baseline;
+}
+
+.mc_label {
+    vertical-align: baseline;
+}
+
+.mc_container:hover .mc_label {
+    color: white;
+}
+
+.block-multiple-choice-edit-container {
+    background-color: #ABDBFB;
+    padding: 1rem;
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
+    display: block;
+}
+
+.block-multiple-choice-edit-container:focus-within {
+    background-color: #5FBCFA;
+}
+
+.block-multiple-choice-edit-container:focus-within .block-multiple-choice-edit-label {
+    font-weight: bold;
+}
+
+.block-multiple-choice-edit-label {
+    display: block;
+    color: #000000;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.block-multiple-choice-edit-input {
+    width: 100%;
+}
+
+.block-multiple-choice-edit-input:focus {
+    background-color: rgb(255, 255, 200);
+    border-style: none;
+}

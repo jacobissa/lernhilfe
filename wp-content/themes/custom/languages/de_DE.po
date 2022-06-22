@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: grcms02_theme\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Manuel Wälzlein\n"
+"Language-Team: GrCMS Team 2\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-06-11 16:58+0200\n"
+"PO-Revision-Date: 2022-06-11 18:32+0100\n"
+"Language: de_DE\n"
+"Plural-Forms: \n"
+"X-Generator: Eazy Po 1.0.0.0\n"
+
+msgid "Learning aid"
+msgstr "Lernhilfe"
+
+msgid "Course name"
+msgstr "Kursname"
+
+msgid "Teacher"
+msgstr "Dozent"
+
+msgid "No teacher"
+msgstr "Kein Dozent"
+
+msgid "Lessons"
+msgstr "Lerneinheiten"
+
+msgid "Index cards"
+msgstr "Karteikarten"
+
+msgid "Summaries"
+msgstr "Zusammenfassungen"
+
+msgid "Question"
+msgstr "Frage"
+
+msgid "Answer"
+msgstr "Antwort"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "No index cards available"
+msgstr "Keine Karteikarten verfügbar"
+
+msgid "Create"
+msgstr "Erstellen"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Next"
+msgstr "Nächste"
+
+msgid "Please log in to use index cards"
+msgstr "Bitte melde dich an um Karteikarten zu nutzen"
+
+#: summaries.php:13
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: summaries.php:14
+msgid "Date"
+msgstr "Datum"
+
+#: summaries.php:15
+msgid "User"
+msgstr "Benutzer"
+
+#: summaries.php:40
+msgid "No Summaries found"
+msgstr "Keine Zusammenfassungen gefunden"
+
+#: summaries.php:47
+msgid "Add new summary"
+msgstr "Neue Zusammenfassung hinzufügen"
+
+#: summaries.php:53
+msgid "Add"
+msgstr "Hinzufügen"
