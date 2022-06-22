@@ -144,6 +144,10 @@ function init_index_card()
 
 add_action("init", __NAMESPACE__ . '\init_index_card');
 
+/**
+ * Enqueues the summaries-script as well as its localization and translation
+ * @Hook wp_enqueue_scripts
+ */
 function enqueue_summaries_script()
 {
     wp_register_script('summaries-script', THEME_DIR_URI . '/js/summaries-script.js');
@@ -157,6 +161,10 @@ function enqueue_summaries_script()
 
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_summaries_script');
 
+/**
+ * Backend function for adding a summary to a course
+ * @Hook wp_ajax_add_summary
+ */
 function add_summary()
 {
     if (!check_admin_referer('summary_nonce', 'nonce'))

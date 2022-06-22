@@ -1,11 +1,8 @@
 <?php
 
+/** Prevent direct access to the file */
 if (!defined('WPINC')) {
     die;
-}
-
-if (!function_exists('move_uploaded_file')) {
-    require_once(ABSPATH . 'wp-admin/includes/file.php');
 }
 ?>
 <div id="summaries">
@@ -16,6 +13,7 @@ if (!function_exists('move_uploaded_file')) {
     </div>
     <ul class="striped-list" id="summaries_list">
         <?php
+        // Create a new WP_Query to get all the summaries attached to the current course
         $query = new WP_Query(array(
             'post_type' => 'attachment',
             'post_mime_type' => 'application/pdf',
@@ -26,6 +24,7 @@ if (!function_exists('move_uploaded_file')) {
             'order' => 'ASC'
         ));
 
+        // Loop through the attachments/posts and display the title, date and author in the summaries list
         if ($query->have_posts()) {
             while ($query->have_posts()) {
                 $query->the_post();

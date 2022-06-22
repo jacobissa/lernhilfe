@@ -1,8 +1,10 @@
+/** Add change event listener to the file input to toggle the disabled property */
 window.addEventListener('load', function () {
     let fileInput = document.querySelector('#summary_to_upload');
     fileInput?.addEventListener('change', toggleSubmitSummary);
 });
 
+/** disable or enable the add summary button depending on whether the input is empty nor not */
 function toggleSubmitSummary(e) {
     let submitSummary = document.querySelector('#add_summary');
     if (e.target.value === null || e.target.value === '') {
@@ -12,14 +14,19 @@ function toggleSubmitSummary(e) {
     }
 }
 
+
+/** Adds a new Summary to the course via an asynchronous fetch request */
 function addSummary() {
+    // Create the request body data from the add summary form
     let indexCardForm = document.querySelector('#add_summary_form');
     let data = new FormData(indexCardForm);
     data.append('action', 'add_summary');
     data.append('nonce', summaries_args.nonce);
 
+    // Fetch the post request and handle the response
     fetch(summaries_args.post_url, {method: 'POST', credentials: 'same-origin', body: data})
         .then(response => {
+            // display a helpful response message with the snackbar
             if (response.ok) {
                 snackbarAvailable && displaySnackbar(__('The summary was uploaded successfully', summaries_args.text_domain), 'success');
                 return response.json();

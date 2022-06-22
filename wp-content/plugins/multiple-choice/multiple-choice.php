@@ -13,11 +13,14 @@
 if (!defined('WPINC')) {
     die;
 }
-
+/** Define some constants */
 define('MC_DOMAIN', 'multiple-choice');
 define('MC_DIR', dirname(__FILE__));
 
-/** Register the shortcodes after WordPress has finished loading */
+/**
+ * Register the shortcodes after WordPress has finished loading
+ * @Hook init
+ */
 function multiple_choice_init()
 {
     add_shortcode('multiple_choice_question', 'mc_question');
@@ -31,17 +34,19 @@ add_action('init', 'multiple_choice_init');
  */
 function mc_question($atts): string
 {
-    $a = shortcode_atts(array(
+    $filtered_atts = shortcode_atts(array(
         'title' => 'Title',
         'answers' => 'A;B;C;D',
         'correct' => 'A',
         'hint' => ''
     ), $atts);
 
-    $title = esc_attr($a['title']);
-    $correct = esc_attr($a['correct']);
-    $hint = esc_attr($a['hint']);
-    $answers = explode(';', esc_attr($a['answers']));
+    $title = esc_attr($filtered_atts['title']);
+    $answers = explode(';', esc_attr($filtered_atts['answers']));
+    $correct = esc_attr($filtered_atts['correct']);
+    $hint = esc_attr($filtered_atts['hint']);
+
+    // Create alphabet array from A to Z and a name without spaces as well as a unique ID for the html inputs
     $alphabet = range('A', 'Z');
     $name = str_replace(' ', '_', htmlspecialchars($title));
     $mc_id = uniqid();
@@ -49,6 +54,7 @@ function mc_question($atts): string
     $output = '<div class="mc_container">
     <label class="mc_title">' . $title . '</label><div class="mc_content"><div class="mc_input_container">';
 
+    // Add radio inputs with custom label and span
     for ($i = 0; $i < count($answers) && $i < count($alphabet); $i++) {
         if ($answers[$i] != '') {
             $output .= '<div class="mc_input"><input type="radio" class="mc_radio" id="' . $name . $alphabet[$i] . '" name="mc_a_' . $mc_id . '" value="' . $answers[$i] . '">
@@ -65,7 +71,10 @@ function mc_question($atts): string
     return $output;
 }
 
-/** Enqueuing the Stylesheet and Script for Multiple Choice Questions */
+/**
+ * Enqueuing the Stylesheet for Multiple Choice Questions
+ * @Hook wp_enqueue_scripts
+ */
 function mc_enqueue_scripts()
 {
     global $post;
@@ -80,6 +89,10 @@ function mc_enqueue_scripts()
 
 add_action('wp_enqueue_scripts', 'mc_enqueue_scripts');
 
+/**
+ * Register a custom block for multiple choice questions which can be used more easily than the plain shortcode
+ * @Hook init
+ */
 function register_block_type_multiple_choice()
 {
     wp_register_script('block-multiple-choice-script', plugins_url('', __FILE__) . '/js/mc-script.js', array('wp-blocks', 'wp-editor', 'wp-i18n'));

@@ -1,5 +1,7 @@
+/** Constant for localization */
 const {__} = wp.i18n;
 
+/** Register a custom block for multiple choice questions which can be used instead of the shortcode */
 wp.blocks.registerBlockType('learning-aid/block-multiple-choice', {
     title: 'Multiple Choice Question',
     description: 'Custom block for multiple choice questions',
@@ -45,6 +47,7 @@ wp.blocks.registerBlockType('learning-aid/block-multiple-choice', {
                 className: 'block-multiple-choice-edit-container'
             },
 
+            // Create the label and input for the title of the question
             wp.element.createElement('div', {
                 className: 'block-multiple-choice-edit-label'
             }, __('Write the title of the question', 'multiple-choice')), wp.element.createElement('input', {
@@ -55,6 +58,7 @@ wp.blocks.registerBlockType('learning-aid/block-multiple-choice', {
                 onChange: updateTitle
             }),
 
+            // Create the label and input for the answers
             wp.element.createElement('div', {
                 className: 'block-multiple-choice-edit-label'
             }, __('Write the answers', 'multiple-choice')), wp.element.createElement('input', {
@@ -65,6 +69,7 @@ wp.blocks.registerBlockType('learning-aid/block-multiple-choice', {
                 onChange: updateAnswers
             }),
 
+            // Create the label and input for the correct answer
             wp.element.createElement('div', {
                 className: 'block-multiple-choice-edit-label'
             }, __('State the correct answer', 'multiple-choice')), wp.element.createElement('input', {
@@ -75,6 +80,7 @@ wp.blocks.registerBlockType('learning-aid/block-multiple-choice', {
                 onChange: updateCorrect
             }),
 
+            // Create the label and input for the hint
             wp.element.createElement('div', {
                 className: 'block-multiple-choice-edit-label'
             }, __('Give a hint (optional)', 'multiple-choice')), wp.element.createElement('input', {
@@ -86,7 +92,7 @@ wp.blocks.registerBlockType('learning-aid/block-multiple-choice', {
             }));
     },
     save: function (props) {
-        // [multiple_choice_question title="" answers=";" correct="" (optional)hint=""]
+        // Create shortcode like [multiple_choice_question title="" answers=";" correct="" (optional)hint=""]
         let title = props.attributes.title === undefined ? '' : props.attributes.title;
         let answers = props.attributes.answers === undefined ? '' : props.attributes.answers;
         let correct = props.attributes.correct === undefined ? '' : props.attributes.correct;
