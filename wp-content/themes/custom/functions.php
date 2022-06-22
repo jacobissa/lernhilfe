@@ -36,6 +36,10 @@ add_action("wp_enqueue_scripts", __NAMESPACE__ . '\add_script');
 // Remove admin bar
 add_filter('show_admin_bar', '__return_false');
 
+/**
+ * Default response for users who are not logged in or unauthorized
+ * @Hook wp_ajax_nopriv_...
+ */
 function respond_unauthorized()
 {
     wp_send_json_error('Authentication required', 401);
