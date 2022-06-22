@@ -1,4 +1,4 @@
-##Installation
+## Installation
 
 1. Den Ordner "wp-content" der Standard WordPress Installation durch den Ordner "wp-content" des Projekts austauschen.
 2. Auf dem WordPress Dashboard das Theme "Custom" aktivieren.
