@@ -1,0 +1,68 @@
+.block-ytvideo-edit-container {
+    background-color: rgb(255, 150, 150);
+    padding: 1rem;
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
+    display: block;
+}
+
+.block-ytvideo-edit-container:focus-within {
+    background-color: rgb(255, 75, 75);
+}
+
+.block-ytvideo-edit-container:focus-within .block-ytvideo-edit-label {
+    font-weight: bold;
+}
+
+.block-ytvideo-edit-label {
+    display: block;
+    color: #000000;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.block-ytvideo-edit-input {
+    width: 100%;
+}
+
+.block-ytvideo-edit-input:focus {
+    background-color: rgb(255, 255, 200);
+    border-style: none;
+}
+
+.block-ytvideo-save-container {
+    width: 30%;
+    margin: 2rem auto;
+    background-color: #64AFFF;
+    padding: 1rem 0;
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.4);
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+}
+
+.block-ytvideo-save-container:hover {
+    background-color: #084B83;
+}
+
+.block-ytvideo-save-container:hover>.block-ytvideo-save-label {
+    color: white;
+    font-weight: bolder;
+}
+
+.block-ytvideo-save-label {
+    display: block;
+    color: black;
+    font-weight: normal;
+    font-size: larger;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.block-ytvideo-save-iframe {
+    display: block;
+    justify-self: center;
+    width: fit-content;
+    height: fit-content;
+    aspect-ratio: 560 / 315;
+}
