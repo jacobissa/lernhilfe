@@ -129,7 +129,7 @@ function init_index_card()
     {
         wp_enqueue_script(__NAMESPACE__ . '\index_card_script', THEME_DIR_URI . '/js/indexCard.js');
         wp_localize_script(
-            'index_card_script',
+            __NAMESPACE__ . '\index_card_script',
             'indexcards_wordpress_vars',
             array(
                 'add_action' => 'add_index_card',
