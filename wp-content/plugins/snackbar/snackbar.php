@@ -20,9 +20,9 @@ define('SNACKBAR_PLUGIN_LOCATION_URL', plugins_url('', __FILE__));
  */
 function enqueue_snackbar_script()
 {
-    wp_enqueue_script('snackbar_script', SNACKBAR_PLUGIN_LOCATION_URL . '/js/snackbar.js');
+    wp_enqueue_script(__NAMESPACE__ . '\snackbar_script', SNACKBAR_PLUGIN_LOCATION_URL . '/js/snackbar.js');
     wp_localize_script(
-        'snackbar_script',
+        __NAMESPACE__ . '\snackbar_script',
         'snackbar_wordpress_vars',
         array(
             'template_dir' => SNACKBAR_PLUGIN_LOCATION_URL
