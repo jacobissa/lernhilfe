@@ -14,19 +14,18 @@ if (!defined('WPINC')) {
 
 define('SNACKBAR_PLUGIN_LOCATION_DIR', dirname(__FILE__));
 define('SNACKBAR_PLUGIN_LOCATION_URL', plugins_url('', __FILE__));
+define('SNACKBAR_HANDLE_PREFIX', 'snackbar_');
 
 /**
- * Configure and load JS for snackbar.
+ * Configure and load JS and CSS for snackbar.
  */
 function enqueue_snackbar_script()
 {
-    wp_enqueue_script(__NAMESPACE__ . '\snackbar_script', SNACKBAR_PLUGIN_LOCATION_URL . '/js/snackbar.js');
+    wp_enqueue_script(SNACKBAR_HANDLE_PREFIX . 'snackbar_script', SNACKBAR_PLUGIN_LOCATION_URL . '/js/snackbar.js');
     wp_localize_script(
-        __NAMESPACE__ . '\snackbar_script',
+        SNACKBAR_HANDLE_PREFIX . 'snackbar_script',
         'snackbar_wordpress_vars',
-        array(
-            'template_dir' => SNACKBAR_PLUGIN_LOCATION_URL
-        )
+        ['template_dir' => SNACKBAR_PLUGIN_LOCATION_URL]
     );
 
     wp_register_style(__NAMESPACE__ . '\stylesheet', SNACKBAR_PLUGIN_LOCATION_URL . '/css/style.css');
