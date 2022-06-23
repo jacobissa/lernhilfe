@@ -77,6 +77,12 @@ function addSummary() {
             li.appendChild(anchor);
             ul.appendChild(li);
 
+            // Remove the "No Summaries found" list-item if the list was empty before the current summary was added
+            let emptyListItem = document.querySelector('#empty-list-item');
+            if (emptyListItem) {
+                ul.removeChild(emptyListItem);
+            }
+
             // Clear file input and disable submit button
             document.querySelector('#summary_to_upload').value = null;
             document.querySelector('#add_summary').setAttribute('disabled', 'disabled');

@@ -36,7 +36,7 @@ if (!defined('WPINC')) {
                         </a></li>');
             }
         } else {
-            echo('<li class="striped-list-item"><a class="summaries-list-anchor"><span>' . __('No Summaries found', THEME_DOMAIN) . '<span></a></li>');
+            echo('<li class="striped-list-item" id="empty-list-item"><a class="summaries-list-anchor"><span>' . __('No Summaries found', THEME_DOMAIN) . '<span></a></li>');
         }
 
         wp_reset_postdata();
